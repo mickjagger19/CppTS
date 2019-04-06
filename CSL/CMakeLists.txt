@@ -1,0 +1,14 @@
+#
+# Xin YUAN, 2019, BSD (2)
+#
+
+CMAKE_MINIMUM_REQUIRED(VERSION 3.7)
+INCLUDE("csl.cmk")
+
+PROJECT(CSL-LIB)
+
+# CSL
+
+ADD_SUBDIRECTORY(src src)
+
+# end

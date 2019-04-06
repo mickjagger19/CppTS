@@ -1,0 +1,28 @@
+#
+# Xin YUAN, 2019, BSD (2)
+#
+
+# target
+
+INCLUDE_DIRECTORIES(
+	"${CMAKE_CURRENT_BINARY_DIR}"
+	"${CMAKE_CURRENT_SOURCE_DIR}"
+	"${PROJECT_SOURCE_DIR}/public"
+	"${PROJECT_SOURCE_DIR}/src"
+	)
+ADD_DEFINITIONS(${STRING_CXX_FLAGS})
+
+SET(LIBRARY_OUTPUT_PATH "${PROJECT_BINARY_DIR}/bin")
+SET(SRC_PCH_LIST "precomp.cpp")
+SET(SRC_LIST "cslbase.cpp" "cslsys.cpp" "cslrdp.cpp"
+	"wmark/scan_actions/tk_action.cpp"
+	"wmark/WmarkScanner.cpp"
+	)
+ADD_LIBRARY(CSL-Utility STATIC ${SRC_PCH_LIST} ${SRC_LIST})
+SET_PCH(CSL-Utility "exe" "precomp.h" ${SRC_PCH_LIST} ${SRC_LIST})
+SET_TARGET_PROPERTIES(CSL-Utility PROPERTIES
+	OUTPUT_NAME "CSL-Utility"
+	LINK_FLAGS "${STRING_LINK_FLAGS_TARGET}")
+TARGET_LINK_LIBRARIES(CSL-Utility ${STRING_LINK_EXTRA_LIBS})
+
+# end

@@ -1,0 +1,14 @@
+#
+# Xin YUAN, 2019, BSD (2)
+#
+
+# The path of fltk library
+
+MACRO(SET_FLTK_PATH strRoot)
+	INCLUDE_DIRECTORIES("${strRoot}/third/fltk/fltk-1.3.5"
+						)
+ENDMACRO(SET_FLTK_PATH)
+
+SET(STRING_FLTK_TARGET "fltk fltk_forms fltk_images fltk_jpeg fltk_png fltk_z")
+
+# end

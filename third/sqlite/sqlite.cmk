@@ -1,0 +1,12 @@
+#
+# Xin YUAN, 2019, BSD (2)
+#
+
+# The path of sqlite library
+
+MACRO(SET_SQLITE_PATH strRoot)
+	INCLUDE_DIRECTORIES("${strRoot}/third/sqlite/sqlite3"
+						)
+ENDMACRO(SET_SQLITE_PATH)
+
+SET(STRING_SQLITE_TARGET "sqlite")
