@@ -12,6 +12,7 @@
 
 #include "scan_actions/tk_action.h"
 #include "scan_actions/comment_action.h"
+#include "scan_actions/text_action.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 

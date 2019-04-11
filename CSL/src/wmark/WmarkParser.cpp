@@ -17,7 +17,7 @@ namespace CSL {
 ////////////////////////////////////////////////////////////////////////////////
 
 //rules
-const RULEELEMENT* g_Rules = {
+const RULEELEMENT g_Rules[] = {
 { TK_NULL, LA_NULL }
 };
 

@@ -15,7 +15,7 @@ namespace CSL {
 
 
 //rules
-extern const RULEELEMENT* g_Rules;
+extern const RULEELEMENT g_Rules[];
 
 ////////////////////////////////////////////////////////////////////////////////
 }
