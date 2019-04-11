@@ -12,4 +12,6 @@ ADD_SUBDIRECTORY(CSL CSL)
 
 ADD_SUBDIRECTORY(third third)
 
+ADD_SUBDIRECTORY(tools tools)
+
 # end

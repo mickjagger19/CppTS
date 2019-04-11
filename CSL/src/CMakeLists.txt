@@ -15,8 +15,8 @@ ADD_DEFINITIONS(${STRING_CXX_FLAGS})
 SET(LIBRARY_OUTPUT_PATH "${PROJECT_BINARY_DIR}/bin")
 SET(SRC_PCH_LIST "precomp.cpp")
 SET(SRC_LIST "cslbase.cpp" "cslsys.cpp" "cslrdp.cpp"
-	"wmark/scan_actions/tk_action.cpp"
-	"wmark/WmarkScanner.cpp"
+	"wmark/scan_actions/tk_action.cpp" "wmark/scan_actions/comment_action.cpp" "wmark/scan_actions/text_action.cpp"
+	"wmark/WmarkScanner.cpp" "wmark/WmarkParser.cpp"
 	)
 ADD_LIBRARY(CSL-Utility STATIC ${SRC_PCH_LIST} ${SRC_LIST})
 SET_PCH(CSL-Utility "exe" "precomp.h" ${SRC_PCH_LIST} ${SRC_LIST})

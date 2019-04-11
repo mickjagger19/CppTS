@@ -3,27 +3,24 @@
 */
 
 ////////////////////////////////////////////////////////////////////////////////
-#ifndef __WMARK_IDS_H__
-#define __WMARK_IDS_H__
+#ifndef __COMMENT_ACTION_H__
+#define __COMMENT_ACTION_H__
 ////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace CSL {
 ////////////////////////////////////////////////////////////////////////////////
 
-//Action IDs
-enum {
-	WMARK_SCANNER_TK_ACTION = 1,
-	WMARK_SCANNER_COMMENT_ACTION,
-	WMARK_SCANNER_TEXT_ACTION
-};
+// WmarkScannerCommentAction
 
-//Token IDs
-enum {
-	WMARK_TK_RETURN = 1,
-	WMARK_TK_COMMENT,
-	WMARK_TK_INDENT,
-	WMARK_TK_TEXT
+class WmarkScannerCommentAction : public IRdScannerAction
+{
+public:
+	WmarkScannerCommentAction() throw();
+	~WmarkScannerCommentAction() throw();
+
+// IRdScannerAction
+	virtual bool Scan(std::istream& stm, RdActionStack& stk, uint32_t& uID, std::string& strToken);
 };
 
 ////////////////////////////////////////////////////////////////////////////////

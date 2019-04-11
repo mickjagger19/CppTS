@@ -58,8 +58,10 @@ private:
 	uint32_t m_uStartAction;
 };
 
-//rda table
+// rda table
 
+//LL actions
+#define LA_NULL     (0)
 
 //rule table
 typedef struct _tagRuleElement
@@ -67,6 +69,7 @@ typedef struct _tagRuleElement
 	uint32_t uToken;
 	uint32_t uAction;
 } RULEELEMENT;
+
 typedef struct _tagRuleItem
 {
 	const RULEELEMENT* pRule;
@@ -81,6 +84,8 @@ typedef struct _tagRuleTable
 
 
 // push-down stack
+
+typedef std::stack<RULEELEMENT>  RdPushDownStack;
 
 // RdParser
 
