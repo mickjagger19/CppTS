@@ -12,4 +12,6 @@ ADD_SUBDIRECTORY(libuv libuv)
 
 ADD_SUBDIRECTORY(fltk fltk)
 
+ADD_SUBDIRECTORY(tiff tiff)
+
 # end

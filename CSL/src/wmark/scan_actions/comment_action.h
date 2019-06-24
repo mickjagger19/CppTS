@@ -20,7 +20,7 @@ public:
 	~WmarkScannerCommentAction() throw();
 
 // IRdScannerAction
-	virtual bool Scan(std::istream& stm, RdActionStack& stk, uint32_t& uID, std::string& strToken);
+	virtual bool Scan(std::istream& stm, RdActionStack& stk, RdToken& token);
 };
 
 ////////////////////////////////////////////////////////////////////////////////

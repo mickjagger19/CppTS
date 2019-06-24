@@ -26,7 +26,7 @@ WmarkScannerCommentAction::~WmarkScannerCommentAction() throw()
 }
 
 // IRdScannerAction
-bool WmarkScannerCommentAction::Scan(std::istream& stm, RdActionStack& stk, uint32_t& uID, std::string& strToken)
+bool WmarkScannerCommentAction::Scan(std::istream& stm, RdActionStack& stk, RdToken& token)
 {
 	int iState = 1;
 	do {
@@ -34,13 +34,14 @@ bool WmarkScannerCommentAction::Scan(std::istream& stm, RdActionStack& stk, uint
 		char ch;
 		stm.get(ch);
 		if( stm.eof() ) {
-			uID = WMARK_TK_TEXT;
+			token.uID = WMARK_TK_TEXT;
 			return true;
 		}
 		if( !stm.good() )
 			return false;
 
-		strToken += ch;
+		token.strToken += ch;
+		token.infoEnd.uCol ++;
 		switch( iState ) {
 		case 1:
 			if( ch != '!' ) {
@@ -64,8 +65,30 @@ bool WmarkScannerCommentAction::Scan(std::istream& stm, RdActionStack& stk, uint
 			iState = 4;
 			break;
 		case 4:
-			if( ch == '-' )
+			if( ch == '-' ) {
 				iState = 5;
+			}
+			else if( ch == '\n' ) {
+				token.infoEnd.uRow ++;
+				token.infoEnd.uCol = 0;
+			}
+			else if( ch == '\r' ) {
+				stm.get(ch);
+				if( stm.eof() ) {
+					token.uID = WMARK_TK_TEXT;
+					token.infoEnd.uRow ++;
+					token.infoEnd.uCol = 0;
+					return true;
+				}
+				if( !stm.good() )
+					return false;
+				token.infoEnd.uRow ++;
+				token.infoEnd.uCol = 0;
+				if( ch == '\n' )
+					token.strToken += ch;
+				else
+					stm.unget();
+			}
 			break;
 		case 5:
 			if( ch != '-' ) {
@@ -87,7 +110,7 @@ bool WmarkScannerCommentAction::Scan(std::istream& stm, RdActionStack& stk, uint
 	} while( iState != 7 );
 
 	//comment
-	uID = WMARK_TK_COMMENT;
+	token.uID = WMARK_TK_COMMENT;
 	return true;
 }
 

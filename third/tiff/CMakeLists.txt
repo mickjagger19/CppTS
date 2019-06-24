@@ -1,0 +1,9 @@
+#
+# Xin YUAN, 2019, BSD (2)
+#
+
+ADD_DEFINITIONS("-DHAVE_SNPRINTF")
+
+ADD_SUBDIRECTORY(tiff-4.0.10 tiff-4.0.10)
+
+# end

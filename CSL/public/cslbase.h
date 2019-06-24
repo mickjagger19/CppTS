@@ -9,11 +9,13 @@
 
 #include <cstdint>
 #include <cassert>
+#include <cstring>
 
 #include <memory>
 #include <vector>
 #include <stack>
 #include <map>
+#include <set>
 
 #include <string>
 #include <codecvt>
@@ -23,6 +25,13 @@
 #include <stdexcept>
 #include <fstream>
 #include <iostream>
+
+#include <functional>
+#include <limits>
+
+//C++17
+#include <filesystem>
+#include <any>
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -124,6 +133,9 @@ template <class T>
 class NotificationImpl
 {
 public:
+	NotificationImpl(const NotificationImpl&) = delete;
+	NotificationImpl& operator=(const NotificationImpl&) = delete;
+
 	void Clear() throw()
 	{
 		m_vec.clear();
@@ -185,6 +197,9 @@ public:
 class StateManager
 {
 public:
+	StateManager(const StateManager&) = delete;
+	StateManager& operator=(const StateManager&) = delete;
+
 	void Add(int32_t iState, const std::shared_ptr<IStateBase>& spState)
 	{
 		m_map.insert(std::pair<int32_t, std::shared_ptr<IStateBase>>(iState, spState));

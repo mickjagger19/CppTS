@@ -26,45 +26,53 @@ WmarkScannerTkAction::~WmarkScannerTkAction() throw()
 }
 
 // IRdScannerAction
-bool WmarkScannerTkAction::Scan(std::istream& stm, RdActionStack& stk, uint32_t& uID, std::string& strToken)
+bool WmarkScannerTkAction::Scan(std::istream& stm, RdActionStack& stk, RdToken& token)
 {
 	//get a character
 	char ch;
 	stm.get(ch);
 	if( stm.eof() ) {
-		uID = TK_END_OF_EVENT;
+		token.uID = TK_END_OF_EVENT;
 		return true;
 	}
 	if( !stm.good() )
 		return false;
-	strToken += ch;
+	token.strToken += ch;
 
 	//return
 	if( ch == '\n' ) {
-		uID = WMARK_TK_RETURN;
+		token.uID = WMARK_TK_RETURN;
+		token.infoEnd.uRow ++;
+		token.infoEnd.uCol = 0;
 		return true;
 	}
 	if( ch == '\r' ) {
 		stm.get(ch);
 		if( stm.eof() ) {
-			uID = WMARK_TK_RETURN;
+			token.uID = WMARK_TK_RETURN;
+			token.infoEnd.uRow ++;
+			token.infoEnd.uCol = 0;
 			return true;
 		}
 		if( !stm.good() )
 			return false;
+		token.infoEnd.uRow ++;
+		token.infoEnd.uCol = 0;
 		if( ch == '\n' ) {
-			strToken += ch;
-			uID = WMARK_TK_RETURN;
+			token.strToken += ch;
+			token.uID = WMARK_TK_RETURN;
 			return true;
 		}
 		stm.unget();
-		uID = WMARK_TK_RETURN;
+		token.uID = WMARK_TK_RETURN;
 		return true;
 	}
 
+	token.infoEnd.uCol ++;
+
 	//indent
 	if( ch == '\t' ) {
-		uID = WMARK_TK_INDENT;
+		token.uID = WMARK_TK_INDENT;
 		return true;
 	}
 

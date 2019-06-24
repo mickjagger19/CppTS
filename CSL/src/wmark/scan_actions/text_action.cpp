@@ -26,14 +26,14 @@ WmarkScannerTextAction::~WmarkScannerTextAction() throw()
 }
 
 // IRdScannerAction
-bool WmarkScannerTextAction::Scan(std::istream& stm, RdActionStack& stk, uint32_t& uID, std::string& strToken)
+bool WmarkScannerTextAction::Scan(std::istream& stm, RdActionStack& stk, RdToken& token)
 {
 	do {
 		//get a character
 		char ch;
 		stm.get(ch);
 		if( stm.eof() ) {
-			uID = WMARK_TK_TEXT;
+			token.uID = WMARK_TK_TEXT;
 			return true;
 		}
 		if( !stm.good() )
@@ -44,10 +44,11 @@ bool WmarkScannerTextAction::Scan(std::istream& stm, RdActionStack& stk, uint32_
 			break;
 		}
 
-		strToken += ch;
+		token.strToken += ch;
+		token.infoEnd.uCol ++;
 	} while( true );
 
-	uID = WMARK_TK_TEXT;
+	token.uID = WMARK_TK_TEXT;
 	return true;
 }
 
