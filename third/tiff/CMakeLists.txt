@@ -4,6 +4,6 @@
 
 ADD_DEFINITIONS("-DHAVE_SNPRINTF")
 
-ADD_SUBDIRECTORY(tiff-4.0.10 tiff-4.0.10)
+ADD_SUBDIRECTORY(tiff-r tiff-r)
 
 # end

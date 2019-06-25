@@ -5,7 +5,7 @@
 # The path of tiff library
 
 MACRO(SET_TIFF_PATH strRoot)
-	INCLUDE_DIRECTORIES("${strRoot}/third/tiff/tiff-4.0.10/libtiff"
+	INCLUDE_DIRECTORIES("${strRoot}/third/tiff/tiff-r/libtiff"
 						)
 ENDMACRO(SET_TIFF_PATH)
 
