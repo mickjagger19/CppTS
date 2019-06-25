@@ -45,11 +45,9 @@ libuv_la_SOURCES = src/fs-poll.c \
                    src/version.c
 
 if SUNOS
-if GCC
 # Can't be turned into a CC_CHECK_CFLAGS in configure.ac, it makes compilers
 # on other platforms complain that the argument is unused during compilation.
 libuv_la_CFLAGS += -pthreads
-endif
 endif
 
 if WINNT
@@ -120,7 +118,6 @@ endif  # WINNT
 EXTRA_DIST = test/fixtures/empty_file \
              test/fixtures/load_error.node \
              include \
-             test \
              docs \
              img \
              samples \
@@ -143,19 +140,13 @@ check_PROGRAMS = test/run-tests
 if OS390
 test_run_tests_CFLAGS =
 else
-if GCC
 test_run_tests_CFLAGS = -Wno-long-long
-else
-test_run_tests_CFLAGS =
-endif
 endif
 
 if SUNOS
-if GCC
 # Can't be turned into a CC_CHECK_CFLAGS in configure.ac, it makes compilers
 # on other platforms complain that the argument is unused during compilation.
 test_run_tests_CFLAGS += -pthreads
-endif
 endif
 
 test_run_tests_LDFLAGS =
@@ -191,6 +182,7 @@ test_run_tests_SOURCES = test/blackhole-server.c \
                          test/test-fs-event.c \
                          test/test-fs-poll.c \
                          test/test-fs.c \
+                         test/test-fs-readdir.c \
                          test/test-fork.c \
                          test/test-getters-setters.c \
                          test/test-get-currentexe.c \
@@ -201,6 +193,7 @@ test_run_tests_SOURCES = test/blackhole-server.c \
                          test/test-gethostname.c \
                          test/test-getnameinfo.c \
                          test/test-getsockname.c \
+                         test/test-gettimeofday.c \
                          test/test-handle-fileno.c \
                          test/test-homedir.c \
                          test/test-hrtime.c \
@@ -432,8 +425,7 @@ libuv_la_SOURCES += src/unix/linux-core.c \
                     src/unix/linux-syscalls.h \
                     src/unix/procfs-exepath.c \
                     src/unix/proctitle.c \
-                    src/unix/sysinfo-loadavg.c \
-                    src/unix/sysinfo-memory.c
+                    src/unix/sysinfo-loadavg.c
 test_run_tests_LDFLAGS += -lutil
 endif
 

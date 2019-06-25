@@ -5,7 +5,7 @@
 # The path of uv library
 
 MACRO(SET_LIBUV_PATH strRoot)
-	INCLUDE_DIRECTORIES("${strRoot}/third/libuv/libuv-1.27/include"
+	INCLUDE_DIRECTORIES("${strRoot}/third/libuv/libuv-r/include"
 						)
 ENDMACRO(SET_LIBUV_PATH)
 
