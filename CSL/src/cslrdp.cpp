@@ -469,7 +469,7 @@ void RdParser::Start(uint32_t uScannerStartAction, uint32_t uMaxTerminalID)
 void RdParser::append_unexpected_error()
 {
 	char tmp[1024];
-	sprintf(tmp, "Error [%u, %u] [%s] :",
+	::snprintf(tmp, sizeof(tmp), "Error [%u, %u] [%s] :",
 			m_token.infoStart.uRow, m_token.infoStart.uCol,
 			m_token.strToken.c_str());
 	std::string str(tmp);

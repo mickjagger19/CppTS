@@ -11,27 +11,12 @@
 namespace CSL {
 ////////////////////////////////////////////////////////////////////////////////
 
-// redirect io
+// Execute a command
 
-class RedirectIoProcess
+class ForegroundProcessHelper
 {
 public:
-	RedirectIoProcess() throw();
-	~RedirectIoProcess() throw();
-
-	int Close() throw();
-	//szMode: r, w or rw
-	bool Start(const char* szCommand, const char* szMode) throw();
-
-	FILE* GetFile() const throw();
-
-	/*
-	while( fgets(...) != NULL )
-		...
-	*/
-
-private:
-	FILE* m_fp;
+	static bool ExecuteCommand(const char* szCmd, int& iRet) noexcept;
 };
 
 ////////////////////////////////////////////////////////////////////////////////

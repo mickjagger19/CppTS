@@ -114,16 +114,19 @@ public:
 
 //framework
 
+/*
 class ParameterBase
 {
 public:
 	uint32_t m_uType;
 };
+*/
 
 class ICommand
 {
 public:
-	virtual void SetParameter(const std::shared_ptr<ParameterBase>& param) throw() = 0;
+	//virtual void SetParameter(const std::shared_ptr<ParameterBase>& param) throw() = 0;
+	virtual void SetParameter(const std::any& param) throw() = 0;
 	virtual bool Exec() = 0;
 };
 
@@ -191,7 +194,8 @@ public:
 class IStateBase
 {
 public:
-	virtual int Process(uint32_t uEvent, const std::shared_ptr<ParameterBase>& param) = 0;
+	//virtual int Process(uint32_t uEvent, const std::shared_ptr<ParameterBase>& param) = 0;
+	virtual int Process(uint32_t uEvent, const std::any& param) = 0;
 };
 
 class StateManager
@@ -208,7 +212,7 @@ public:
 	{
 		m_iCurrentState = iStartState;
 	}
-	void Process(uint32_t uEvent, const std::shared_ptr<ParameterBase>& param)
+	void Process(uint32_t uEvent, const std::any& param)
 	{
 		auto iter(m_map.find(m_iCurrentState));
 		if( iter != m_map.end() )
