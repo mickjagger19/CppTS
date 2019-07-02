@@ -11,9 +11,10 @@
 namespace CSL {
 ////////////////////////////////////////////////////////////////////////////////
 
-//Action IDs
+//Action IDs for scanner
 enum {
 	WMARK_SCANNER_TK_ACTION = 1,
+	WMARK_SCANNER_PROGRAM_ACTION,
 	WMARK_SCANNER_COMMENT_ACTION,
 	WMARK_SCANNER_TEXT_ACTION
 };
@@ -23,8 +24,23 @@ enum {
 	WMARK_TK_RETURN = 1,
 	WMARK_TK_COMMENT,
 	WMARK_TK_INDENT,
-	WMARK_TK_TEXT
+	WMARK_TK_TEXT,
+	WMARK_TK_MAX
 };
+
+//NT
+enum {
+	WMARK_NT_program = 501,
+	WMARK_NT_return_list,
+	WMARK_NT_t_body,
+	WMARK_NT_body,
+	WMARK_NT_block_lsit,
+	WMARK_NT_block_element,
+};
+
+//actions for parser
+enum {
+	WMARK_PARSER_ACT_program = 1,
 
 ////////////////////////////////////////////////////////////////////////////////
 }
