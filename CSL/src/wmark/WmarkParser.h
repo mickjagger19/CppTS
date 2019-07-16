@@ -11,11 +11,15 @@
 namespace CSL {
 ////////////////////////////////////////////////////////////////////////////////
 
-//NT
+// WmarkParserHelper
 
-
-//rules
-extern const RULEELEMENT g_Rules[];
+class WmarkParserHelper
+{
+public:
+	static bool CreateTable(std::shared_ptr<RdaTable>& spTable);
+	static void InitActions(RdParser& parser, RdParserActionMetaData* pData);
+	static void Start(RdParser& parser);
+};
 
 ////////////////////////////////////////////////////////////////////////////////
 }

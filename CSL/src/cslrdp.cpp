@@ -231,41 +231,43 @@ bool RdaTable::add_follow_set(uint32_t uMaxTerminalID)
 	for( ; iter != m_rules.end(); ++ iter ) {
 		if( iter->uNum <= 2 )
 			continue;
-		for( uintptr_t i = 2; i < iter->uNum - 1; i ++ ) {
+		for( uintptr_t i = 1; i < iter->uNum - 1; i ++ ) {
 			uint32_t uToken = iter->pRule[i].uToken;
-			if( uToken > uMaxTerminalID ) {
-				auto iterF(m_map.find(uToken));
-				//no rule
-				if( iterF == m_map.end() )
+			if( uToken == TK_EPSILON || uToken <= uMaxTerminalID )
+				continue;
+			//nonterminal
+			auto iterF(m_map.find(uToken));
+			//no rule
+			if( iterF == m_map.end() )
+				return false;
+			//next
+			uintptr_t uNext = i + 1;
+			while( uNext < iter->uNum ) {
+				uint32_t uF = iter->pRule[uNext].uToken;
+				if( uF == TK_EPSILON )
 					return false;
-				if( iterF->second->iEpsilon < 0 ) {
-					//next
-					uintptr_t uNext = i + 1;
-					while( uNext < iter->uNum ) {
-						uint32_t uF = iter->pRule[uNext].uToken;
-						if( uF <= uMaxTerminalID ) {
-							if( iterF->second->mapTerminal.find(uF) == iterF->second->mapTerminal.end() ) {
-								if( iterF->second->sFollow.find(uF) == iterF->second->sFollow.end() )
-									iterF->second->sFollow.insert(uF);
-							}
-							break;
-						}
-						auto iterP(m_map.find(uF));
-						if( iterP == m_map.end() )
-							return false;
-						for( auto iterF2 = iterP->second->mapTerminal.begin();
-							iterF2 != iterP->second->mapTerminal.end();
-							++ iterF2 ) {
-							if( iterF->second->mapTerminal.find(iterF2->first) == iterF->second->mapTerminal.end() ) {
-								if( iterF->second->sFollow.find(iterF2->first) == iterF->second->sFollow.end() )
-									iterF->second->sFollow.insert(iterF2->first);
-							}
-						}
-						if( !(iterP->second->iEpsilon < 0) )
-							break;
-						uNext ++;
+				if( uF <= uMaxTerminalID ) {
+					if( iterF->second->mapTerminal.find(uF) == iterF->second->mapTerminal.end() ) {
+						if( iterF->second->sFollow.find(uF) == iterF->second->sFollow.end() )
+							iterF->second->sFollow.insert(uF);
+					}
+					break;
+				}
+				//NT
+				auto iterP(m_map.find(uF));
+				if( iterP == m_map.end() )
+					return false;
+				for( auto iterF2 = iterP->second->mapTerminal.begin();
+					iterF2 != iterP->second->mapTerminal.end();
+					++ iterF2 ) {
+					if( iterF->second->mapTerminal.find(iterF2->first) == iterF->second->mapTerminal.end() ) {
+						if( iterF->second->sFollow.find(iterF2->first) == iterF->second->sFollow.end() )
+							iterF->second->sFollow.insert(iterF2->first);
 					}
 				}
+				if( !(iterP->second->iEpsilon < 0) )
+					break;
+				uNext ++;
 			}
 		}
 	} //end for
@@ -290,27 +292,28 @@ bool RdaTable::add_follow_set(uint32_t uMaxTerminalID)
 				break;
 			iterF = m_map.find(uToken);
 			assert( iterF != m_map.end() );
+			if( uToken != iter->pRule[0].uToken ) {
+				if( iterP == mapProp.end() ) {
+					auto ip = mapProp.insert(PropPair(iter->pRule[0].uToken, std::set<uint32_t>()));
+					iterP = ip.first;
+					vecToDo.push_back(iter->pRule[0].uToken);
+				}
+				if( iterP->second.find(uToken) == iterP->second.end() )
+					iterP->second.insert(uToken);
+			}
 			if( !(iterF->second->iEpsilon < 0) )
 				break;
-			if( uToken == iter->pRule[0].uToken )
-				continue;
-			if( iterP == mapProp.end() ) {
-				auto ip = mapProp.insert(PropPair(iter->pRule[0].uToken, std::set<uint32_t>()));
-				iterP = ip.first;
-				vecToDo.push_back(iter->pRule[0].uToken);
-			}
-			if( iterP->second.find(uToken) == iterP->second.end() )
-				iterP->second.insert(uToken);
 		}
 	}
 	//loop
 	while( !vecToDo.empty() ) {
 		uint32_t uToken = vecToDo[0];
 		vecToDo.erase(vecToDo.begin());
+		auto iterP(mapProp.find(uToken));
+		if( iterP == mapProp.end() )
+			continue;
 		iterF = m_map.find(uToken);
 		assert( iterF != m_map.end() );
-		auto iterP(mapProp.find(uToken));
-		assert( iterP != mapProp.end() );
 		for( auto iterP2 = iterP->second.begin();
 			iterP2 != iterP->second.end();
 			++ iterP2 ) {
@@ -401,9 +404,11 @@ int32_t RdaTable::Input(uint32_t uNonterminal, uint32_t uTerminal) throw()
 	auto iterT(iterN->second->mapTerminal.find(uTerminal));
 	if( iterT != iterN->second->mapTerminal.end() )
 		return iterT->second;
-	auto iterF(iterN->second->sFollow.find(uTerminal));
-	if( iterF != iterN->second->sFollow.end() )
-		return iterN->second->iEpsilon;
+	if( iterN->second->iEpsilon < 0 ) {
+		auto iterF(iterN->second->sFollow.find(uTerminal));
+		if( iterF != iterN->second->sFollow.end() )
+			return iterN->second->iEpsilon;
+	}
 	return 0;
 }
 
@@ -470,7 +475,7 @@ void RdParser::append_unexpected_error()
 {
 	char tmp[1024];
 	::snprintf(tmp, sizeof(tmp), "Error [%u, %u] [%s] :",
-			m_token.infoStart.uRow, m_token.infoStart.uCol,
+			m_token.infoStart.uRow + 1, m_token.infoStart.uCol,
 			m_token.strToken.c_str());
 	std::string str(tmp);
 	str += "unexpected.";
@@ -495,7 +500,7 @@ int32_t RdParser::Parse(bool& bEmpty)
 	//loop
 	while( true ) {
 		//input event
-		while( m_uCurrentEvent == TK_NO_EVENT ) {
+		if( m_uCurrentEvent == TK_NO_EVENT ) {
 			bool bRet = m_spScanner->GetToken(m_token);
 			if( !bRet ) {
 				append_unexpected_error();
@@ -1012,7 +1017,7 @@ RdMetaDataPosition RdMetaData::ReverseAstLink(RdMetaDataPosition posHead) throw(
 	posHead.uAddress = uHead;
 	return posHead;
 }
-RdMetaDataPosition RdMetaData::GetAstStart() throw()
+RdMetaDataPosition RdMetaData::GetAstStart() const throw()
 {
 	RdMetaDataPosition pos;
 	pos.uAddress = m_uAstStart;

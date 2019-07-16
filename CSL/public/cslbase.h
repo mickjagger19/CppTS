@@ -29,6 +29,9 @@
 #include <functional>
 #include <limits>
 
+#include <thread>
+#include <chrono>
+
 //C++17
 #include <filesystem>
 #include <any>
@@ -64,6 +67,16 @@ class FsPathHelper
 {
 public:
 	static void ToPlatform(char* szBuffer) throw();
+	static const char* GetHomeDirectory() throw();
+};
+
+//stream
+
+class StreamHelper
+{
+public:
+	//return: true -- has UTF8 BOM
+	static bool CheckBOM_UTF8(std::istream& stm);
 };
 
 //test
@@ -194,8 +207,8 @@ public:
 class IStateBase
 {
 public:
-	//virtual int Process(uint32_t uEvent, const std::shared_ptr<ParameterBase>& param) = 0;
-	virtual int Process(uint32_t uEvent, const std::any& param) = 0;
+	//virtual int32_t Process(uint32_t uEvent, const std::shared_ptr<ParameterBase>& param) = 0;
+	virtual int32_t Process(uint32_t uEvent, const std::any& param) = 0;
 };
 
 class StateManager

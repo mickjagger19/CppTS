@@ -15,7 +15,7 @@ ADD_DEFINITIONS(${STRING_CXX_FLAGS})
 
 SET(LIBRARY_OUTPUT_PATH "${PROJECT_BINARY_DIR}/bin")
 SET(SRC_PCH_LIST "precomp.cpp")
-SET(SRC_LIST "src/main.cpp"
+SET(SRC_LIST "src/main.cpp" "src/ProcessFile.cpp"
 	)
 ADD_EXECUTABLE(wmc ${SRC_PCH_LIST} ${SRC_LIST})
 SET_PCH(wmc "exe" "precomp.h" ${SRC_PCH_LIST} ${SRC_LIST})

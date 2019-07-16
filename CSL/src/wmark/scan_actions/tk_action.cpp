@@ -6,7 +6,7 @@
 
 #include "precomp.h"
 
-#include "../WmarkIDs.h"
+#include "../WmarkDef.h"
 
 #include "tk_action.h"
 

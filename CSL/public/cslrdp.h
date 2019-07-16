@@ -7,6 +7,10 @@
 #define __CSL_RDP_H__
 ////////////////////////////////////////////////////////////////////////////////
 
+#ifndef __CSL_BASE_H__
+	#error cslrdp.h requires cslbase.h to be included first.
+#endif
+
 ////////////////////////////////////////////////////////////////////////////////
 namespace CSL {
 ////////////////////////////////////////////////////////////////////////////////
@@ -130,6 +134,7 @@ private:
 	bool add_follow_set(uint32_t uMaxTerminalID);
 
 private:
+	//Nonterminal -> item
 	std::map<uint32_t, std::shared_ptr<_TableItem>>  m_map;
 	//rules
 	std::vector<RULEITEM> m_rules;
@@ -141,7 +146,8 @@ private:
 class IRdParserAction
 {
 public:
-	virtual bool DoAction(std::vector<std::string>& vecError);
+	virtual void SetParameter(const std::any& param) = 0;
+	virtual bool DoAction(std::vector<std::string>& vecError) = 0;
 };
 
 // RdParser
@@ -293,7 +299,7 @@ public:
 	void GetAstNodeInfo(RdMetaDataPosition pos, RdMetaAstNodeInfo& info) const throw();
 	void SetAstLinkParent(RdMetaDataPosition posHead, RdMetaDataPosition posParent) throw();
 	RdMetaDataPosition ReverseAstLink(RdMetaDataPosition posHead) throw();
-	RdMetaDataPosition GetAstStart() throw();
+	RdMetaDataPosition GetAstStart() const throw();
 	void ResetAst() throw();
 	RdMetaDataPosition GetAstRoot(RdMetaDataPosition posStart) const throw();
 
@@ -316,6 +322,14 @@ private:
 
 	//stack
 	std::stack<uint32_t> m_stkLevel;
+};
+
+//Meta data for parser actions
+struct RdParserActionMetaData
+{
+	std::shared_ptr<RdMetaData> spMeta;
+	RdMetaDataPosition posParent;
+	RdMetaDataPosition posCurrent;
 };
 
 ////////////////////////////////////////////////////////////////////////////////

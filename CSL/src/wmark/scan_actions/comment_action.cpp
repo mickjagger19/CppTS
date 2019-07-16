@@ -6,7 +6,7 @@
 
 #include "precomp.h"
 
-#include "../WmarkIDs.h"
+#include "../WmarkDef.h"
 
 #include "comment_action.h"
 
@@ -34,7 +34,10 @@ bool WmarkScannerCommentAction::Scan(std::istream& stm, RdActionStack& stk, RdTo
 		char ch;
 		stm.get(ch);
 		if( stm.eof() ) {
-			token.uID = WMARK_TK_TEXT;
+			if( iState < 4 )
+				token.uID = WMARK_TK_TEXT;
+			else
+				token.uID = TK_ERROR;
 			return true;
 		}
 		if( !stm.good() )
@@ -75,7 +78,7 @@ bool WmarkScannerCommentAction::Scan(std::istream& stm, RdActionStack& stk, RdTo
 			else if( ch == '\r' ) {
 				stm.get(ch);
 				if( stm.eof() ) {
-					token.uID = WMARK_TK_TEXT;
+					token.uID = TK_ERROR;
 					token.infoEnd.uRow ++;
 					token.infoEnd.uCol = 0;
 					return true;
@@ -91,18 +94,16 @@ bool WmarkScannerCommentAction::Scan(std::istream& stm, RdActionStack& stk, RdTo
 			}
 			break;
 		case 5:
-			if( ch != '-' ) {
-				stk.push(WMARK_SCANNER_TEXT_ACTION);
-				return true;
-			}
-			iState = 6;
+			if( ch != '-' )
+				iState = 4;
+			else
+				iState = 6;
 			break;
 		case 6:
-			if( ch != '>' ) {
-				stk.push(WMARK_SCANNER_TEXT_ACTION);
-				return true;
-			}
-			iState = 7;
+			if( ch != '>' )
+				iState = 4;
+			else
+				iState = 7;
 			break;
 		default:
 			return false;

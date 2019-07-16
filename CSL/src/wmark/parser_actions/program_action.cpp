@@ -1,0 +1,48 @@
+﻿/*
+** Xin YUAN, 2019, BSD (2)
+*/
+
+////////////////////////////////////////////////////////////////////////////////
+
+#include "precomp.h"
+
+#include "../WmarkDef.h"
+
+#include "program_action.h"
+
+////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////
+namespace CSL {
+////////////////////////////////////////////////////////////////////////////////
+
+// WmarkParserProgramAction
+
+WmarkParserProgramAction::WmarkParserProgramAction() noexcept : m_pData(nullptr)
+{
+}
+WmarkParserProgramAction::~WmarkParserProgramAction() noexcept
+{
+}
+
+// IRdParserAction methods
+
+void WmarkParserProgramAction::SetParameter(const std::any& param)
+{
+	m_pData = std::any_cast<RdParserActionMetaData*>(param);
+}
+
+bool WmarkParserProgramAction::DoAction(std::vector<std::string>& vecError)
+{
+	//root
+	if( m_pData->posParent.uAddress == 0 && m_pData->posCurrent.uAddress == 0 ) {
+		RdMetaDataPosition pos = m_pData->spMeta->InsertAstNode(WMARK_NODETYPE_ROOT);
+		m_pData->spMeta->SetAstParent(pos, m_pData->spMeta->GetAstRoot(m_pData->spMeta->GetAstStart()));
+		m_pData->posParent = pos;
+	}
+	return true;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+}
+////////////////////////////////////////////////////////////////////////////////
