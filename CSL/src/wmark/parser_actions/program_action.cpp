@@ -37,7 +37,9 @@ bool WmarkParserProgramAction::DoAction(std::vector<std::string>& vecError)
 	//root
 	if( m_pData->posParent.uAddress == 0 && m_pData->posCurrent.uAddress == 0 ) {
 		RdMetaDataPosition pos = m_pData->spMeta->InsertAstNode(WMARK_NODETYPE_ROOT);
-		m_pData->spMeta->SetAstParent(pos, m_pData->spMeta->GetAstRoot(m_pData->spMeta->GetAstStart()));
+		RdMetaDataPosition posRoot = m_pData->spMeta->GetAstRoot(m_pData->spMeta->GetAstStart());
+		m_pData->spMeta->SetAstParent(pos, posRoot);
+		m_pData->spMeta->SetAstChild(posRoot, pos);
 		m_pData->posParent = pos;
 	}
 	return true;

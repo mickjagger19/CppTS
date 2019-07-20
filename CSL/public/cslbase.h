@@ -27,6 +27,7 @@
 #include <iostream>
 
 #include <functional>
+#include <tuple>
 #include <limits>
 
 #include <thread>
