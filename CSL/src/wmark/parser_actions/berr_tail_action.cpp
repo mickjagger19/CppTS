@@ -6,7 +6,7 @@
 
 #include "precomp.h"
 
-#include "../WmarkDef.h"
+#include "../base/WmarkDef.h"
 
 #include "berr_tail_action.h"
 

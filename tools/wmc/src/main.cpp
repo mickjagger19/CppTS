@@ -15,7 +15,7 @@ static
 void _print_help()
 {
 	const char* ppsz[] = {
-		"wmc (c) version: 1.0.0",
+		"wmc (c) Wmark Compiler, version: 1.0.0",
 		"  Usage : wmc -c <source file> <destination file>",
 		NULL
 	};

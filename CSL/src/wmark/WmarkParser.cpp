@@ -8,7 +8,7 @@
 
 #include "WmarkParser.h"
 
-#include "WmarkDef.h"
+#include "base/WmarkDef.h"
 
 #include "parser_actions/accepted_action.h"
 #include "parser_actions/program_action.h"

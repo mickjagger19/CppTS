@@ -8,8 +8,6 @@
 
 #include "ProcessFile.h"
 
-#include "cslwmark.h"
-
 ////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -53,7 +51,7 @@ bool ProcessOneFile(const char* szSrc, const char* szDest)
 	//errors
 	const std::vector<std::string>& arr(parser.GetErrorArray());
 	if( arr.size() > 0 ) {
-		for( auto str : arr )
+		for( auto& str : arr )
 			std::cout << str << std::endl;
 		return false;
 	}
@@ -61,7 +59,13 @@ bool ProcessOneFile(const char* szSrc, const char* szDest)
 		return false;
 
 	//output
-	//std::shared_ptr<std::ofstream> spDest(std::make_shared<std::ofstream>(szDest, std::ofstream::out | std::ofstream::binary | std::ofstream::trunc));
+	std::shared_ptr<std::ofstream> spDest(std::make_shared<std::ofstream>(szDest, std::ofstream::out | std::ofstream::binary | std::ofstream::trunc));
+	WmarkHtmlGenerator gen;
+	gen.Initialize();
+	if( !gen.Generate(*spMeta, *spDest) ) {
+		std::cout << "Error: Output failed!" << std::endl;
+		return false;
+	}
 
 	return true;
 }

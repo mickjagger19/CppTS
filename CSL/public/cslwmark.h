@@ -71,6 +71,27 @@ private:
 	RdParserActionMetaData m_data;
 };
 
+// Generator
+
+// meta data traversal action
+//   [](bool bOpen, RdMetaData& data, RdMetaDataPosition pos, std::ostream& stm)->bool
+typedef std::function<bool(bool, RdMetaData&, RdMetaDataPosition, std::ostream&)>  WmarkMetaDataTraversalAction;
+
+class WmarkHtmlGenerator
+{
+public:
+	WmarkHtmlGenerator() noexcept;
+	WmarkHtmlGenerator(const WmarkHtmlGenerator&) = delete;
+	WmarkHtmlGenerator& operator=(const WmarkHtmlGenerator&) = delete;
+	~WmarkHtmlGenerator() noexcept;
+
+	void Initialize();
+	bool Generate(RdMetaData& data, std::ostream& stm);
+
+private:
+	std::map<uint32_t, WmarkMetaDataTraversalAction>  m_map;
+};
+
 ////////////////////////////////////////////////////////////////////////////////
 }
 ////////////////////////////////////////////////////////////////////////////////

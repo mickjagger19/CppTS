@@ -6,10 +6,10 @@
 
 #include "precomp.h"
 
-#include "cslwmark.h"
-
+#include "wmark/base/WmarkDef.h"
 #include "wmark/WmarkScanner.h"
 #include "wmark/WmarkParser.h"
+#include "wmark/WmarkHtmlGenerator.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -102,6 +102,79 @@ int32_t WmarkParser::Parse()
 const std::vector<std::string>& WmarkParser::GetErrorArray() const throw()
 {
 	return m_parser.GetErrorArray();
+}
+
+// Generator
+
+WmarkHtmlGenerator::WmarkHtmlGenerator() noexcept
+{
+}
+WmarkHtmlGenerator::~WmarkHtmlGenerator() noexcept
+{
+}
+
+void WmarkHtmlGenerator::Initialize()
+{
+	assert( m_map.size() == 0 );
+	WmarkHtmlGeneratorHelper::InitActions(m_map);
+}
+
+bool WmarkHtmlGenerator::Generate(RdMetaData& data, std::ostream& stm)
+{
+	//symbol
+	uint32_t uHash = data.CalcHash(WMARK_ROOT_SYMBOL);
+	RdMetaDataPosition pos = data.Find(WMARK_ROOT_SYMBOL, uHash);
+	if( pos.uAddress == 0 )
+		return false;
+	RdMetaDataPosition posRoot;
+	{
+		RdMetaDataInfo info;
+		bool bAnalysis;
+		data.GetInfo(pos, info, bAnalysis);
+		if( info.posData.uAddress == 0 )
+			return false;
+		posRoot = *((RdMetaDataPosition*)data.GetData(info.posData));
+		posRoot = data.GetAstRoot(posRoot);
+	} //end block
+	//ast
+	pos = posRoot;
+	while( pos.uAddress != 0 ) {
+		RdMetaAstNodeInfo info;
+		data.GetAstNodeInfo(pos, info);
+		auto iter = m_map.find(info.uType);
+		if( iter != m_map.end() ) {
+			if( !iter->second(true, data, info.posData, stm) )
+				return false;
+		}
+		//child
+		if( info.posChild.uAddress != 0 ) {
+			pos = info.posChild;
+			continue;
+		}
+		//next
+		if( info.posNext.uAddress != 0 ) {
+			pos = info.posNext;
+			continue;
+		}
+		//parent
+		pos = info.posParent;
+		while( pos.uAddress != posRoot.uAddress ) {
+			data.GetAstNodeInfo(pos, info);
+			iter = m_map.find(info.uType);
+			if( iter != m_map.end() ) {
+				if( !iter->second(false, data, info.posData, stm) )
+					return false;
+			}
+			if( info.posNext.uAddress != 0 ) {
+				pos = info.posNext;
+				break;
+			}
+			pos = info.posParent;
+		}
+		if( pos.uAddress == posRoot.uAddress )
+			pos.uAddress = 0;
+	} //end while
+	return true;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
