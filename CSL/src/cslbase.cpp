@@ -116,6 +116,33 @@ bool StreamHelper::CheckBOM_UTF8(std::istream& stm)
 	return bRet;
 }
 
+//framework
+
+// Property Trigger
+
+PropertyTrigger::PropertyTrigger() noexcept
+{
+}
+PropertyTrigger::~PropertyTrigger() noexcept
+{
+}
+
+void PropertyTrigger::Clear() noexcept
+{
+	m_vecPN.clear();
+}
+
+void PropertyTrigger::AddNotification(PropertyNotification&& pn)
+{
+	m_vecPN.push_back(std::move(pn));
+}
+
+void PropertyTrigger::Fire(uint32_t uID)
+{
+	for( auto& fn : m_vecPN )
+		fn(uID);
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 }
 ////////////////////////////////////////////////////////////////////////////////

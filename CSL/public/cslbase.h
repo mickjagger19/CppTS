@@ -136,71 +136,29 @@ public:
 };
 */
 
-class ICommand
+// Command
+//   [](std::any&& param)->bool
+typedef std::function<bool(std::any&&)>  CommandFunc;
+
+// Property Notification
+//   [](uint32_t)
+typedef std::function<void(uint32_t)>  PropertyNotification;
+
+class PropertyTrigger
 {
 public:
-	//virtual void SetParameter(const std::shared_ptr<ParameterBase>& param) throw() = 0;
-	virtual void SetParameter(const std::any& param) throw() = 0;
-	virtual bool Exec() = 0;
-};
+	PropertyTrigger() noexcept;
+	PropertyTrigger(const PropertyTrigger&) = delete;
+	PropertyTrigger& operator=(const PropertyTrigger&) = delete;
+	~PropertyTrigger() noexcept;
 
-// Notifications
+	void Clear() noexcept;
+	void AddNotification(PropertyNotification&& pn);
 
-template <class T>
-class NotificationImpl
-{
-public:
-	NotificationImpl(const NotificationImpl&) = delete;
-	NotificationImpl& operator=(const NotificationImpl&) = delete;
+	void Fire(uint32_t uID);
 
-	void Clear() throw()
-	{
-		m_vec.clear();
-	}
-	void AddNotification(const std::shared_ptr<T>& sp)
-	{
-		m_vec.push_back(sp);
-	}
-	void RemoveNotification(const std::shared_ptr<T>& sp) throw()
-	{
-		auto iter(m_vec.begin());
-		for( ; iter != m_vec.end(); ++ iter ) {
-			if( (*iter).get() == sp.get() ) {
-				m_vec.erase(iter);
-				return ;
-			}
-		}
-	}
-
-protected:
-	std::vector<std::shared_ptr<T>> m_vec;
-};
-
-class IPropertyNotification
-{
-public:
-	virtual void OnPropertyChanged(uint32_t uPropertyID) = 0;
-};
-
-template <class T>
-class Proxy_PropertyNotification : public NotificationImpl<IPropertyNotification>
-{
-public:
-	void AddPropertyNotification(const std::shared_ptr<IPropertyNotification>& sp)
-	{
-		AddNotification(sp);
-	}
-	void RemovePropertyNotification(const std::shared_ptr<IPropertyNotification>& sp) throw()
-	{
-		RemoveNotification(sp);
-	}
-	void Fire_OnPropertyChanged(uint32_t uID)
-	{
-		auto iter(m_vec.begin());
-		for( ; iter != m_vec.end(); ++ iter ) {
-			(*iter)->OnPropertyChanged(uID);
-		}
-	}
+private:
+	std::vector<PropertyNotification> m_vecPN;
 };
 
 // state machine
