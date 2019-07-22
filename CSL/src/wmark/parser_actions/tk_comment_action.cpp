@@ -32,7 +32,7 @@ void WmarkParserTkCommentAction::SetParameter(const std::any& param)
 	m_pData = std::any_cast<RdParserActionMetaData*>(param);
 }
 
-bool WmarkParserTkCommentAction::DoAction(std::vector<std::string>& vecError)
+bool WmarkParserTkCommentAction::DoAction(const std::string& strToken, std::vector<std::string>& vecError)
 {
 	//comment
 	assert( m_pData->posParent.uAddress != 0 );

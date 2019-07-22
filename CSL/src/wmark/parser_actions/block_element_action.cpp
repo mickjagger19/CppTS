@@ -32,7 +32,7 @@ void WmarkParserBlockElementAction::SetParameter(const std::any& param)
 	m_pData = std::any_cast<RdParserActionMetaData*>(param);
 }
 
-bool WmarkParserBlockElementAction::DoAction(std::vector<std::string>& vecError)
+bool WmarkParserBlockElementAction::DoAction(const std::string& strToken, std::vector<std::string>& vecError)
 {
 	//paragraph
 	assert( m_pData->posParent.uAddress != 0 );

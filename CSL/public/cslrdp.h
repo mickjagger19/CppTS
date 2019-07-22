@@ -147,7 +147,7 @@ class IRdParserAction
 {
 public:
 	virtual void SetParameter(const std::any& param) = 0;
-	virtual bool DoAction(std::vector<std::string>& vecError) = 0;
+	virtual bool DoAction(const std::string& strToken, std::vector<std::string>& vecError) = 0;
 };
 
 // RdParser

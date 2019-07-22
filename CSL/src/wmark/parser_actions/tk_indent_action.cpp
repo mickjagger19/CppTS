@@ -32,7 +32,7 @@ void WmarkParserTkIndentAction::SetParameter(const std::any& param)
 	m_pData = std::any_cast<RdParserActionMetaData*>(param);
 }
 
-bool WmarkParserTkIndentAction::DoAction(std::vector<std::string>& vecError)
+bool WmarkParserTkIndentAction::DoAction(const std::string& strToken, std::vector<std::string>& vecError)
 {
 	//indent
 	assert( m_pData->posParent.uAddress != 0 );

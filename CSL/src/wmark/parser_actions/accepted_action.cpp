@@ -32,7 +32,7 @@ void WmarkParserAcceptedAction::SetParameter(const std::any& param)
 	m_pData = std::any_cast<RdParserActionMetaData*>(param);
 }
 
-bool WmarkParserAcceptedAction::DoAction(std::vector<std::string>& vecError)
+bool WmarkParserAcceptedAction::DoAction(const std::string& strToken, std::vector<std::string>& vecError)
 {
 	//symbol
 	RdMetaDataPosition pos = m_pData->spMeta->InsertSymbol(WMARK_ROOT_SYMBOL, 0, true);

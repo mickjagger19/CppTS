@@ -32,7 +32,7 @@ void WmarkParserBerrTailAction::SetParameter(const std::any& param)
 	m_pData = std::any_cast<RdParserActionMetaData*>(param);
 }
 
-bool WmarkParserBerrTailAction::DoAction(std::vector<std::string>& vecError)
+bool WmarkParserBerrTailAction::DoAction(const std::string& strToken, std::vector<std::string>& vecError)
 {
 	//up
 	assert( m_pData->posParent.uAddress != 0 );

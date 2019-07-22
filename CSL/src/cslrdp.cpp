@@ -487,7 +487,7 @@ bool RdParser::do_action(uint32_t uActionID)
 		auto iterA(m_map.find(uActionID));
 		if( iterA != m_map.end() ) {
 			if( iterA->second.get() != nullptr ) {
-				if( !iterA->second->DoAction(m_vecError) )
+				if( !iterA->second->DoAction(m_token.strToken, m_vecError) )
 					return false;
 			}
 		}
@@ -523,7 +523,7 @@ int32_t RdParser::Parse(bool& bEmpty)
 			}
 			//accepted
 			if( m_spAccepted.get() != nullptr ) {
-				if( !m_spAccepted->DoAction(m_vecError) )
+				if( !m_spAccepted->DoAction(m_token.strToken, m_vecError) )
 					return -2;
 			}
 			return 0;

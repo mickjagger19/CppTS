@@ -32,7 +32,7 @@ void WmarkParserProgramAction::SetParameter(const std::any& param)
 	m_pData = std::any_cast<RdParserActionMetaData*>(param);
 }
 
-bool WmarkParserProgramAction::DoAction(std::vector<std::string>& vecError)
+bool WmarkParserProgramAction::DoAction(const std::string& strToken, std::vector<std::string>& vecError)
 {
 	//root
 	if( m_pData->posParent.uAddress == 0 && m_pData->posCurrent.uAddress == 0 ) {
