@@ -9,6 +9,6 @@ MACRO(SET_FLTK_PATH strRoot)
 						)
 ENDMACRO(SET_FLTK_PATH)
 
-SET(STRING_FLTK_TARGET "fltk fltk_forms fltk_images fltk_jpeg fltk_png fltk_z")
+SET(STRING_FLTK_TARGET "fltk" "fltk_forms" "fltk_images" "fltk_jpeg" "fltk_png" "fltk_z")
 
 # end

@@ -127,7 +127,7 @@ PropertyTrigger::~PropertyTrigger() noexcept
 {
 }
 
-void PropertyTrigger::Clear() noexcept
+void PropertyTrigger::ClearNotifications() noexcept
 {
 	m_vecPN.clear();
 }

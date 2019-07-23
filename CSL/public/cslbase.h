@@ -152,7 +152,7 @@ public:
 	PropertyTrigger& operator=(const PropertyTrigger&) = delete;
 	~PropertyTrigger() noexcept;
 
-	void Clear() noexcept;
+	void ClearNotifications() noexcept;
 	void AddNotification(PropertyNotification&& pn);
 
 	void Fire(uint32_t uID);
