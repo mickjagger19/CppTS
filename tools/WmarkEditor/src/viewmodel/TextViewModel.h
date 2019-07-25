@@ -24,6 +24,9 @@ public:
 //properties
 	std::shared_ptr<Fl_Text_Buffer> get_TextBuf() noexcept;
 
+//commands
+	CommandFunc get_LoadCommand();
+
 //methods
 	void SetModel(const std::shared_ptr<TextModel>& spModel);
 

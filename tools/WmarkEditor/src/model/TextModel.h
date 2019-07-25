@@ -21,6 +21,9 @@ public:
 	TextModel& operator=(const TextModel&) = delete;
 	~TextModel() noexcept;
 
+//methods
+	bool Load(const std::string& str);
+
 //properties
 	std::shared_ptr<Fl_Text_Buffer> get_TextBuf() noexcept;
 

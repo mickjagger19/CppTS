@@ -8,6 +8,8 @@
 
 #include "TextModel.h"
 
+#include "../common/TextDef.h"
+
 ////////////////////////////////////////////////////////////////////////////////
 namespace CSL {
 ////////////////////////////////////////////////////////////////////////////////
@@ -25,6 +27,17 @@ TextModel::~TextModel() noexcept
 std::shared_ptr<Fl_Text_Buffer> TextModel::get_TextBuf() noexcept
 {
 	return m_spBuffer;
+}
+
+//methods
+bool TextModel::Load(const std::string& str) 
+{
+	const char *tfile = str.c_str();
+	if (m_spBuffer->loadfile(tfile) == 0) {
+		Fire(PROPID_TEXT);
+		return true;
+	}
+	else return false;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
