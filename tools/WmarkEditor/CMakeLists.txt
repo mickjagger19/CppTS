@@ -20,6 +20,7 @@ SET(SRC_PCH_LIST "precomp.cpp")
 SET(SRC_LIST "src/main.cpp"
 	"src/model/TextModel.cpp"
 	"src/viewmodel/notifications/TextViewModelNotification.cpp"
+	"src/viewmodel/commands/LoadCommand.cpp"
 	"src/viewmodel/TextViewModel.cpp"
 	)
 ADD_EXECUTABLE(WmarkEditor ${SRC_PCH_LIST} ${SRC_LIST})

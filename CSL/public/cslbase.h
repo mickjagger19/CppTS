@@ -45,6 +45,32 @@
 namespace CSL {
 ////////////////////////////////////////////////////////////////////////////////
 
+//operators
+
+class SafeOperators
+{
+public:
+	//T : unsigned integer types
+	template <typename T>
+	static T AddThrow(T left, T right)
+	{
+		T r = left + right;
+		if( r < left )
+			throw std::overflow_error("");
+		return r;
+	}
+	template <typename T>
+	static T MultiplyThrow(T left, T right)
+	{
+		//avoid divide 0
+		if( left == 0 )
+			return 0;
+		if( std::numeric_limits<T>::max() / left < right )
+			throw std::overflow_error("");
+		return left * right;
+	}
+};
+
 //code convert
 
 class CodeConvertHelper

@@ -665,13 +665,11 @@ uint32_t RdAllocator::Allocate(uint32_t uBytes)
 	uint32_t uOld = (uint32_t)m_vec.size();
 	if( uOld == 0 )
 		uOld = sizeof(uint32_t);
-	uint32_t uAct = uBytes + (sizeof(uint32_t) - 1);
-	if( uAct < uBytes )
-		throw std::overflow_error("");
+	//round
+	uint32_t uAct = SafeOperators::AddThrow(uBytes, (uint32_t)sizeof(uint32_t) - 1);
 	uAct = uAct / sizeof(uint32_t) * sizeof(uint32_t);
-	uint32_t uNew = uOld + uAct;
-	if( uNew < uOld )
-		throw std::overflow_error("");
+	//resize
+	uint32_t uNew = SafeOperators::AddThrow(uOld, uAct);
 	m_vec.resize(uNew);
 	*((uint32_t*)(&m_vec[0])) = uNew - sizeof(uint32_t);
 	return uOld;
@@ -841,9 +839,7 @@ RdMetaDataPosition RdMetaData::InsertSymbol(const char* szSymbol, uint32_t uType
 	pNode->uData = 0;
 	//link
 	uint32_t* pStart = (uint32_t*)m_raPool.ToPointer(m_uSymbolStart);
-	uint32_t uNewCount = pStart[0] + 1;
-	if( uNewCount < pStart[0] )
-		throw std::overflow_error("");
+	uint32_t uNewCount = SafeOperators::AddThrow<uint32_t>(pStart[0], 1);
 	pStart[0] = uNewCount;
 	pNode->uHashNext = pStart[1 + uHashCode];
 	pStart[1 + uHashCode] = pos.uAddress;
@@ -945,6 +941,7 @@ RdMetaDataPosition RdMetaData::InsertAstNode(uint32_t uType)
 		pStart = (uint32_t*)m_raAst.ToPointer(m_uAstStart);
 		pStart[1] = uRoot;
 	}
+	//node
 	RdMetaDataPosition pos;
 	pos.uAddress = m_raAst.Allocate(sizeof(_AstNode));
 	_AstNode* pNode = (_AstNode*)m_raAst.ToPointer(pos.uAddress);
@@ -954,9 +951,7 @@ RdMetaDataPosition RdMetaData::InsertAstNode(uint32_t uType)
 	pNode->uNext   = 0;
 	pNode->uData   = 0;
 	pStart = (uint32_t*)m_raAst.ToPointer(m_uAstStart);
-	uint32_t uNewCount = pStart[0] + 1;
-	if( uNewCount < pStart[0] )
-		throw std::overflow_error("");
+	uint32_t uNewCount = SafeOperators::AddThrow<uint32_t>(pStart[0], 1);
 	pStart[0] = uNewCount;
 	return pos;
 }

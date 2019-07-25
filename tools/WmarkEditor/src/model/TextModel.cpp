@@ -30,14 +30,13 @@ std::shared_ptr<Fl_Text_Buffer> TextModel::get_TextBuf() noexcept
 }
 
 //methods
-bool TextModel::Load(const std::string& str) 
+bool TextModel::Load(const std::string& str)
 {
-	const char *tfile = str.c_str();
-	if (m_spBuffer->loadfile(tfile) == 0) {
+	if (m_spBuffer->loadfile(str.c_str()) == 0) {
 		Fire(PROPID_TEXT);
 		return true;
 	}
-	else return false;
+	return false;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
