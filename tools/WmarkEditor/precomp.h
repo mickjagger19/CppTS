@@ -15,6 +15,9 @@
 #include "FL/Fl.H"
 #include "FL/Fl_Double_Window.H"
 #include "FL/Fl_Text_Editor.H"
+#include "FL/Fl_Menu_Bar.H"
+#include "FL/Fl_Native_File_Chooser.H"
+#include "FL/fl_ask.H"
 
 ////////////////////////////////////////////////////////////////////////////////
 #endif

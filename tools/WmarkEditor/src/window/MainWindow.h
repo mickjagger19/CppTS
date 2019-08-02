@@ -3,29 +3,41 @@
 */
 
 ////////////////////////////////////////////////////////////////////////////////
-#ifndef __TEXT_EDITOR_H__
-#define __TEXT_EDITOR_H__
+#ifndef __MAIN_WINDOW_H__
+#define __MAIN_WINDOW_H__
 ////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace CSL {
 ////////////////////////////////////////////////////////////////////////////////
 
-// TextEditor
+// MainWindow
 
-class TextEditor : public Fl_Text_Editor
+class MainWindow : public Fl_Double_Window
 {
 public:
-	TextEditor(int x, int y, int w, int h, const char* l = 0);
-	TextEditor(const TextEditor&) = delete;
-	TextEditor& operator=(const TextEditor&) = delete;
-	~TextEditor() noexcept;
+	MainWindow(int w, int h, const char* t);
+	MainWindow(const MainWindow&) = delete;
+	MainWindow& operator=(const MainWindow&) = delete;
+	~MainWindow() noexcept;
 
-//properties
-	void set_TextBuffer(const std::shared_ptr<Fl_Text_Buffer>& sp);
+//commands
+	void set_LoadCommand(CommandFunc&& cf);
+
+//notifications
+	PropertyNotification get_Notification();
 
 private:
-	std::shared_ptr<Fl_Text_Buffer>  m_spBuffer;
+//callbacks
+	static void load_cb(Fl_Widget*, void* v);
+
+private:
+//commands
+	CommandFunc m_cmdFunc;
+
+//UI
+	std::shared_ptr<TextEditor> m_textEditor;
+	std::shared_ptr<Fl_Menu_Bar> m_menuBar;
 };
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -33,3 +45,4 @@ private:
 ////////////////////////////////////////////////////////////////////////////////
 #endif
 ////////////////////////////////////////////////////////////////////////////////
+
