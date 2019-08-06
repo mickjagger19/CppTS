@@ -6,11 +6,19 @@
 
 #include "precomp.h"
 
+#include "model/TextModel.h"
+#include "viewmodel/TextViewModel.h"
+#include "view/TextEditor.h"
+#include "window/MainWindow.h"
+#include "app/TextApp.h"
+
 ////////////////////////////////////////////////////////////////////////////////
 
 int main(int argc, char* argv[])
 {
-	return 0;
+	CSL::TextApp app;
+	bool t = app.Init();
+	return app.Run();
 }
 
 ////////////////////////////////////////////////////////////////////////////////
