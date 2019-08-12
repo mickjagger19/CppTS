@@ -43,6 +43,7 @@ bool TextApp::Init()
 
 	//commands
 	m_wndMain->set_LoadCommand(m_textVM->get_LoadCommand());
+	m_wndMain->set_SaveCommand(m_textVM->get_SaveCommand());
 
 	//notifications
 	m_textVM->AddNotification(m_wndMain->get_Notification());

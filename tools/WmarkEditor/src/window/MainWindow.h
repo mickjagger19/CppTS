@@ -26,6 +26,7 @@ public:
 
 //commands
 	void set_LoadCommand(CommandFunc&& cf);
+	void set_SaveCommand(CommandFunc&& cf);
 
 //notifications
 	PropertyNotification get_Notification();
@@ -33,10 +34,12 @@ public:
 private:
 //callbacks
 	static void load_cb(Fl_Widget*, void* v);
+	static void save_cb(Fl_Widget*, void* v);
 
 private:
 //commands
-	CommandFunc m_cmdFunc;
+	CommandFunc m_cmdFunc_load;
+	CommandFunc m_cmdFunc_save;
 
 //UI
 	std::shared_ptr<TextEditor> m_textEditor;

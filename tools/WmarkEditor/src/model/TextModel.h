@@ -26,6 +26,7 @@ public:
 
 //methods
 	bool Load(const std::string& str);
+	bool Save(const std::string& str);
 
 private:
 	std::shared_ptr<Fl_Text_Buffer>  m_spBuffer;

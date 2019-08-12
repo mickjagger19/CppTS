@@ -26,6 +26,7 @@ public:
 
 //commands
 	CommandFunc get_LoadCommand();
+	CommandFunc get_SaveCommand();
 
 //methods
 	void SetModel(const std::shared_ptr<TextModel>& spModel);
