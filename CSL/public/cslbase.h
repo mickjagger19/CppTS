@@ -45,6 +45,70 @@
 namespace CSL {
 ////////////////////////////////////////////////////////////////////////////////
 
+//pointer
+
+template <typename T>
+class RefPtr
+{
+public:
+	RefPtr() noexcept : m_p(nullptr)
+	{
+	}
+	explicit RefPtr(T& t) noexcept : m_p(&t)
+	{
+	}
+	explicit RefPtr(T* p) noexcept : m_p(p)
+	{
+	}
+	RefPtr(const RefPtr& src) noexcept : m_p(src.m_p)
+	{
+	}
+	~RefPtr() noexcept
+	{
+	}
+
+	RefPtr& operator=(const RefPtr& src) noexcept
+	{
+		m_p = src.m_p;
+		return *this;
+	}
+
+	bool IsNull() const noexcept
+	{
+		return m_p == nullptr;
+	}
+
+	const T* Get() const noexcept
+	{
+		return m_p;
+	}
+	T* Get() noexcept
+	{
+		return m_p;
+	}
+	const T* operator->() const noexcept
+	{
+		return Get();
+	}
+	T* operator->() noexcept
+	{
+		return Get();
+	}
+	const T& operator*() const noexcept
+	{
+		assert( !IsNull() );
+		return *Get();
+	}
+	T& operator*() noexcept
+	{
+		assert( !IsNull() );
+		return *Get();
+	}
+
+private:
+	T* m_p;
+};
+
 //operators
 
 class SafeOperators
