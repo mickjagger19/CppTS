@@ -76,6 +76,28 @@ bool WmarkScannerTkAction::Scan(std::istream& stm, RdActionStack& stk, RdToken& 
 		return true;
 	}
 
+	//heading
+	if ( ch == '#' ){
+        int heading_level = 1;
+        do { // get heading level
+            stm.get(ch);
+            if (!stm.good())
+                return false;
+            token.strToken += ch;
+            token.infoEnd.uCol++;
+            if (ch == '#' && (heading_level + 1 <= MAX_HEADING_LEVEL)) {
+                heading_level ++;
+            } else if (ch == ' ') break;
+            else {  // '#' can only be followed by itself or space
+                stk.push(WMARK_SCANNER_TEXT_ACTION);
+                return true;
+            }
+        } while (true);
+
+        token.uID = WMARK_TK_HEADING;
+        return true;
+	}
+
 	//<
 	if( ch == '<' ) {
 		stk.push(WMARK_SCANNER_COMMENT_ACTION);

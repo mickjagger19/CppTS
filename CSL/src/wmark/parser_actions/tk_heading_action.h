@@ -3,21 +3,21 @@
 */
 
 ////////////////////////////////////////////////////////////////////////////////
-#ifndef __TK_ITALIC_ACTION_H__
-#define __TK_ITALIC_ACTION_H__
+#ifndef __TK_HEADING_ACTION_H__
+#define __TK_HEADING_ACTION_H__
 ////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace CSL {
 ////////////////////////////////////////////////////////////////////////////////
 
-// WmarkParserTkItalicAction
+// WmarkParserTkIndentAction
 
-class WmarkParserTkItalicAction : public IRdParserAction
+class WmarkParserTkHeadingAction : public IRdParserAction
 {
 public:
-	WmarkParserTkItalicAction() noexcept;
-	~WmarkParserTkItalicAction() noexcept;
+	WmarkParserTkHeadingAction() noexcept;
+	~WmarkParserTkHeadingAction() noexcept;
 
 // IRdParserAction methods
 	virtual void SetParameter(const std::any& param);

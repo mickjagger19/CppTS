@@ -8,7 +8,7 @@
 
 #include "../base/WmarkDef.h"
 
-#include "tk_italic_action.h"
+#include "tk_Heading_action.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -16,28 +16,39 @@
 namespace CSL {
 ////////////////////////////////////////////////////////////////////////////////
 
-// WmarkParserTkItalicAction
+// WmarkParserTkHeadingAction
 
-WmarkParserTkItalicAction::WmarkParserTkItalicAction() noexcept
+WmarkParserTkHeadingAction::WmarkParserTkHeadingAction() noexcept
 {
 }
-WmarkParserTkItalicAction::~WmarkParserTkItalicAction() noexcept
+WmarkParserTkHeadingAction::~WmarkParserTkHeadingAction() noexcept
 {
 }
 
 // IRdParserAction methods
 
-void WmarkParserTkItalicAction::SetParameter(const std::any& param)
+void WmarkParserTkHeadingAction::SetParameter(const std::any& param)
 {
 	m_pData = std::any_cast<RdParserActionMetaData*>(param);
 }
 
-bool WmarkParserTkItalicAction::DoAction(const std::string& strToken, std::vector<std::string>& vecError)
+bool WmarkParserTkHeadingAction::DoAction(const std::string& strToken, std::vector<std::string>& vecError)
 {
-	//Italic
+	//Heading
 	assert( m_pData->posParent.uAddress != 0 );
-	RdMetaDataPosition pos = m_pData->spMeta->AllocateAstNode(WMARK_NODETYPE_ITALIC);
-	m_pData->spMeta->SetAstParent(pos, m_pData->posParent);
+    //string
+    size_t uSize = strToken.length();
+    if (uSize >= (size_t) (std::numeric_limits<uint32_t>::max()))
+        return false;
+	RdMetaDataPosition pos = m_pData->spMeta->AllocateAstNode(WMARK_NODETYPE_HEADING);
+    RdMetaDataPosition posData = m_pData->spMeta->InsertData((uint32_t) uSize + 1);
+    char *szData = (char *) m_pData->spMeta->GetData(posData);
+    ::memcpy(szData, strToken.c_str(), uSize);
+    szData[uSize] = '\0';
+    //data
+    m_pData->spMeta->SetAstData(pos, posData);
+    //link
+    m_pData->spMeta->SetAstParent(pos, m_pData->posParent);
 	if( m_pData->posCurrent.uAddress == 0 )
 		m_pData->spMeta->SetAstChild(m_pData->posParent, pos);
 	else

@@ -19,6 +19,9 @@ public:
 	WmarkScannerTkAction() throw();
 	~WmarkScannerTkAction() throw();
 
+private:
+    const int MAX_HEADING_LEVEL = 6;
+
 // IRdScannerAction
 	virtual bool Scan(std::istream& stm, RdActionStack& stk, RdToken& token);
 };

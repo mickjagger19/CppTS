@@ -537,7 +537,7 @@ int32_t RdParser::Parse(bool& bEmpty)
 	//loop
 	while( true ) {
 		//input event
-		if(m_uCurrentTerminalToken == TK_NO_EVENT ) {
+		if( m_uCurrentTerminalToken == TK_NO_EVENT ) {
 			bool bRet = m_spScanner->GetToken(m_token);
 			if( !bRet ) {
 				append_unexpected_error();
@@ -571,7 +571,7 @@ int32_t RdParser::Parse(bool& bEmpty)
 
 		// terminal, pop and do the parser action
 		if( elem.uToken <= m_uMaxTerminalID ) {
-			if(elem.uToken != m_uCurrentTerminalToken ) { // next token doesn't match token in the stack
+			if( elem.uToken != m_uCurrentTerminalToken ) { // next token doesn't match token in the stack
 				append_unexpected_error();
 				return -1;
 			}
@@ -603,8 +603,7 @@ int32_t RdParser::Parse(bool& bEmpty)
 			for( uintptr_t i = item.uNum - 1; i > 0; i -- )
 				m_stack.push(item.pRule[i]);
 			//flag
-			if( m_bEmpty )
-				m_bEmpty = false;
+			m_bEmpty = false;
 		}
 		else { // empty rule
 			//action

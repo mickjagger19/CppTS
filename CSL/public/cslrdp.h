@@ -264,7 +264,7 @@ private:
 
 private:
 	//Nonterminal -> item
-	std::map<uint32_t, std::shared_ptr<_TableItem>>  firstSet;
+	std::map<uint32_t, std::shared_ptr<_TableItem>>  m_map;
 	//rules
 	std::vector<RULEITEM> m_rules;
 	//start symbol

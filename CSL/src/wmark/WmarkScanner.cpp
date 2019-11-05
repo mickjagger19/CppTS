@@ -29,6 +29,7 @@ void WmarkScannerHelper::CreateActions(std::shared_ptr<IRdScannerAction>& spTkAc
 	spTkAction = std::static_pointer_cast<IRdScannerAction, WmarkScannerTkAction>(std::make_shared<WmarkScannerTkAction>());
 	spCommentAction = std::static_pointer_cast<IRdScannerAction, WmarkScannerCommentAction>(std::make_shared<WmarkScannerCommentAction>());
 	spTextAction = std::static_pointer_cast<IRdScannerAction, WmarkScannerTextAction>(std::make_shared<WmarkScannerTextAction>());
+//	spHeadingAction = std::static_pointer_cast<IRdScannerAction, WmarkScannerHeadingAction>(std::make_shared<WmarkScannerHeadingAction>());
 }
 
 void WmarkScannerHelper::SetActions(RdScanner& rds,
@@ -41,6 +42,7 @@ void WmarkScannerHelper::SetActions(RdScanner& rds,
 	rds.AddAction(WMARK_SCANNER_TK_ACTION, spTkAction);
 	rds.AddAction(WMARK_SCANNER_COMMENT_ACTION, spCommentAction);
 	rds.AddAction(WMARK_SCANNER_TEXT_ACTION, spTextAction);
+//	rds.AddAction(WMARK_SCANNER_HEADING_ACTION, spHeadingAction);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
