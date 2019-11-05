@@ -41,8 +41,8 @@ bool WmarkParserTkTextAction::DoAction(const std::string& strToken, std::vector<
 	if( uSize >= (size_t)(std::numeric_limits<uint32_t>::max()) )
 		return false;
 	//node
-	RdMetaDataPosition pos = m_pData->spMeta->InsertAstNode(WMARK_NODETYPE_TEXT);
-	//token
+	RdMetaDataPosition pos = m_pData->spMeta->AllocateAstNode(WMARK_NODETYPE_TEXT);
+	//token, allocate the space for text data
 	RdMetaDataPosition posData = m_pData->spMeta->InsertData((uint32_t)uSize + 1);
 	char* szData = (char*)m_pData->spMeta->GetData(posData);
 	::memcpy(szData, strToken.c_str(), uSize);
@@ -51,7 +51,7 @@ bool WmarkParserTkTextAction::DoAction(const std::string& strToken, std::vector<
 	m_pData->spMeta->SetAstData(pos, posData);
 	//link
 	m_pData->spMeta->SetAstParent(pos, m_pData->posParent);
-	if( m_pData->posCurrent.uAddress == 0 )
+	if( m_pData->posCurrent.uAddress == 0 ) // the first allocated node
 		m_pData->spMeta->SetAstChild(m_pData->posParent, pos);
 	else
 		m_pData->spMeta->SetAstNext(m_pData->posCurrent, pos);

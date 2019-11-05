@@ -36,7 +36,7 @@ bool WmarkParserTkCommentAction::DoAction(const std::string& strToken, std::vect
 {
 	//comment
 	assert( m_pData->posParent.uAddress != 0 );
-	RdMetaDataPosition pos = m_pData->spMeta->InsertAstNode(WMARK_NODETYPE_COMMENT);
+	RdMetaDataPosition pos = m_pData->spMeta->AllocateAstNode(WMARK_NODETYPE_COMMENT);
 	m_pData->spMeta->SetAstParent(pos, m_pData->posParent);
 	if( m_pData->posCurrent.uAddress == 0 )
 		m_pData->spMeta->SetAstChild(m_pData->posParent, pos);

@@ -559,7 +559,7 @@ int32_t RdParser::Parse(bool& bEmpty)
 		if( iAct > 0 ) { // non-empty rule
 			//rule
 			m_spTable->GetRule(iAct - 1, item);
-			//do the action of the first element
+			//do the optional action of the first element
 			if( !do_action(item.pRule[0].uAction) )
 				return -2;
 			//pop
@@ -676,7 +676,7 @@ uint32_t RdAllocator::Allocate(uint32_t uBytes)
 	*((uint32_t*)(&m_vec[0])) = uNew - sizeof(uint32_t);
 	return uOld;
 }
-
+// return the address in the std::vector<>
 void* RdAllocator::ToPointer(uint32_t uAddress) throw()
 {
 	if( m_vec.empty() || uAddress == 0 )
@@ -926,18 +926,19 @@ const void* RdMetaData::GetData(RdMetaDataPosition posData) const throw()
 	return m_raData.ToPointer(posData.uAddress);
 }
 
-RdMetaDataPosition RdMetaData::InsertAstNode(uint32_t uType)
+//  allocate an Ast node of the specific type
+RdMetaDataPosition RdMetaData::AllocateAstNode(uint32_t uType)
 {
-	//allocate
+	//allocate for the first time
 	if( m_uAstStart == 0 ) {
 		m_uAstStart = m_raAst.Allocate(sizeof(uint32_t) + sizeof(uint32_t));
-		uint32_t* pStart = (uint32_t*)m_raAst.ToPointer(m_uAstStart);
-		pStart[0] = 0;
-		pStart[1] = 0;
+		uint32_t* pStart = (uint32_t*)m_raAst.ToPointer(m_uAstStart); // not the ROOT!
+		pStart[0] = 0; // the number of nodes in the tree
+		pStart[1] = 0; // the index of ast root
 	}
 	//root
 	uint32_t* pStart = (uint32_t*)m_raAst.ToPointer(m_uAstStart);
-	if( pStart[1] == 0 ) {
+	if( pStart[1] == 0 ) { // the root not set yet
 		uint32_t uRoot = m_raAst.Allocate(sizeof(_AstNode));
 		::memset(m_raAst.ToPointer(uRoot), 0, sizeof(_AstNode));
 		pStart = (uint32_t*)m_raAst.ToPointer(m_uAstStart);

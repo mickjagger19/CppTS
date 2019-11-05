@@ -135,7 +135,7 @@ private:
 
 private:
 	//Nonterminal -> item
-	std::map<uint32_t, std::shared_ptr<_TableItem>>  m_map;
+	std::map<uint32_t, std::shared_ptr<_TableItem>>  firstSet;
 	//rules
 	std::vector<RULEITEM> m_rules;
 	//start symbol
@@ -188,7 +188,7 @@ private:
 	std::vector<std::string>  m_vecError;
 	RdPushDownStack  m_stack;
 	RdToken  m_token;
-	uint32_t  m_uCurrentEvent;
+	uint32_t  m_uCurrentTerminalToken;
 	bool  m_bEmpty;
 };
 
@@ -291,7 +291,7 @@ public:
 	void* GetData(RdMetaDataPosition pos) throw();
 	const void* GetData(RdMetaDataPosition posData) const throw();
 
-	RdMetaDataPosition InsertAstNode(uint32_t uType);
+	RdMetaDataPosition AllocateAstNode(uint32_t uType);
 	void SetAstParent(RdMetaDataPosition pos, RdMetaDataPosition posParent) throw();
 	void SetAstChild(RdMetaDataPosition pos, RdMetaDataPosition posChild) throw();
 	void SetAstNext(RdMetaDataPosition pos, RdMetaDataPosition posNext) throw();
@@ -329,6 +329,7 @@ struct RdParserActionMetaData
 {
 	std::shared_ptr<RdMetaData> spMeta;
 	RdMetaDataPosition posParent;
+	// the position in the newly-created subtree
 	RdMetaDataPosition posCurrent;
 };
 

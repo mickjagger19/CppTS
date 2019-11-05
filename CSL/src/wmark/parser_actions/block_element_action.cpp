@@ -36,11 +36,11 @@ bool WmarkParserBlockElementAction::DoAction(const std::string& strToken, std::v
 {
 	//paragraph
 	assert( m_pData->posParent.uAddress != 0 );
-	RdMetaDataPosition pos = m_pData->spMeta->InsertAstNode(WMARK_NODETYPE_PARAGRAPH);
+	RdMetaDataPosition pos = m_pData->spMeta->AllocateAstNode(WMARK_NODETYPE_PARAGRAPH);
 	m_pData->spMeta->SetAstParent(pos, m_pData->posParent);
-	if( m_pData->posCurrent.uAddress == 0 )
+	if( m_pData->posCurrent.uAddress == 0 ) // to link the child with parent
 		m_pData->spMeta->SetAstChild(m_pData->posParent, pos);
-	else
+	else // to link the children together
 		m_pData->spMeta->SetAstNext(m_pData->posCurrent, pos);
 	//sub tree
 	m_pData->posParent = pos;
