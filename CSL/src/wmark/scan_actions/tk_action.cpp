@@ -38,13 +38,27 @@ bool WmarkScannerTkAction::Scan(std::istream& stm, RdActionStack& stk, RdToken& 
 	if( !stm.good() )
 		return false;
 	token.strToken += ch;
-
-    if (codeType == CODE_OPEN) {
-        stk.push(WMARK_SCANNER_CODETEXT_ACTION);
-        codeType = CODE_CLOSE;
-        return true;
-    }
-
+	
+	if (codeType == CODE_OPEN) {
+		stk.push(WMARK_SCANNER_CODETEXT_ACTION);
+		codeType = CODE_CLOSE;
+		return true;
+	}
+	
+	//$
+	if( ch == '$' ) {
+		isAsciiMath = !isAsciiMath;
+		token.uID = WMARK_TK_MATH;
+		return true;
+	}
+	
+	if ( isAsciiMath ){
+		token.strToken.clear();
+		stm.unget();
+		stk.push(WMARK_SCANNER_MATH_ACTION);
+		return true;
+	}
+	
 	//return
 	if( ch == '\n' ) {
 		token.uID = WMARK_TK_RETURN;
@@ -109,6 +123,16 @@ bool WmarkScannerTkAction::Scan(std::istream& stm, RdActionStack& stk, RdToken& 
         return true;
     }
 
+    //$
+    if( ch == '$') {
+    	token.uID = WMARK_TK_MATH;
+	    if (codeType == NON_CODE)
+		    codeType = CODE_OPEN;
+	    else if (codeType == CODE_CLOSE)
+		    codeType = NON_CODE;
+    	return true;
+    }
+    
 	//indent
 	if( ch == '\t' ) {
 		token.uID = WMARK_TK_INDENT;
@@ -194,7 +218,6 @@ bool WmarkScannerTkAction::Scan(std::istream& stm, RdActionStack& stk, RdToken& 
         stk.push(WMARK_SCANNER_OL_ACTION);
         return true;
 	}
-
 	//others
 	stk.push(WMARK_SCANNER_TEXT_ACTION);
 

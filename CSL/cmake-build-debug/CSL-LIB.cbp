@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="CSL-LIB"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\src\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/mick/Code/CppTS/CSL/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/mick/Code/CppTS/CSL/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/mick/Code/CppTS/CSL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/mick/Code/CppTS/CSL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/mick/Code/CppTS/CSL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/mick/Code/CppTS/CSL/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/mick/Code/CppTS/CSL/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/mick/Code/CppTS/CSL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/mick/Code/CppTS/CSL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/mick/Code/CppTS/CSL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/mick/Code/CppTS/CSL/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/mick/Code/CppTS/CSL/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/mick/Code/CppTS/CSL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/mick/Code/CppTS/CSL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/mick/Code/CppTS/CSL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="CSL-Utility">
+				<Option output="/Users/mick/Code/CppTS/CSL/cmake-build-debug/bin/libCSL-Utility.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Code/CppTS/CSL/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/mick/Code/CppTS/CSL/cmake-build-debug/src"/>
+					<Add directory="/Users/mick/Code/CppTS/CSL/src"/>
+					<Add directory="/Users/mick/Code/CppTS/CSL/public"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/mick/Code/CppTS/CSL/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 CSL-Utility"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/mick/Code/CppTS/CSL/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/mick/Code/CppTS/CSL/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/mick/Code/CppTS/CSL/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="CSL-Utility/fast">
+				<Option output="/Users/mick/Code/CppTS/CSL/cmake-build-debug/bin/libCSL-Utility.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Code/CppTS/CSL/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/mick/Code/CppTS/CSL/cmake-build-debug/src"/>
+					<Add directory="/Users/mick/Code/CppTS/CSL/src"/>
+					<Add directory="/Users/mick/Code/CppTS/CSL/public"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/mick/Code/CppTS/CSL/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 CSL-Utility/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/mick/Code/CppTS/CSL/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/mick/Code/CppTS/CSL/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/mick/Code/CppTS/CSL/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/cslbase.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/cslrdp.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/cslsys.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/cslwmark.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/precomp.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/precomp.h">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/WmarkHtmlGenerator.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/WmarkHtmlGenerator.h">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/WmarkParser.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/WmarkParser.h">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/WmarkScanner.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/WmarkScanner.h">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/generators/BoldGenerator.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/generators/CodeGenerator.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/generators/CommentGenerator.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/generators/HeadingGenerator.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/generators/ImageGenerator.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/generators/IndentGenerator.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/generators/ItalicGenerator.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/generators/LIGenerator.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/generators/OLGenerator.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/generators/ParagraphGenerator.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/generators/TextGenerator.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/generators/ULGenerator.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/parser_actions/accepted_action.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/parser_actions/accepted_action.h">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/parser_actions/block_element_action.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/parser_actions/block_element_action.h">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/parser_actions/image_action.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/parser_actions/image_action.h">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/parser_actions/li_action.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/parser_actions/li_action.h">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/parser_actions/ol_action.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/parser_actions/ol_action.h">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/parser_actions/program_action.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/parser_actions/program_action.h">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/parser_actions/tk_bold_action.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/parser_actions/tk_bold_action.h">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/parser_actions/tk_code_action.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/parser_actions/tk_code_action.h">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/parser_actions/tk_comment_action.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/parser_actions/tk_comment_action.h">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/parser_actions/tk_heading_action.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/parser_actions/tk_heading_action.h">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/parser_actions/tk_indent_action.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/parser_actions/tk_indent_action.h">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/parser_actions/tk_italic_action.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/parser_actions/tk_italic_action.h">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/parser_actions/tk_text_action.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/parser_actions/tk_text_action.h">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/parser_actions/ul_action.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/parser_actions/ul_action.h">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/parser_actions/up_action.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/parser_actions/up_action.h">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/scan_actions/codetext_action.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/scan_actions/codetext_action.h">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/scan_actions/comment_action.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/scan_actions/comment_action.h">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/scan_actions/image_action.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/scan_actions/image_action.h">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/scan_actions/ol_action.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/scan_actions/ol_action.h">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/scan_actions/text_action.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/scan_actions/text_action.h">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/scan_actions/tk_action.cpp">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/wmark/scan_actions/tk_action.h">
+			<Option target="CSL-Utility"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/csl.cmk">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Code/CppTS/CSL/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

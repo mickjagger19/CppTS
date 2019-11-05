@@ -32,6 +32,9 @@ void WmarkHtmlGeneratorHelper::InitActions(std::map<uint32_t, WmarkMetaDataTrave
 	map.insert(std::pair<uint32_t, WmarkMetaDataTraversalAction>(WMARK_NODETYPE_OL, std::move(get_OLGenerator())));
 	map.insert(std::pair<uint32_t, WmarkMetaDataTraversalAction>(WMARK_NODETYPE_UL, std::move(get_ULGenerator())));
 	map.insert(std::pair<uint32_t, WmarkMetaDataTraversalAction>(WMARK_NODETYPE_LI, std::move(get_LIGenerator())));
+	map.insert(std::pair<uint32_t, WmarkMetaDataTraversalAction>(WMARK_NODETYPE_MATH, std::move(get_MathGenerator())));
+	map.insert(std::pair<uint32_t, WmarkMetaDataTraversalAction>(WMARK_NODETYPE_TAG, std::move(get_TagGenerator())));
+	map.insert(std::pair<uint32_t, WmarkMetaDataTraversalAction>(WMARK_NODETYPE_DOUBLE_STRUCK, std::move(get_DoubleStruckGenerator())));
 }
 
 ////////////////////////////////////////////////////////////////////////////////

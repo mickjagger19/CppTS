@@ -21,14 +21,16 @@ public:
 							std::shared_ptr<IRdScannerAction>& spTextAction,
 							std::shared_ptr<IRdScannerAction>& spCodeTextAction,
 							std::shared_ptr<IRdScannerAction>& spImageAction,
-	                        std::shared_ptr<IRdScannerAction>& spOlAction);
+	                        std::shared_ptr<IRdScannerAction>& spOlAction,
+	                        std::shared_ptr<IRdScannerAction>& spAsciiMathAction);
 	static void SetActions(RdScanner& rds,
 						const std::shared_ptr<IRdScannerAction>& spTkAction,
 						const std::shared_ptr<IRdScannerAction>& spCommentAction,
 						const std::shared_ptr<IRdScannerAction>& spTextAction,
 						const std::shared_ptr<IRdScannerAction>& spCodeTextAction,
 						const std::shared_ptr<IRdScannerAction>& spImageAction,
-						const std::shared_ptr<IRdScannerAction>& spOlAction);
+						const std::shared_ptr<IRdScannerAction>& spOlAction,
+						const std::shared_ptr<IRdScannerAction>& spAsciiMathAction);
 };
 
 ////////////////////////////////////////////////////////////////////////////////

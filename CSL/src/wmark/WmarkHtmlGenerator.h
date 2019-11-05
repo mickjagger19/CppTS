@@ -31,6 +31,9 @@ private:
 	static WmarkMetaDataTraversalAction get_OLGenerator();
 	static WmarkMetaDataTraversalAction get_ULGenerator();
 	static WmarkMetaDataTraversalAction get_LIGenerator();
+	static WmarkMetaDataTraversalAction get_MathGenerator();
+	static WmarkMetaDataTraversalAction get_TagGenerator();
+	static WmarkMetaDataTraversalAction get_DoubleStruckGenerator();
 };
 
 ////////////////////////////////////////////////////////////////////////////////

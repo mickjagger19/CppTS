@@ -1,0 +1,2105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="tiff"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="clang"/>
+		<Option virtualFolders="CMake Files\;CMake Files\CSL\;CMake Files\CSL\src\;CMake Files\third\;CMake Files\third\sqlite\;CMake Files\third\libuv\;CMake Files\third\libuv\libuv-r\;CMake Files\third\fltk\;CMake Files\third\fltk\fltk-r\;CMake Files\third\fltk\fltk-r\CMake\;CMake Files\third\fltk\fltk-r\fluid\;CMake Files\third\fltk\fltk-r\src\;CMake Files\third\fltk\fltk-r\test\;CMake Files\third\fltk\fltk-r\ide\;CMake Files\third\fltk\fltk-r\ide\Xcode4\;CMake Files\third\fltk\fltk-r\ide\Xcode4\plists\;CMake Files\third\tiff\;CMake Files\third\tiff\tiff-r\;CMake Files\third\tiff\tiff-r\port\;CMake Files\third\tiff\tiff-r\libtiff\;CMake Files\third\tiff\tiff-r\tools\;CMake Files\third\tiff\tiff-r\test\;CMake Files\third\tiff\tiff-r\contrib\;CMake Files\third\tiff\tiff-r\contrib\addtiffo\;CMake Files\third\tiff\tiff-r\contrib\dbs\;CMake Files\third\tiff\tiff-r\contrib\dbs\xtiff\;CMake Files\third\tiff\tiff-r\contrib\iptcutil\;CMake Files\third\tiff\tiff-r\contrib\mfs\;CMake Files\third\tiff\tiff-r\contrib\pds\;CMake Files\third\tiff\tiff-r\contrib\ras\;CMake Files\third\tiff\tiff-r\contrib\stream\;CMake Files\third\tiff\tiff-r\contrib\tags\;CMake Files\third\tiff\tiff-r\contrib\win_dib\;CMake Files\third\tiff\tiff-r\build\;CMake Files\third\tiff\tiff-r\man\;CMake Files\third\tiff\tiff-r\html\;CMake Files\third\tiff\tiff-r\html\images\;CMake Files\third\tiff\tiff-r\html\man\;CMake Files\tools\;CMake Files\tools\wmc\;CMake Files\tools\WmarkEditor\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="port">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port/libport.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port/Makefile&quot;  VERBOSE=1 port"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="port/fast">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port/libport.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port/Makefile&quot;  VERBOSE=1 port/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiffxx">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/libtiffxx.dylib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/Makefile&quot;  VERBOSE=1 tiffxx"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiffxx/fast">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/libtiffxx.dylib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/Makefile&quot;  VERBOSE=1 tiffxx/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiff">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/libtiff.dylib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/Makefile&quot;  VERBOSE=1 tiff"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiff/fast">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/libtiff.dylib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/Makefile&quot;  VERBOSE=1 tiff/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiffsplit">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiffsplit" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 tiffsplit"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiffsplit/fast">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiffsplit" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 tiffsplit/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ppm2tiff">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/ppm2tiff" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 ppm2tiff"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ppm2tiff/fast">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/ppm2tiff" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 ppm2tiff/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiffmedian">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiffmedian" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 tiffmedian"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiffmedian/fast">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiffmedian" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 tiffmedian/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiffset">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiffset" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 tiffset"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiffset/fast">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiffset" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 tiffset/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiffinfo">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiffinfo" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 tiffinfo"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiffinfo/fast">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiffinfo" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 tiffinfo/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiff2rgba">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiff2rgba" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 tiff2rgba"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiff2rgba/fast">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiff2rgba" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 tiff2rgba/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiffdump">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiffdump" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 tiffdump"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiffdump/fast">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiffdump" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 tiffdump/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiffcrop">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiffcrop" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 tiffcrop"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiffcrop/fast">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiffcrop" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 tiffcrop/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiffcp">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiffcp" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 tiffcp"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiffcp/fast">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiffcp" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 tiffcp/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiff2ps">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiff2ps" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 tiff2ps"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiff2ps/fast">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiff2ps" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 tiff2ps/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiffcmp">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiffcmp" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 tiffcmp"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiffcmp/fast">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiffcmp" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 tiffcmp/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="raw2tiff">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/raw2tiff" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 raw2tiff"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="raw2tiff/fast">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/raw2tiff" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 raw2tiff/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="thumbnail">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/thumbnail" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 thumbnail"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="thumbnail/fast">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/thumbnail" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 thumbnail/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiff2pdf">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiff2pdf" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 tiff2pdf"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiff2pdf/fast">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiff2pdf" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 tiff2pdf/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="fax2tiff">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/fax2tiff" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 fax2tiff"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="fax2tiff/fast">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/fax2tiff" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 fax2tiff/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiffdither">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiffdither" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 tiffdither"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiffdither/fast">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiffdither" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 tiffdither/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiff2bw">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiff2bw" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 tiff2bw"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiff2bw/fast">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiff2bw" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 tiff2bw/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiffgt">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiffgt" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 tiffgt"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiffgt/fast">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiffgt" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 tiffgt/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="pal2rgb">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/pal2rgb" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 pal2rgb"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="pal2rgb/fast">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/pal2rgb" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 pal2rgb/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rgb2ycbcr">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/rgb2ycbcr" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 rgb2ycbcr"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rgb2ycbcr/fast">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/rgb2ycbcr" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 rgb2ycbcr/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="fax2ps">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/fax2ps" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 fax2ps"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="fax2ps/fast">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/fax2ps" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 fax2ps/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="custom_dir">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/custom_dir" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 custom_dir"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="custom_dir/fast">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/custom_dir" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 custom_dir/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="raw_decode">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/raw_decode" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 raw_decode"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="raw_decode/fast">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/raw_decode" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 raw_decode/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rewrite">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/rewrite" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 rewrite"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rewrite/fast">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/rewrite" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 rewrite/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="short_tag">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/short_tag" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 short_tag"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="short_tag/fast">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/short_tag" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 short_tag/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ascii_tag">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/ascii_tag" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 ascii_tag"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ascii_tag/fast">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/ascii_tag" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 ascii_tag/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="long_tag">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/long_tag" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 long_tag"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="long_tag/fast">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/long_tag" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 long_tag/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="strip_rw">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/strip_rw" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 strip_rw"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="strip_rw/fast">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/strip_rw" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 strip_rw/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="addtiffo">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/addtiffo/addtiffo" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/addtiffo"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/addtiffo"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/addtiffo/Makefile&quot;  VERBOSE=1 addtiffo"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/addtiffo/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/addtiffo/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/addtiffo/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="addtiffo/fast">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/addtiffo/addtiffo" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/addtiffo"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/addtiffo"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/addtiffo/Makefile&quot;  VERBOSE=1 addtiffo/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/addtiffo/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/addtiffo/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/addtiffo/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiff-rgb">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/tiff-rgb" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/Makefile&quot;  VERBOSE=1 tiff-rgb"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiff-rgb/fast">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/tiff-rgb" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/Makefile&quot;  VERBOSE=1 tiff-rgb/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiff-bi">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/tiff-bi" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/Makefile&quot;  VERBOSE=1 tiff-bi"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiff-bi/fast">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/tiff-bi" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/Makefile&quot;  VERBOSE=1 tiff-bi/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiff-palette">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/tiff-palette" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/Makefile&quot;  VERBOSE=1 tiff-palette"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiff-palette/fast">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/tiff-palette" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/Makefile&quot;  VERBOSE=1 tiff-palette/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiff-grayscale">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/tiff-grayscale" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/Makefile&quot;  VERBOSE=1 tiff-grayscale"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tiff-grayscale/fast">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/tiff-grayscale" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/Makefile&quot;  VERBOSE=1 tiff-grayscale/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="iptcutil">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/iptcutil/iptcutil" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/iptcutil"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/iptcutil"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/iptcutil/Makefile&quot;  VERBOSE=1 iptcutil"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/iptcutil/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/iptcutil/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/iptcutil/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="iptcutil/fast">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/iptcutil/iptcutil" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/iptcutil"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DHAVE_SNPRINTF"/>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/iptcutil"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/iptcutil/Makefile&quot;  VERBOSE=1 iptcutil/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/iptcutil/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/iptcutil/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/iptcutil/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="htmldoc">
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/html/man"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/html/man/Makefile&quot;  VERBOSE=1 htmldoc"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/html/man/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/html/man/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/html/man/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/addtiffo/addtiffo.c">
+			<Option target="addtiffo"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/addtiffo/tif_overview.c">
+			<Option target="addtiffo"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/addtiffo/tif_ovrcache.c">
+			<Option target="addtiffo"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/addtiffo/tif_ovrcache.h">
+			<Option target="addtiffo"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/tiff-bi.c">
+			<Option target="tiff-bi"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/tiff-grayscale.c">
+			<Option target="tiff-grayscale"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/tiff-palette.c">
+			<Option target="tiff-palette"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/tiff-rgb.c">
+			<Option target="tiff-rgb"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/iptcutil/iptcutil.c">
+			<Option target="iptcutil"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/libtiff.def">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_aux.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_close.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_codec.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_color.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_compress.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_dir.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_dir.h">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_dirinfo.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_dirread.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_dirwrite.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_dumpmode.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_error.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_extension.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_fax3.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_fax3.h">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_fax3sm.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_flush.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_getimage.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_jbig.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_jpeg.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_jpeg_12.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_luv.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_lzma.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_lzw.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_next.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_ojpeg.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_open.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_packbits.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_pixarlog.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_predict.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_predict.h">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_print.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_read.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_stream.cxx">
+			<Option target="tiffxx"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_strip.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_swab.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_thunder.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_tile.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_unix.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_version.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_warning.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_webp.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_write.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_zip.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_zstd.c">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tiff.h">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tiffconf.h">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tiffio.h">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tiffio.hxx">
+			<Option target="tiffxx"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tiffvers.h">
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port/dummy.c">
+			<Option target="port"/>
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port/libport.h">
+			<Option target="port"/>
+			<Option target="tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/ascii_tag.c">
+			<Option target="ascii_tag"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/check_tag.c">
+			<Option target="short_tag"/>
+			<Option target="long_tag"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/custom_dir.c">
+			<Option target="custom_dir"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/long_tag.c">
+			<Option target="long_tag"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/raw_decode.c">
+			<Option target="raw_decode"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/rewrite_tag.c">
+			<Option target="rewrite"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/short_tag.c">
+			<Option target="short_tag"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/strip.c">
+			<Option target="strip_rw"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/strip_rw.c">
+			<Option target="strip_rw"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/test_arrays.c">
+			<Option target="strip_rw"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/test_arrays.h">
+			<Option target="strip_rw"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/fax2ps.c">
+			<Option target="fax2ps"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/fax2tiff.c">
+			<Option target="fax2tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/pal2rgb.c">
+			<Option target="pal2rgb"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/ppm2tiff.c">
+			<Option target="ppm2tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/raw2tiff.c">
+			<Option target="raw2tiff"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/rgb2ycbcr.c">
+			<Option target="rgb2ycbcr"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/thumbnail.c">
+			<Option target="thumbnail"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiff2bw.c">
+			<Option target="tiff2bw"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiff2pdf.c">
+			<Option target="tiff2pdf"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiff2ps.c">
+			<Option target="tiff2ps"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiff2rgba.c">
+			<Option target="tiff2rgba"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiffcmp.c">
+			<Option target="tiffcmp"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiffcp.c">
+			<Option target="tiffcp"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiffcrop.c">
+			<Option target="tiffcrop"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiffdither.c">
+			<Option target="tiffdither"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiffdump.c">
+			<Option target="tiffdump"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiffgt.c">
+			<Option target="tiffgt"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiffinfo.c">
+			<Option target="tiffinfo"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiffmedian.c">
+			<Option target="tiffmedian"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiffset.c">
+			<Option target="tiffset"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/tiffsplit.c">
+			<Option target="tiffsplit"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/CSL/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\CSL\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/CSL/csl.cmk">
+			<Option virtualFolder="CMake Files\CSL\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/CSL/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\CSL\src\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/sqlite/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\sqlite\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\libuv\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\libuv\libuv-r\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/libuv.pc.in">
+			<Option virtualFolder="CMake Files\third\libuv\libuv-r\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\fltk\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk.cmk">
+			<Option virtualFolder="CMake Files\third\fltk\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/abi-version.cmake.in">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/configh.cmake.in">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/fltk-config.in">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/CMake/FLTK-Functions.cmake">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\CMake\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/CMake/FLTKConfig.cmake.in">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\CMake\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/CMake/MacOSXBundleInfo.plist.in">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\CMake\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/CMake/UseFLTK.cmake.in">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\CMake\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/CMake/cmake_uninstall.cmake.in">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\CMake\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/CMake/export.cmake">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\CMake\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/CMake/install.cmake">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\CMake\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/CMake/macros.cmake">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\CMake\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/CMake/options.cmake">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\CMake\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/CMake/resources.cmake">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\CMake\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/CMake/setup.cmake">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\CMake\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/CMake/variables.cmake">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\CMake\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/fluid/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\fluid\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\src\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/test/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\test\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/test/browser.cxx">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\test\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/test/demo.menu">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\test\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/test/editor.cxx">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\test\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/test/help-test.html">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\test\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/test/rgb.txt">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\test\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/ide/Xcode4/plists/editor-Info.plist">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\ide\Xcode4\plists\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff-4.pc.in">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\port\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\libtiff\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_config.h.cmake.in">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\libtiff\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tiffconf.h.cmake.in">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\libtiff\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\tools\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\test\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\contrib\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/addtiffo/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\contrib\addtiffo\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\contrib\dbs\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/xtiff/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\contrib\dbs\xtiff\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/iptcutil/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\contrib\iptcutil\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/mfs/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\contrib\mfs\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/pds/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\contrib\pds\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/ras/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\contrib\ras\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/stream/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\contrib\stream\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/tags/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\contrib\tags\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/win_dib/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\contrib\win_dib\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/build/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\build\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/man/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\man\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/html/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\html\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/html/images/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\html\images\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/html/man/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\html\man\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/tools/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\tools\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/tools/wmc/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\tools\wmc\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/tools/WmarkEditor/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\tools\WmarkEditor\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

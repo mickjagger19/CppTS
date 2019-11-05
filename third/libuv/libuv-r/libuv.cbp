@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="libuv"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\CSL\;CMake Files\CSL\src\;CMake Files\third\;CMake Files\third\sqlite\;CMake Files\third\libuv\;CMake Files\third\libuv\libuv-r\;CMake Files\third\fltk\;CMake Files\third\fltk\fltk-r\;CMake Files\third\fltk\fltk-r\CMake\;CMake Files\third\fltk\fltk-r\fluid\;CMake Files\third\fltk\fltk-r\src\;CMake Files\third\fltk\fltk-r\test\;CMake Files\third\fltk\fltk-r\ide\;CMake Files\third\fltk\fltk-r\ide\Xcode4\;CMake Files\third\fltk\fltk-r\ide\Xcode4\plists\;CMake Files\third\tiff\;CMake Files\third\tiff\tiff-r\;CMake Files\third\tiff\tiff-r\port\;CMake Files\third\tiff\tiff-r\libtiff\;CMake Files\third\tiff\tiff-r\tools\;CMake Files\third\tiff\tiff-r\test\;CMake Files\third\tiff\tiff-r\contrib\;CMake Files\third\tiff\tiff-r\contrib\addtiffo\;CMake Files\third\tiff\tiff-r\contrib\dbs\;CMake Files\third\tiff\tiff-r\contrib\dbs\xtiff\;CMake Files\third\tiff\tiff-r\contrib\iptcutil\;CMake Files\third\tiff\tiff-r\contrib\mfs\;CMake Files\third\tiff\tiff-r\contrib\pds\;CMake Files\third\tiff\tiff-r\contrib\ras\;CMake Files\third\tiff\tiff-r\contrib\stream\;CMake Files\third\tiff\tiff-r\contrib\tags\;CMake Files\third\tiff\tiff-r\contrib\win_dib\;CMake Files\third\tiff\tiff-r\build\;CMake Files\third\tiff\tiff-r\man\;CMake Files\third\tiff\tiff-r\html\;CMake Files\third\tiff\tiff-r\html\images\;CMake Files\third\tiff\tiff-r\html\man\;CMake Files\tools\;CMake Files\tools\wmc\;CMake Files\tools\WmarkEditor\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="uv_a">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/libuv_a.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add option="-D_LARGEFILE_SOURCE"/>
+					<Add option="-D_DARWIN_UNLIMITED_SELECT=1"/>
+					<Add option="-D_DARWIN_USE_64_BIT_INODE=1"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/include"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/src"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/Makefile&quot;  VERBOSE=1 uv_a"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="uv_a/fast">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/libuv_a.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add option="-D_LARGEFILE_SOURCE"/>
+					<Add option="-D_DARWIN_UNLIMITED_SELECT=1"/>
+					<Add option="-D_DARWIN_USE_64_BIT_INODE=1"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/include"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/src"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/Makefile&quot;  VERBOSE=1 uv_a/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="uv">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/libuv.dylib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add option="-D_LARGEFILE_SOURCE"/>
+					<Add option="-D_DARWIN_UNLIMITED_SELECT=1"/>
+					<Add option="-D_DARWIN_USE_64_BIT_INODE=1"/>
+					<Add option="-DBUILDING_UV_SHARED=1"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/include"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/src"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/Makefile&quot;  VERBOSE=1 uv"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="uv/fast">
+				<Option output="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/libuv.dylib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D_FILE_OFFSET_BITS=64"/>
+					<Add option="-D_LARGEFILE_SOURCE"/>
+					<Add option="-D_DARWIN_UNLIMITED_SELECT=1"/>
+					<Add option="-D_DARWIN_USE_64_BIT_INODE=1"/>
+					<Add option="-DBUILDING_UV_SHARED=1"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/include"/>
+					<Add directory="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/src"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/Makefile&quot;  VERBOSE=1 uv/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/src/fs-poll.c">
+			<Option target="uv_a"/>
+			<Option target="uv"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/src/idna.c">
+			<Option target="uv_a"/>
+			<Option target="uv"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/src/idna.h">
+			<Option target="uv_a"/>
+			<Option target="uv"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/src/inet.c">
+			<Option target="uv_a"/>
+			<Option target="uv"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/src/strscpy.c">
+			<Option target="uv_a"/>
+			<Option target="uv"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/src/strscpy.h">
+			<Option target="uv_a"/>
+			<Option target="uv"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/src/threadpool.c">
+			<Option target="uv_a"/>
+			<Option target="uv"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/src/timer.c">
+			<Option target="uv_a"/>
+			<Option target="uv"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/src/unix/async.c">
+			<Option target="uv_a"/>
+			<Option target="uv"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/src/unix/bsd-ifaddrs.c">
+			<Option target="uv_a"/>
+			<Option target="uv"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/src/unix/core.c">
+			<Option target="uv_a"/>
+			<Option target="uv"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/src/unix/darwin-proctitle.c">
+			<Option target="uv_a"/>
+			<Option target="uv"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/src/unix/darwin.c">
+			<Option target="uv_a"/>
+			<Option target="uv"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/src/unix/dl.c">
+			<Option target="uv_a"/>
+			<Option target="uv"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/src/unix/fs.c">
+			<Option target="uv_a"/>
+			<Option target="uv"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/src/unix/fsevents.c">
+			<Option target="uv_a"/>
+			<Option target="uv"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/src/unix/getaddrinfo.c">
+			<Option target="uv_a"/>
+			<Option target="uv"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/src/unix/getnameinfo.c">
+			<Option target="uv_a"/>
+			<Option target="uv"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/src/unix/kqueue.c">
+			<Option target="uv_a"/>
+			<Option target="uv"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/src/unix/loop-watcher.c">
+			<Option target="uv_a"/>
+			<Option target="uv"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/src/unix/loop.c">
+			<Option target="uv_a"/>
+			<Option target="uv"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/src/unix/pipe.c">
+			<Option target="uv_a"/>
+			<Option target="uv"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/src/unix/poll.c">
+			<Option target="uv_a"/>
+			<Option target="uv"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/src/unix/process.c">
+			<Option target="uv_a"/>
+			<Option target="uv"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/src/unix/proctitle.c">
+			<Option target="uv_a"/>
+			<Option target="uv"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/src/unix/signal.c">
+			<Option target="uv_a"/>
+			<Option target="uv"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/src/unix/stream.c">
+			<Option target="uv_a"/>
+			<Option target="uv"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/src/unix/tcp.c">
+			<Option target="uv_a"/>
+			<Option target="uv"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/src/unix/thread.c">
+			<Option target="uv_a"/>
+			<Option target="uv"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/src/unix/tty.c">
+			<Option target="uv_a"/>
+			<Option target="uv"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/src/unix/udp.c">
+			<Option target="uv_a"/>
+			<Option target="uv"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/src/uv-common.c">
+			<Option target="uv_a"/>
+			<Option target="uv"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/src/uv-common.h">
+			<Option target="uv_a"/>
+			<Option target="uv"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/src/uv-data-getter-setters.c">
+			<Option target="uv_a"/>
+			<Option target="uv"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/src/version.c">
+			<Option target="uv_a"/>
+			<Option target="uv"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/CSL/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\CSL\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/CSL/csl.cmk">
+			<Option virtualFolder="CMake Files\CSL\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/CSL/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\CSL\src\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/sqlite/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\sqlite\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\libuv\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\libuv\libuv-r\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/libuv/libuv-r/libuv.pc.in">
+			<Option virtualFolder="CMake Files\third\libuv\libuv-r\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\fltk\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk.cmk">
+			<Option virtualFolder="CMake Files\third\fltk\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/abi-version.cmake.in">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/configh.cmake.in">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/fltk-config.in">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/CMake/FLTK-Functions.cmake">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\CMake\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/CMake/FLTKConfig.cmake.in">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\CMake\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/CMake/MacOSXBundleInfo.plist.in">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\CMake\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/CMake/UseFLTK.cmake.in">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\CMake\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/CMake/cmake_uninstall.cmake.in">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\CMake\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/CMake/export.cmake">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\CMake\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/CMake/install.cmake">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\CMake\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/CMake/macros.cmake">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\CMake\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/CMake/options.cmake">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\CMake\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/CMake/resources.cmake">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\CMake\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/CMake/setup.cmake">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\CMake\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/CMake/variables.cmake">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\CMake\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/fluid/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\fluid\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\src\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/test/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\test\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/test/browser.cxx">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\test\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/test/demo.menu">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\test\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/test/editor.cxx">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\test\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/test/help-test.html">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\test\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/test/rgb.txt">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\test\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/fltk/fltk-r/ide/Xcode4/plists/editor-Info.plist">
+			<Option virtualFolder="CMake Files\third\fltk\fltk-r\ide\Xcode4\plists\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff-4.pc.in">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/port/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\port\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\libtiff\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tif_config.h.cmake.in">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\libtiff\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/libtiff/tiffconf.h.cmake.in">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\libtiff\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/tools/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\tools\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/test/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\test\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\contrib\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/addtiffo/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\contrib\addtiffo\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\contrib\dbs\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/dbs/xtiff/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\contrib\dbs\xtiff\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/iptcutil/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\contrib\iptcutil\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/mfs/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\contrib\mfs\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/pds/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\contrib\pds\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/ras/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\contrib\ras\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/stream/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\contrib\stream\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/tags/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\contrib\tags\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/contrib/win_dib/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\contrib\win_dib\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/build/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\build\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/man/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\man\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/html/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\html\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/html/images/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\html\images\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/third/tiff/tiff-r/html/man/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third\tiff\tiff-r\html\man\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/tools/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\tools\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/tools/wmc/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\tools\wmc\"/>
+		</Unit>
+		<Unit filename="/Users/mick/Desktop/Learn/Code/CppTS/tools/WmarkEditor/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\tools\WmarkEditor\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

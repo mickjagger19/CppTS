@@ -8,7 +8,7 @@
 
 #include "../base/WmarkDef.h"
 
-#include "tk_Code_action.h"
+#include "tk_code_action.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -18,7 +18,7 @@ namespace CSL {
 
 // WmarkParserTkCodeAction
 
-WmarkParserTkCodeAction::WmarkParserTkCodeAction() noexcept : m_pData(nullptr)
+WmarkParserTkCodeAction::WmarkParserTkCodeAction() noexcept
 {
 }
 WmarkParserTkCodeAction::~WmarkParserTkCodeAction() noexcept
@@ -43,8 +43,7 @@ bool WmarkParserTkCodeAction::DoAction(const std::string& strToken, std::vector<
     } else
         m_pData->spMeta->SetAstNext(m_pData->posCurrent, pos);
 
-	m_pData->posCurrent.uAddress = 0;
-	m_pData->posParent = pos;
+	down(pos);
 	return true;
 }
 

@@ -133,10 +133,14 @@ public:
     void *GetData(RdMetaDataPosition pos) throw();
     const void *GetData(RdMetaDataPosition posData) const throw();
     RdMetaDataPosition AllocateAstNode(uint32_t uType);
+    void ChangeAstNodeType(uint32_t uAddress, uint32_t uType);
+    uint32_t GetNodeType(uint32_t uAddress);
+    RdMetaDataPosition DuplicateAstNode(uint32_t uAddress);
     void SetAstParent(RdMetaDataPosition pos, RdMetaDataPosition posParent) throw();
     void SetAstChild(RdMetaDataPosition pos, RdMetaDataPosition posChild) throw();
     void SetAstNext(RdMetaDataPosition pos, RdMetaDataPosition posNext) throw();
     void SetAstData(RdMetaDataPosition pos, RdMetaDataPosition posData) throw();
+    void SetAstType(RdMetaDataPosition pos, uint32_t type) throw();
     void GetAstNodeInfo(RdMetaDataPosition pos, RdMetaAstNodeInfo &info) const throw();
     void SetAstLinkParent(RdMetaDataPosition posHead, RdMetaDataPosition posParent) throw();
     RdMetaDataPosition ReverseAstLink(RdMetaDataPosition posHead) throw();

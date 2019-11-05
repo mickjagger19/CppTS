@@ -49,7 +49,7 @@ bool WmarkScannerCodeTextAction::Scan(std::istream& stm, RdActionStack& stk, RdT
             stm.unget();
 		    continue; // skip the first return
 		}
-        if (ch == '`') {
+        if (ch == '`' || ch == '$') {
             stm.unget();
             token.uID = WMARK_TK_CODETEXT;
             return true;

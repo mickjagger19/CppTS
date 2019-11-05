@@ -18,7 +18,7 @@ namespace CSL {
 
 // WmarkParserTkIndentAction
 
-WmarkParserImageAction::WmarkParserImageAction() noexcept : m_pData(nullptr)
+WmarkParserImageAction::WmarkParserImageAction() noexcept
 {
 }
 WmarkParserImageAction::~WmarkParserImageAction() noexcept

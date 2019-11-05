@@ -34,7 +34,6 @@ void WmarkParserUPAction::SetParameter(const std::any& param)
 
 bool WmarkParserUPAction::DoAction(const std::string& strToken, std::vector<std::string>& vecError)
 {
-	//up
 	assert( m_pData->posParent.uAddress != 0 );
     up();
 	return true;
