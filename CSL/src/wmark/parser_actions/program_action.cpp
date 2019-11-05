@@ -18,7 +18,7 @@ namespace CSL {
 
 // WmarkParserProgramAction
 
-WmarkParserProgramAction::WmarkParserProgramAction() noexcept : m_pData(nullptr)
+WmarkParserProgramAction::WmarkParserProgramAction() noexcept
 {
 }
 WmarkParserProgramAction::~WmarkParserProgramAction() noexcept
@@ -36,7 +36,7 @@ bool WmarkParserProgramAction::DoAction(const std::string& strToken, std::vector
 {
 	//root
 	if( m_pData->posParent.uAddress == 0 && m_pData->posCurrent.uAddress == 0 ) {
-		RdMetaDataPosition pos = m_pData->spMeta->InsertAstNode(WMARK_NODETYPE_ROOT);
+		RdMetaDataPosition pos = m_pData->spMeta->AllocateAstNode(WMARK_NODETYPE_ROOT);
 		RdMetaDataPosition posRoot = m_pData->spMeta->GetAstRoot(m_pData->spMeta->GetAstStart());
 		m_pData->spMeta->SetAstParent(pos, posRoot);
 		m_pData->spMeta->SetAstChild(posRoot, pos);

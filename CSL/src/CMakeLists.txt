@@ -17,7 +17,7 @@ SET(SRC_PCH_LIST "precomp.cpp")
 SET(SRC_LIST "cslbase.cpp" "cslsys.cpp" "cslrdp.cpp" "cslwmark.cpp"
 	"wmark/scan_actions/tk_action.cpp" "wmark/scan_actions/comment_action.cpp" "wmark/scan_actions/text_action.cpp"
 	"wmark/parser_actions/accepted_action.cpp" "wmark/parser_actions/program_action.cpp" "wmark/parser_actions/tk_comment_action.cpp"
-	"wmark/parser_actions/block_element_action.cpp" "wmark/parser_actions/berr_tail_action.cpp" "wmark/parser_actions/tk_text_action.cpp"
+	"wmark/parser_actions/block_element_action.cpp" "wmark/parser_actions/up_action.cpp" "wmark/parser_actions/tk_text_action.cpp"
 	"wmark/parser_actions/tk_indent_action.cpp"
 	"wmark/generators/CommentGenerator.cpp" "wmark/generators/ParagraphGenerator.cpp" "wmark/generators/TextGenerator.cpp"
 	"wmark/generators/IndentGenerator.cpp"

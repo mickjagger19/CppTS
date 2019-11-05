@@ -14,7 +14,7 @@
 #include "parser_actions/program_action.h"
 #include "parser_actions/tk_comment_action.h"
 #include "parser_actions/block_element_action.h"
-#include "parser_actions/berr_tail_action.h"
+#include "wmark/parser_actions/up_action.h"
 #include "parser_actions/tk_text_action.h"
 #include "parser_actions/tk_indent_action.h"
 
@@ -52,7 +52,7 @@ const RULEELEMENT g_Rules[] = {
 //ber_tail : TK_EPSILON
 { WMARK_NT_ber_tail, LA_NULL }, { TK_EPSILON, LA_NULL }, { TK_NULL, LA_NULL },
 //berr_tail : b_body
-{ WMARK_NT_berr_tail, WMARK_PARSER_ACT_berr_tail }, { WMARK_NT_b_body, LA_NULL }, { TK_NULL, LA_NULL },
+{ WMARK_NT_berr_tail, WMARK_PARSER_ACT_UP }, { WMARK_NT_b_body, LA_NULL }, { TK_NULL, LA_NULL },
 //berr_tail : TK_EPSILON
 { WMARK_NT_berr_tail, LA_NULL }, { TK_EPSILON, LA_NULL }, { TK_NULL, LA_NULL },
 //return_list : WMARK_TK_RETURN return_list_tail
@@ -61,10 +61,16 @@ const RULEELEMENT g_Rules[] = {
 { WMARK_NT_return_list_tail, LA_NULL }, { WMARK_TK_RETURN, LA_NULL }, { WMARK_NT_return_list_tail, LA_NULL }, { TK_NULL, LA_NULL },
 //return_list_tail : TK_EPSILON
 { WMARK_NT_return_list_tail, LA_NULL }, { TK_EPSILON, LA_NULL }, { TK_NULL, LA_NULL },
-//line_element : WMARK_TK_TEXT
-{ WMARK_NT_line_element, LA_NULL }, { WMARK_TK_TEXT, WMARK_PARSER_ACT_TK_TEXT }, { TK_NULL, LA_NULL },
+//line_element : text
+{ WMARK_NT_line_element, LA_NULL }, { WMARK_NT_text, LA_NULL }, {WMARK_NT_text_tail, LA_NULL }, { TK_NULL, LA_NULL },
 //line_element : WMARK_TK_INDENT
 { WMARK_NT_line_element, LA_NULL }, { WMARK_TK_INDENT, WMARK_PARSER_ACT_TK_INDENT }, { TK_NULL, LA_NULL },
+//WMARK_NT_text : WMARK_TK_TEXT
+{WMARK_NT_text, LA_NULL }, {WMARK_TK_TEXT, WMARK_PARSER_ACT_TK_TEXT }, { TK_NULL, LA_NULL },
+//text_tail : text
+{WMARK_NT_text_tail, WMARK_PARSER_ACT_UP }, {WMARK_NT_text, LA_NULL }, { TK_NULL, LA_NULL },
+//text_tail : TK_EPSILON
+{WMARK_NT_text_tail, LA_NULL }, { TK_EPSILON, LA_NULL }, { TK_NULL, LA_NULL },
 //=============================================================================
 //end
 { TK_NULL, LA_NULL }
@@ -99,9 +105,9 @@ void WmarkParserHelper::InitActions(RdParser& parser, RdParserActionMetaData* pD
 	spAction->SetParameter(std::make_any<RdParserActionMetaData*>(pData));
 	parser.AddAction(WMARK_PARSER_ACT_block_element, spAction);
 	//berr_tail
-	spAction = std::static_pointer_cast<IRdParserAction, WmarkParserBerrTailAction>(std::make_shared<WmarkParserBerrTailAction>());
+	spAction = std::static_pointer_cast<IRdParserAction, WmarkParserUPAction>(std::make_shared<WmarkParserUPAction>());
 	spAction->SetParameter(std::make_any<RdParserActionMetaData*>(pData));
-	parser.AddAction(WMARK_PARSER_ACT_berr_tail, spAction);
+	parser.AddAction(WMARK_PARSER_ACT_UP, spAction);
 	//TK_TEXT
 	spAction = std::static_pointer_cast<IRdParserAction, WmarkParserTkTextAction>(std::make_shared<WmarkParserTkTextAction>());
 	spAction->SetParameter(std::make_any<RdParserActionMetaData*>(pData));

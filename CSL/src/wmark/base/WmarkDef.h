@@ -39,6 +39,8 @@ enum {
 	WMARK_NT_berr_tail,
 	WMARK_NT_return_list_tail,
 	WMARK_NT_line_element,
+	WMARK_NT_text,
+	WMARK_NT_text_tail,
 };
 
 //actions for parser
@@ -46,7 +48,7 @@ enum {
 	WMARK_PARSER_ACT_program = 1,
 	WMARK_PARSER_ACT_TK_COMMENT,
 	WMARK_PARSER_ACT_block_element,
-	WMARK_PARSER_ACT_berr_tail,
+	WMARK_PARSER_ACT_UP,
 	WMARK_PARSER_ACT_TK_TEXT,
 	WMARK_PARSER_ACT_TK_INDENT,
 };

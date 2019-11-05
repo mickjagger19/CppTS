@@ -3,28 +3,26 @@
 */
 
 ////////////////////////////////////////////////////////////////////////////////
-#ifndef __BERR_TAIL_ACTION_H__
-#define __BERR_TAIL_ACTION_H__
+#ifndef __UP_ACTION_H__
+#define __UP_ACTION_H__
 ////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace CSL {
 ////////////////////////////////////////////////////////////////////////////////
 
-// WmarkParserBerrTailAction
+// WmarkParserUPAction
 
-class WmarkParserBerrTailAction : public IRdParserAction
+class WmarkParserUPAction : public IRdParserAction
 {
 public:
-	WmarkParserBerrTailAction() noexcept;
-	~WmarkParserBerrTailAction() noexcept;
+	WmarkParserUPAction() noexcept;
+	~WmarkParserUPAction() noexcept;
 
 // IRdParserAction methods
 	virtual void SetParameter(const std::any& param);
 	virtual bool DoAction(const std::string& strToken, std::vector<std::string>& vecError);
 
-private:
-	RdParserActionMetaData* m_pData;
 };
 
 ////////////////////////////////////////////////////////////////////////////////
