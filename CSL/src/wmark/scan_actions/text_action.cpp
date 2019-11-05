@@ -39,7 +39,7 @@ bool WmarkScannerTextAction::Scan(std::istream& stm, RdActionStack& stk, RdToken
 		if( !stm.good() )
 			return false;
 
-		if( ch == '\r' || ch == '\n' ) {
+		if( ch == '\r' || ch == '\n' || ch == '*' ) {
 			stm.unget();
 			break;
 		}

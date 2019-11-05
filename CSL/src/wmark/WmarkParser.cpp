@@ -17,6 +17,7 @@
 #include "wmark/parser_actions/up_action.h"
 #include "parser_actions/tk_text_action.h"
 #include "parser_actions/tk_indent_action.h"
+#include "parser_actions/tk_heading_action.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -65,8 +66,10 @@ const RULEELEMENT g_Rules[] = {
 { WMARK_NT_line_element, LA_NULL }, { WMARK_NT_text, LA_NULL }, {WMARK_NT_text_tail, LA_NULL }, { TK_NULL, LA_NULL },
 //line_element : WMARK_TK_INDENT
 { WMARK_NT_line_element, LA_NULL }, { WMARK_TK_INDENT, WMARK_PARSER_ACT_TK_INDENT }, { TK_NULL, LA_NULL },
-//WMARK_NT_text : WMARK_TK_TEXT
+//text : WMARK_TK_TEXT
 {WMARK_NT_text, LA_NULL }, {WMARK_TK_TEXT, WMARK_PARSER_ACT_TK_TEXT }, { TK_NULL, LA_NULL },
+//text : WMARK_TK_HEADING text
+{WMARK_NT_text, WMARK_PARSER_ACT_TK_HEADING }, {WMARK_TK_HEADING, LA_NULL }, {WMARK_NT_text, LA_NULL}, {WMARK_NT_return_list_tail, LA_NULL }, { TK_NULL, LA_NULL},
 //text_tail : text
 {WMARK_NT_text_tail, WMARK_PARSER_ACT_UP }, {WMARK_NT_text, LA_NULL }, { TK_NULL, LA_NULL },
 //text_tail : TK_EPSILON
@@ -104,7 +107,7 @@ void WmarkParserHelper::InitActions(RdParser& parser, RdParserActionMetaData* pD
 	spAction = std::static_pointer_cast<IRdParserAction, WmarkParserBlockElementAction>(std::make_shared<WmarkParserBlockElementAction>());
 	spAction->SetParameter(std::make_any<RdParserActionMetaData*>(pData));
 	parser.AddAction(WMARK_PARSER_ACT_block_element, spAction);
-	//berr_tail
+	//up
 	spAction = std::static_pointer_cast<IRdParserAction, WmarkParserUPAction>(std::make_shared<WmarkParserUPAction>());
 	spAction->SetParameter(std::make_any<RdParserActionMetaData*>(pData));
 	parser.AddAction(WMARK_PARSER_ACT_UP, spAction);
@@ -116,6 +119,11 @@ void WmarkParserHelper::InitActions(RdParser& parser, RdParserActionMetaData* pD
 	spAction = std::static_pointer_cast<IRdParserAction, WmarkParserTkIndentAction>(std::make_shared<WmarkParserTkIndentAction>());
 	spAction->SetParameter(std::make_any<RdParserActionMetaData*>(pData));
 	parser.AddAction(WMARK_PARSER_ACT_TK_INDENT, spAction);
+    //TK_HEADING
+    spAction = std::static_pointer_cast<IRdParserAction, WmarkParserTkHeadingAction>(
+            std::make_shared<WmarkParserTkHeadingAction>());
+    spAction->SetParameter(std::make_any<RdParserActionMetaData *>(pData));
+    parser.AddAction(WMARK_PARSER_ACT_TK_HEADING, spAction);
 }
 
 void WmarkParserHelper::Start(RdParser& parser)
