@@ -79,6 +79,8 @@ RdaTable::~RdaTable() throw()
 }
 
 //internal
+// bPop == true ===> iAct == -index - 2
+// bPop == false ===> iAct = index + 1
 bool RdaTable::index_to_action(uintptr_t index, bool bPop, int32_t& iAct) throw()
 {
 	uintptr_t index2 = bPop ? index + 2 : index + 1;
@@ -109,8 +111,8 @@ bool RdaTable::generate_first_set(uint32_t uMaxTerminalID)
 		bool bEps = (iter->pRule[1].uToken == TK_EPSILON);
 		if( bEps && iter->uNum != 2 )
 			return false;
-		auto iterF(m_map.find(iter->pRule[0].uToken));
-		if( iterF == m_map.end() ) {
+		auto iterF(firstSet.find(iter->pRule[0].uToken));
+		if(iterF == firstSet.end() ) {
 			std::shared_ptr<_TableItem> spItem(std::make_shared<_TableItem>());
 			spItem->iEpsilon = 0;
 			if( bEps ) {
@@ -118,9 +120,9 @@ bool RdaTable::generate_first_set(uint32_t uMaxTerminalID)
 					return false;
 			}
 			else {
-				if( iter->pRule[1].uToken <= uMaxTerminalID ) {
+				if( iter->pRule[1].uToken <= uMaxTerminalID ) { // first element in the right is a Terminal
 					int32_t iAct;
-					if( !index_to_action(index, false, iAct) )
+					if( !index_to_action(index, false, iAct) ) // iAct == index + 1
 						return false;
 					spItem->mapTerminal.insert(std::pair<uint32_t, int32_t>(iter->pRule[1].uToken, iAct));
 				}
@@ -128,7 +130,7 @@ bool RdaTable::generate_first_set(uint32_t uMaxTerminalID)
 					vecIndex.push_back(index);
 				}
 			}
-			m_map.insert(std::pair<uint32_t, std::shared_ptr<_TableItem>>(iter->pRule[0].uToken, spItem));
+			firstSet.insert(std::pair<uint32_t, std::shared_ptr<_TableItem>>(iter->pRule[0].uToken, spItem));
 		}
 		else {
 			if( bEps ) {
@@ -181,15 +183,15 @@ bool RdaTable::generate_first_set(uint32_t uMaxTerminalID)
 			}
 			continue;
 		}
-		auto iterF(m_map.find(uNT));
+		auto iterF(firstSet.find(uNT));
 		//no rule
-		if( iterF == m_map.end() )
+		if(iterF == firstSet.end() )
 			return false;
 		//the first nonterminal of right part cannot derive epsilon
 		if( iterF->second->iEpsilon < 0 )
 			return false;
-		auto iterP(m_map.find(m_rules[index].pRule[0].uToken));
-		assert( iterP != m_map.end() );
+		auto iterP(firstSet.find(m_rules[index].pRule[0].uToken));
+		assert(iterP != firstSet.end() );
 		//propagation
 		for( auto iterF2 = iterF->second->mapTerminal.begin();
 			iterF2 != iterF->second->mapTerminal.end();
@@ -212,7 +214,7 @@ bool RdaTable::generate_first_set(uint32_t uMaxTerminalID)
 	} //end while
 
 	//check null rules
-	for( auto iterF(m_map.begin()); iterF != m_map.end(); ++ iterF ) {
+	for(auto iterF(firstSet.begin()); iterF != firstSet.end(); ++ iterF ) {
 		if( iterF->second->mapTerminal.size() == 0 )
 			return false;
 	}
@@ -236,9 +238,9 @@ bool RdaTable::add_follow_set(uint32_t uMaxTerminalID)
 			if( uToken == TK_EPSILON || uToken <= uMaxTerminalID )
 				continue;
 			//nonterminal
-			auto iterF(m_map.find(uToken));
+			auto iterF(firstSet.find(uToken));
 			//no rule
-			if( iterF == m_map.end() )
+			if(iterF == firstSet.end() )
 				return false;
 			//next
 			uintptr_t uNext = i + 1;
@@ -254,8 +256,8 @@ bool RdaTable::add_follow_set(uint32_t uMaxTerminalID)
 					break;
 				}
 				//NT
-				auto iterP(m_map.find(uF));
-				if( iterP == m_map.end() )
+				auto iterP(firstSet.find(uF));
+				if(iterP == firstSet.end() )
 					return false;
 				for( auto iterF2 = iterP->second->mapTerminal.begin();
 					iterF2 != iterP->second->mapTerminal.end();
@@ -273,8 +275,8 @@ bool RdaTable::add_follow_set(uint32_t uMaxTerminalID)
 	} //end for
 
 	//EOE
-	auto iterF(m_map.find(m_uStartNT));
-	assert( iterF != m_map.end() );
+	auto iterF(firstSet.find(m_uStartNT));
+	assert(iterF != firstSet.end() );
 	iterF->second->iEpsilon = -1;  //special
 	iterF->second->sFollow.insert(TK_END_OF_EVENT);
 
@@ -290,8 +292,8 @@ bool RdaTable::add_follow_set(uint32_t uMaxTerminalID)
 			uint32_t uToken = iter->pRule[i].uToken;
 			if( uToken == TK_EPSILON || uToken <= uMaxTerminalID )
 				break;
-			iterF = m_map.find(uToken);
-			assert( iterF != m_map.end() );
+			iterF = firstSet.find(uToken);
+			assert(iterF != firstSet.end() );
 			if( uToken != iter->pRule[0].uToken ) {
 				if( iterP == mapProp.end() ) {
 					auto ip = mapProp.insert(PropPair(iter->pRule[0].uToken, std::set<uint32_t>()));
@@ -312,14 +314,14 @@ bool RdaTable::add_follow_set(uint32_t uMaxTerminalID)
 		auto iterP(mapProp.find(uToken));
 		if( iterP == mapProp.end() )
 			continue;
-		iterF = m_map.find(uToken);
-		assert( iterF != m_map.end() );
+		iterF = firstSet.find(uToken);
+		assert(iterF != firstSet.end() );
 		for( auto iterP2 = iterP->second.begin();
 			iterP2 != iterP->second.end();
 			++ iterP2 ) {
 			uint32_t uNT = *iterP2;
-			auto iterF2(m_map.find(uNT));
-			assert( iterF2 != m_map.end() );
+			auto iterF2(firstSet.find(uNT));
+			assert(iterF2 != firstSet.end() );
 			bool bChanged = false;
 			for( auto iterF3 = iterF->second->sFollow.begin();
 				iterF3 != iterF->second->sFollow.end();
@@ -351,7 +353,7 @@ bool RdaTable::add_follow_set(uint32_t uMaxTerminalID)
 bool RdaTable::Generate(const RULEELEMENT* pRules, uint32_t uMaxTerminalID)
 {
 	assert( pRules != NULL );
-	m_map.clear();
+	firstSet.clear();
 	m_rules.clear();
 
 	//rules
@@ -398,15 +400,15 @@ uint32_t RdaTable::GetStartNT() const throw()
 
 int32_t RdaTable::Input(uint32_t uNonterminal, uint32_t uTerminal) throw()
 {
-	auto iterN(m_map.find(uNonterminal));
-	if( iterN == m_map.end() )
+	auto iterN(firstSet.find(uNonterminal));
+	if(iterN == firstSet.end() )
 		return 0;
 	auto iterT(iterN->second->mapTerminal.find(uTerminal));
-	if( iterT != iterN->second->mapTerminal.end() )
+	if( iterT != iterN->second->mapTerminal.end() ) // found the matched Terminal in first set, return id of the specific rule item
 		return iterT->second;
-	if( iterN->second->iEpsilon < 0 ) {
+	if( iterN->second->iEpsilon < 0 ) { // empty rule
 		auto iterF(iterN->second->sFollow.find(uTerminal));
-		if( iterF != iterN->second->sFollow.end() )
+		if( iterF != iterN->second->sFollow.end() ) // found the matched Terminal in follow set, return id of the specific rule item
 			return iterN->second->iEpsilon;
 	}
 	return 0;
@@ -466,7 +468,7 @@ void RdParser::Start(uint32_t uScannerStartAction, uint32_t uMaxTerminalID)
 	elem.uToken = m_spTable->GetStartNT();
 	elem.uAction = LA_NULL;
 	m_stack.push(elem);
-	m_uCurrentEvent = TK_NO_EVENT;
+    m_uCurrentTerminalToken = TK_NO_EVENT;
 	m_bEmpty = true;
 }
 
@@ -500,7 +502,7 @@ int32_t RdParser::Parse(bool& bEmpty)
 	//loop
 	while( true ) {
 		//input event
-		if( m_uCurrentEvent == TK_NO_EVENT ) {
+		if(m_uCurrentTerminalToken == TK_NO_EVENT ) {
 			bool bRet = m_spScanner->GetToken(m_token);
 			if( !bRet ) {
 				append_unexpected_error();
@@ -512,12 +514,12 @@ int32_t RdParser::Parse(bool& bEmpty)
 			}
 			if( m_token.uID == TK_NULL )
 				continue;
-			m_uCurrentEvent = m_token.uID;
+            m_uCurrentTerminalToken = m_token.uID;
 		}
 
 		//end
 		if( m_stack.empty() ) {
-			if( m_uCurrentEvent != TK_END_OF_EVENT ) {
+			if(m_uCurrentTerminalToken != TK_END_OF_EVENT ) {
 				append_unexpected_error();
 				return -2;
 			}
@@ -532,9 +534,9 @@ int32_t RdParser::Parse(bool& bEmpty)
 		//top
 		RULEELEMENT elem = m_stack.top();
 
-		// terminal
+		// terminal, pop and do the parser action
 		if( elem.uToken <= m_uMaxTerminalID ) {
-			if( elem.uToken != m_uCurrentEvent ) {
+			if(elem.uToken != m_uCurrentTerminalToken ) {
 				append_unexpected_error();
 				return -1;
 			}
@@ -543,21 +545,21 @@ int32_t RdParser::Parse(bool& bEmpty)
 			if( !do_action(elem.uAction) )
 				return -2;
 			//reset
-			m_uCurrentEvent = TK_NO_EVENT;
+			m_uCurrentTerminalToken = TK_NO_EVENT;
 			break;
 		}
 
-		// nonterminal
-		int32_t iAct = m_spTable->Input(elem.uToken, m_uCurrentEvent);
+		// nonterminal, use current token to match current terminal
+		int32_t iAct = m_spTable->Input(elem.uToken, m_uCurrentTerminalToken);
 		if( iAct == 0 ) {
 			append_unexpected_error();
 			return -1;
 		}
 		RULEITEM item;
-		if( iAct > 0 ) {
+		if( iAct > 0 ) { // non-empty rule
 			//rule
 			m_spTable->GetRule(iAct - 1, item);
-			//action
+			//do the action of the first element
 			if( !do_action(item.pRule[0].uAction) )
 				return -2;
 			//pop
@@ -569,7 +571,7 @@ int32_t RdParser::Parse(bool& bEmpty)
 			if( m_bEmpty )
 				m_bEmpty = false;
 		}
-		else {
+		else { // empty rule
 			//action
 			if( iAct < -1 ) {
 				m_spTable->GetRule(-(iAct + 2), item);
@@ -599,11 +601,11 @@ bool RdParser::Revert()
 		elem = m_stack.top();
 		//check
 		if( elem.uToken <= m_uMaxTerminalID ) {
-			if( m_uCurrentEvent == elem.uToken )
+			if(m_uCurrentTerminalToken == elem.uToken )
 				return true;
 		}
 		else {
-			int32_t iAct = m_spTable->Input(elem.uToken, m_uCurrentEvent);
+			int32_t iAct = m_spTable->Input(elem.uToken, m_uCurrentTerminalToken);
 			if( iAct != 0 )
 				return true;
 		}
@@ -624,14 +626,14 @@ bool RdParser::Revert()
 			continue;
 		if( m_token.uID == TK_END_OF_EVENT )
 			return false;
-		m_uCurrentEvent = m_token.uID;
+        m_uCurrentTerminalToken = m_token.uID;
 		//check
 		if( elem.uToken <= m_uMaxTerminalID ) {
-			if( m_uCurrentEvent == elem.uToken )
+			if(m_uCurrentTerminalToken == elem.uToken )
 				break;
 		}
 		else {
-			int32_t iAct = m_spTable->Input(elem.uToken, m_uCurrentEvent);
+			int32_t iAct = m_spTable->Input(elem.uToken, m_uCurrentTerminalToken);
 			if( iAct != 0 )
 				break;
 		}
