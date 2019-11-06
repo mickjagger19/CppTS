@@ -18,6 +18,7 @@
 #include "parser_actions/tk_text_action.h"
 #include "parser_actions/tk_indent_action.h"
 #include "parser_actions/tk_bold_action.h"
+#include "parser_actions/tk_italic_action.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -70,6 +71,8 @@ const RULEELEMENT g_Rules[] = {
 { WMARK_NT_text, LA_NULL }, { WMARK_TK_TEXT, WMARK_PARSER_ACT_TK_TEXT }, { TK_NULL, LA_NULL },
 //text : WMARK_TK_BOLD text WMARK_TK_BOLD
 { WMARK_NT_text, WMARK_PARSER_ACT_TK_BOLD }, { WMARK_TK_BOLD, LA_NULL }, { WMARK_NT_text, LA_NULL }, {WMARK_TK_BOLD, LA_NULL }, { TK_NULL, LA_NULL },
+//WMARK_NT_text : WMARK_TK_ITALIC WMARK_TK_TEXT WMARK_TK_ITALIC
+{ WMARK_NT_text, WMARK_PARSER_ACT_TK_ITALIC }, { WMARK_TK_ITALIC, LA_NULL }, { WMARK_NT_text, LA_NULL }, { WMARK_TK_ITALIC, LA_NULL }, { TK_NULL, LA_NULL },
 //text_tail : text
 { WMARK_NT_text_tail, WMARK_PARSER_ACT_UP }, { WMARK_NT_text, LA_NULL }, { TK_NULL, LA_NULL },
 //text_tail : TK_EPSILON
@@ -120,10 +123,13 @@ void WmarkParserHelper::InitActions(RdParser& parser, RdParserActionMetaData* pD
 	spAction->SetParameter(std::make_any<RdParserActionMetaData*>(pData));
 	parser.AddAction(WMARK_PARSER_ACT_TK_INDENT, spAction);
     //TK_Bold
-    spAction = std::static_pointer_cast<IRdParserAction, WmarkParserTkBoldAction>(
-            std::make_shared<WmarkParserTkBoldAction>());
+    spAction = std::static_pointer_cast<IRdParserAction, WmarkParserTkBoldAction>(std::make_shared<WmarkParserTkBoldAction>());
     spAction->SetParameter(std::make_any<RdParserActionMetaData *>(pData));
     parser.AddAction(WMARK_PARSER_ACT_TK_BOLD, spAction);
+	//TK_ITALIC
+	spAction = std::static_pointer_cast<IRdParserAction, WmarkParserTkItalicAction>(std::make_shared<WmarkParserTkItalicAction>());
+	spAction->SetParameter(std::make_any<RdParserActionMetaData*>(pData));
+	parser.AddAction(WMARK_PARSER_ACT_TK_ITALIC, spAction);
 }
 
 void WmarkParserHelper::Start(RdParser& parser)

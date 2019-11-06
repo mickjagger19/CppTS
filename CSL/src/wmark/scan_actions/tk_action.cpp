@@ -82,14 +82,25 @@ bool WmarkScannerTkAction::Scan(std::istream& stm, RdActionStack& stk, RdToken& 
 		return true;
 	}
 
+    //*
     if ( ch == '*' ) {
         stm.get(ch);
-        if (!stm.good())
+        if (stm.eof()) {
+            token.uID = WMARK_TK_ITALIC;
+            return true;
+        }
+        if (!stm.good()) {
             return false;
-        if ( ch == '*' ) {
+        }
+        if ( ch != '*' ){
+            stm.unget();
+            token.uID = WMARK_TK_ITALIC;
+            return true;
+        } else {
             token.uID = WMARK_TK_BOLD;
             return true;
-        } else stm.unget();
+        }
+        stm.unget();
     }
 
 	//others
