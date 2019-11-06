@@ -143,6 +143,12 @@ bool WmarkScannerTkAction::Scan(std::istream& stm, RdActionStack& stk, RdToken& 
 		return true;
 	}
 
+	//number
+	if( ch >= '0' && ch <= '9' ){
+        stk.push(WMARK_SCANNER_OL_ACTION);
+        return true;
+	}
+
     //`
     if (ch == '`') {
         stm.get(ch);
@@ -179,6 +185,11 @@ bool WmarkScannerTkAction::Scan(std::istream& stm, RdActionStack& stk, RdToken& 
         }
         stm.unget();
     }
+
+	if( ch == '!' ) {
+        stk.push(WMARK_SCANNER_IMAGE_ACTION);
+        return true;
+	}
 
 	//others
 	stk.push(WMARK_SCANNER_TEXT_ACTION);

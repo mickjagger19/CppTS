@@ -21,6 +21,9 @@
 #include "parser_actions/tk_italic_action.h"
 #include "parser_actions/tk_heading_action.h"
 #include "parser_actions/tk_code_action.h"
+#include "parser_actions/image_action.h"
+#include "parser_actions/ol_action.h"
+#include "parser_actions/li_action.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -45,8 +48,16 @@ const RULEELEMENT g_Rules[] = {
 { WMARK_NT_block_element, LA_NULL }, { WMARK_TK_COMMENT, WMARK_PARSER_ACT_TK_COMMENT }, { TK_NULL, LA_NULL },
 //block_element : line_element be_tail
 { WMARK_NT_block_element, WMARK_PARSER_ACT_block_element }, { WMARK_NT_line_element, LA_NULL }, { WMARK_NT_be_tail, LA_NULL }, { TK_NULL, LA_NULL },
+//block_element : ol be_tail
+{ WMARK_NT_block_element, WMARK_PARSER_ACT_NT_OL }, {WMARK_NT_LI, LA_NULL }, {WMARK_NT_OL, LA_NULL }, { WMARK_NT_ber_tail, LA_NULL }, { TK_NULL, LA_NULL },
+//ol : li ol
+{WMARK_NT_OL, LA_NULL }, {WMARK_NT_LI, LA_NULL }, {WMARK_NT_OL, LA_NULL }, { TK_NULL, LA_NULL },
+//ol : TK_EPSILON
+{WMARK_NT_OL, WMARK_PARSER_ACT_berr_tail }, { TK_EPSILON, LA_NULL }, { TK_NULL, LA_NULL },
+//li : WMARK_TK_LI text return_list_tail
+{WMARK_NT_LI, WMARK_PARSER_ACT_NT_LI }, { WMARK_TK_LI, LA_NULL }, {WMARK_NT_text, LA_NULL}, {WMARK_NT_return_list_tail, LA_NULL}, { TK_NULL, LA_NULL },
 //be_tail : WMARK_TK_RETURN ber_tail
-{ WMARK_NT_be_tail, LA_NULL }, { WMARK_TK_RETURN, LA_NULL }, { WMARK_NT_ber_tail, LA_NULL }, { TK_NULL, LA_NULL },
+{ WMARK_NT_be_tail, LA_NULL }, { WMARK_TK_RETURN, LA_NULL }, { WMARK_NT_ber_tail, LA_NULL }, { TK_NULL, LA_NULL }, // 11
 //be_tail : TK_EPSILON
 { WMARK_NT_be_tail, LA_NULL }, { TK_EPSILON, LA_NULL }, { TK_NULL, LA_NULL },
 //ber_tail : line_element be_tail
@@ -60,17 +71,21 @@ const RULEELEMENT g_Rules[] = {
 //berr_tail : TK_EPSILON
 { WMARK_NT_berr_tail, LA_NULL }, { TK_EPSILON, LA_NULL }, { TK_NULL, LA_NULL },
 //return_list : WMARK_TK_RETURN return_list_tail
-{ WMARK_NT_return_list, LA_NULL }, { WMARK_TK_RETURN, LA_NULL }, { WMARK_NT_return_list_tail, LA_NULL }, { TK_NULL, LA_NULL },
+{ WMARK_NT_return_list, LA_NULL }, { WMARK_TK_RETURN, LA_NULL }, { WMARK_NT_return_list_tail, LA_NULL }, { TK_NULL, LA_NULL }, // 18
 //return_list_tail : WMARK_TK_RETURN return_list_tail
 { WMARK_NT_return_list_tail, LA_NULL }, { WMARK_TK_RETURN, LA_NULL }, { WMARK_NT_return_list_tail, LA_NULL }, { TK_NULL, LA_NULL },
 //return_list_tail : TK_EPSILON
 { WMARK_NT_return_list_tail, LA_NULL }, { TK_EPSILON, LA_NULL }, { TK_NULL, LA_NULL },
 //line_element : text
 { WMARK_NT_line_element, LA_NULL }, { WMARK_NT_text, LA_NULL }, { WMARK_NT_text_tail, LA_NULL }, { TK_NULL, LA_NULL },
+//line_element : TK_LI text
+{ WMARK_NT_line_element, LA_NULL}, { WMARK_TK_LI, WMARK_PARSER_ACT_TK_LI }, { WMARK_NT_text, LA_NULL }, {TK_NULL, LA_NULL }, //WMARK_NT_text : WMARK_TK_TEXT
 //line_element : heading
 { WMARK_NT_line_element, LA_NULL }, { WMARK_TK_HEADING, WMARK_PARSER_ACT_TK_HEADING }, { WMARK_NT_text, LA_NULL }, { WMARK_NT_up, LA_NULL }, { TK_NULL, LA_NULL },
 //line_element : WMARK_TK_INDENT
 { WMARK_NT_line_element, LA_NULL }, { WMARK_TK_INDENT, WMARK_PARSER_ACT_TK_INDENT }, { TK_NULL, LA_NULL },
+//line_element : WMARK_TK_IMAGE
+{ WMARK_NT_line_element, LA_NULL }, { WMARK_TK_IMAGE, WMARK_PARSER_ACT_TK_IMAGE }, { TK_NULL, LA_NULL },
 //text : WMARK_TK_TEXT
 { WMARK_NT_text, LA_NULL }, { WMARK_TK_TEXT, WMARK_PARSER_ACT_TK_TEXT }, { TK_NULL, LA_NULL },
 //text : WMARK_TK_ITALIC text WMARK_TK_ITALIC
@@ -80,13 +95,9 @@ const RULEELEMENT g_Rules[] = {
 //text : WMARK_TK_CODEINLINE CODETEXT WMARK_TK_CODEINLINE
 { WMARK_NT_text, WMARK_PARSER_ACT_TK_CODE }, { WMARK_TK_CODEINLINE, LA_NULL }, { WMARK_TK_CODETEXT, WMARK_PARSER_ACT_TK_TEXT }, { WMARK_TK_CODEINLINE, WMARK_PARSER_ACT_UP }, { TK_NULL, LA_NULL },
 //text : codeinparagraph
-{ WMARK_NT_text, WMARK_PARSER_ACT_block_element }, { WMARK_NT_codeinparagraph, LA_NULL }, { WMARK_NT_up, WMARK_PARSER_ACT_UP }, { TK_NULL, LA_NULL },
+{ WMARK_NT_text, WMARK_PARSER_ACT_block_element }, { WMARK_TK_CODEINPARAGRAPH, WMARK_PARSER_ACT_TK_CODE }, { WMARK_TK_CODETEXT, WMARK_PARSER_ACT_TK_TEXT }, { WMARK_TK_CODEINPARAGRAPH, WMARK_PARSER_ACT_UP }, { WMARK_NT_up, LA_NULL}, { TK_NULL, LA_NULL },
 //text: WMARK_TK_TEXT
 { WMARK_NT_text, WMARK_PARSER_ACT_TK_TEXT }, { WMARK_TK_TEXT, LA_NULL }, { TK_NULL, LA_NULL },
-//text : WMARK_TK_CODE text WMARK_TK_CODE
-{ WMARK_NT_text, WMARK_PARSER_ACT_TK_CODE }, { WMARK_TK_CODE, LA_NULL }, {WMARK_NT_text, LA_NULL}, { WMARK_TK_CODE, LA_NULL }, { TK_NULL, LA_NULL },
-//codeinparagraph : WMARK_TK_CODEINPARAGRAPH WMARK_TK_CODETEXT WMARK_TK_CODEINPARAGRAPH
-{ WMARK_NT_codeinparagraph, WMARK_PARSER_ACT_TK_CODE }, { WMARK_TK_CODEINPARAGRAPH, LA_NULL }, { WMARK_TK_CODETEXT, WMARK_PARSER_ACT_TK_TEXT }, { WMARK_TK_CODEINPARAGRAPH, LA_NULL }, { TK_NULL, LA_NULL },
 //bold_text : text
 { WMARK_NT_bold_text, LA_NULL }, { WMARK_TK_TEXT, LA_NULL }, { TK_NULL, LA_NULL },
 //italic_text : text
@@ -99,6 +110,8 @@ const RULEELEMENT g_Rules[] = {
 { WMARK_NT_text_tail, LA_NULL }, { WMARK_NT_text, LA_NULL }, { WMARK_NT_text_tail, LA_NULL }, { TK_NULL, LA_NULL },
 //text_tail : TK_EPSILON
 { WMARK_NT_text_tail, LA_NULL }, { TK_EPSILON, LA_NULL }, { TK_NULL, LA_NULL },
+//ol : WMARK_TK_LI WMARK_NT_OL
+{ WMARK_NT_OL, WMARK_PARSER_ACT_TK_LI }, { WMARK_NT_line_element, LA_NULL }, { WMARK_NT_OL, LA_NULL }, { TK_NULL, LA_NULL },
 //=============================================================================
 //end
 { TK_NULL, LA_NULL }
@@ -160,6 +173,18 @@ void WmarkParserHelper::InitActions(RdParser& parser, RdParserActionMetaData* pD
 	spAction = std::static_pointer_cast<IRdParserAction, WmarkParserTkCodeAction>(std::make_shared<WmarkParserTkCodeAction>());
 	spAction->SetParameter(std::make_any<RdParserActionMetaData*>(pData));
 	parser.AddAction(WMARK_PARSER_ACT_TK_CODE, spAction);
+    //IMAGE
+    spAction = std::static_pointer_cast<IRdParserAction, WmarkParserImageAction>(std::make_shared<WmarkParserImageAction>());
+    spAction->SetParameter(std::make_any<RdParserActionMetaData *>(pData));
+    parser.AddAction(WMARK_PARSER_ACT_TK_IMAGE, spAction);
+	//NT_OL
+	spAction = std::static_pointer_cast<IRdParserAction, WmarkParserLiAction>(std::make_shared<WmarkParserLIAction>());
+	spAction->SetParameter(std::make_any<RdParserActionMetaData*>(pData));
+	parser.AddAction(WMARK_PARSER_ACT_NT_LI, spAction);
+	//NT_LI
+	spAction = std::static_pointer_cast<IRdParserAction, WmarkParserLIAction>(std::make_shared<WmarkParserLIAction>());
+	spAction->SetParameter(std::make_any<RdParserActionMetaData*>(pData));
+	parser.AddAction(WMARK_PARSER_ACT_NT_LI, spAction);
 
 }
 
