@@ -511,10 +511,12 @@ int32_t RdParser::Parse(bool& bEmpty)
 		if(m_uCurrentTerminalToken == TK_NO_EVENT ) {
 			bool bRet = m_spScanner->GetToken(m_token);
 			if( !bRet ) {
-				append_unexpected_error();
+                std::cout << "bRet false" << std::endl;
+                append_unexpected_error();
 				return -2;
 			}
 			if( m_token.uID == TK_ERROR ) {
+                std::cout << "get TK_ERROR" << std::endl;
 				append_unexpected_error();
 				return -2;
 			}
@@ -543,6 +545,7 @@ int32_t RdParser::Parse(bool& bEmpty)
 		// terminal, pop and do the parser action
 		if( elem.uToken <= m_uMaxTerminalID ) {
 			if(elem.uToken != m_uCurrentTerminalToken ) {
+                std::cout << "NT doesn't match TK" << std::endl;
 				append_unexpected_error();
 				return -1;
 			}
