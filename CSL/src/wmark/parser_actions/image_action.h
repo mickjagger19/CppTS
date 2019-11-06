@@ -3,28 +3,28 @@
 */
 
 ////////////////////////////////////////////////////////////////////////////////
-#ifndef __WMARK_SCANNER_H__
-#define __WMARK_SCANNER_H__
+#ifndef __TK_IMAGE_ACTION_H__
+#define __TK_IMAGE_ACTION_H__
 ////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace CSL {
 ////////////////////////////////////////////////////////////////////////////////
 
-// WmarkScannerHelper
+// WmarkParserTkIndentAction
 
-class WmarkScannerHelper
+class WmarkParserImageAction : public IRdParserAction
 {
 public:
-	static void CreateActions(std::shared_ptr<IRdScannerAction>& spTkAction,
-							std::shared_ptr<IRdScannerAction>& spCommentAction,
-							std::shared_ptr<IRdScannerAction>& spTextAction,
-							std::shared_ptr<IRdScannerAction>& spImageAction);
-	static void SetActions(RdScanner& rds,
-						const std::shared_ptr<IRdScannerAction>& spTkAction,
-						const std::shared_ptr<IRdScannerAction>& spCommentAction,
-						const std::shared_ptr<IRdScannerAction>& spTextAction,
-						const std::shared_ptr<IRdScannerAction>& spImageAction);
+	WmarkParserImageAction() noexcept;
+	~WmarkParserImageAction() noexcept;
+
+// IRdParserAction methods
+	virtual void SetParameter(const std::any& param);
+	virtual bool DoAction(const std::string& strToken, std::vector<std::string>& vecError);
+
+private:
+	RdParserActionMetaData* m_pData;
 };
 
 ////////////////////////////////////////////////////////////////////////////////

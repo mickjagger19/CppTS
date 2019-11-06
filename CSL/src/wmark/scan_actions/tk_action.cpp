@@ -82,6 +82,11 @@ bool WmarkScannerTkAction::Scan(std::istream& stm, RdActionStack& stk, RdToken& 
 		return true;
 	}
 
+	if( ch == '!' ) {
+        stk.push(WMARK_SCANNER_IMAGE_ACTION);
+        return true;
+	}
+
 	//others
 	stk.push(WMARK_SCANNER_TEXT_ACTION);
 

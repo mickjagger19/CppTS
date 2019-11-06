@@ -3,28 +3,24 @@
 */
 
 ////////////////////////////////////////////////////////////////////////////////
-#ifndef __WMARK_SCANNER_H__
-#define __WMARK_SCANNER_H__
+#ifndef __IMAGE_ACTION_H__
+#define __IMAGE_ACTION_H__
 ////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace CSL {
 ////////////////////////////////////////////////////////////////////////////////
 
-// WmarkScannerHelper
+// WmarkScannerImageAction
 
-class WmarkScannerHelper
+class WmarkScannerImageAction : public IRdScannerAction
 {
 public:
-	static void CreateActions(std::shared_ptr<IRdScannerAction>& spTkAction,
-							std::shared_ptr<IRdScannerAction>& spCommentAction,
-							std::shared_ptr<IRdScannerAction>& spTextAction,
-							std::shared_ptr<IRdScannerAction>& spImageAction);
-	static void SetActions(RdScanner& rds,
-						const std::shared_ptr<IRdScannerAction>& spTkAction,
-						const std::shared_ptr<IRdScannerAction>& spCommentAction,
-						const std::shared_ptr<IRdScannerAction>& spTextAction,
-						const std::shared_ptr<IRdScannerAction>& spImageAction);
+	WmarkScannerImageAction() throw();
+	~WmarkScannerImageAction() throw();
+
+// IRdScannerAction
+	virtual bool Scan(std::istream& stm, RdActionStack& stk, RdToken& token);
 };
 
 ////////////////////////////////////////////////////////////////////////////////

@@ -24,6 +24,7 @@ void WmarkHtmlGeneratorHelper::InitActions(std::map<uint32_t, WmarkMetaDataTrave
 	map.insert(std::pair<uint32_t, WmarkMetaDataTraversalAction>(WMARK_NODETYPE_PARAGRAPH, std::move(get_ParagraphGenerator())));
 	map.insert(std::pair<uint32_t, WmarkMetaDataTraversalAction>(WMARK_NODETYPE_TEXT, std::move(get_TextGenerator())));
 	map.insert(std::pair<uint32_t, WmarkMetaDataTraversalAction>(WMARK_NODETYPE_INDENT, std::move(get_IndentGenerator())));
+	map.insert(std::pair<uint32_t, WmarkMetaDataTraversalAction>(WMARK_NODETYPE_IMAGE, std::move(get_ImageGenerator())));
 }
 
 ////////////////////////////////////////////////////////////////////////////////
