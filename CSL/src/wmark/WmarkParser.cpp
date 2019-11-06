@@ -61,10 +61,12 @@ const RULEELEMENT g_Rules[] = {
 { WMARK_NT_return_list_tail, LA_NULL }, { WMARK_TK_RETURN, LA_NULL }, { WMARK_NT_return_list_tail, LA_NULL }, { TK_NULL, LA_NULL },
 //return_list_tail : TK_EPSILON
 { WMARK_NT_return_list_tail, LA_NULL }, { TK_EPSILON, LA_NULL }, { TK_NULL, LA_NULL },
-//line_element : WMARK_TK_TEXT
-{ WMARK_NT_line_element, LA_NULL }, { WMARK_TK_TEXT, WMARK_PARSER_ACT_TK_TEXT }, { TK_NULL, LA_NULL },
+//line_element : WMARK_NT_text
+{ WMARK_NT_line_element, LA_NULL }, { WMARK_NT_text, LA_NULL }, { TK_NULL, LA_NULL },
 //line_element : WMARK_TK_INDENT
 { WMARK_NT_line_element, LA_NULL }, { WMARK_TK_INDENT, WMARK_PARSER_ACT_TK_INDENT }, { TK_NULL, LA_NULL },
+//WMARK_NT_text : WMARK_TK_TEXT
+{WMARK_NT_text, LA_NULL }, {WMARK_TK_TEXT, WMARK_PARSER_ACT_TK_TEXT }, {TK_NULL, LA_NULL },
 //=============================================================================
 //end
 { TK_NULL, LA_NULL }
