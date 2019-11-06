@@ -44,6 +44,10 @@ bool WmarkScannerTextAction::Scan(std::istream& stm, RdActionStack& stk, RdToken
 			break;
 		}
 
+		if ( ch == '*' ) {
+            stm.unget();
+            break;
+		}
 		token.strToken += ch;
 		token.infoEnd.uCol ++;
 	} while( true );

@@ -106,24 +106,32 @@ bool RdaTable::generate_first_set(uint32_t uMaxTerminalID)
 	uintptr_t index = 0;
 	auto iter(m_rules.begin());
 	for( ; iter != m_rules.end(); ++ iter, ++ index ) {
-		if( iter->pRule[0].uToken == TK_EPSILON || iter->pRule[0].uToken <= uMaxTerminalID )
-			return false;
+		if( iter->pRule[0].uToken == TK_EPSILON || iter->pRule[0].uToken <= uMaxTerminalID ) {
+            std::cout << "Error NT of rule at index: " << index << std::endl;
+            return false;
+        }
 		bool bEps = (iter->pRule[1].uToken == TK_EPSILON);
-		if( bEps && iter->uNum != 2 )
-			return false;
+		if( bEps && iter->uNum != 2 ) {
+            std::cout << "Too much tokens of empty rule at index: " << index << std::endl;
+            return false;
+        }
 		auto iterF(firstSet.find(iter->pRule[0].uToken));
 		if(iterF == firstSet.end() ) {
 			std::shared_ptr<_TableItem> spItem(std::make_shared<_TableItem>());
 			spItem->iEpsilon = 0;
 			if( bEps ) {
-				if( !index_to_action(index, true, spItem->iEpsilon) )
-					return false;
+				if( !index_to_action(index, true, spItem->iEpsilon) ) {
+                    std::cout << "index overflow of rule at index: " << index << std::endl;
+                    return false;
+                }
 			}
 			else {
 				if( iter->pRule[1].uToken <= uMaxTerminalID ) { // first element in the right is a Terminal
 					int32_t iAct;
-					if( !index_to_action(index, false, iAct) ) // iAct == index + 1
-						return false;
+					if( !index_to_action(index, false, iAct) ) { // iAct == index + 1
+                        std::cout << "index overflow of rule at index: " << index << std::endl;
+                        return false;
+                    }
 					spItem->mapTerminal.insert(std::pair<uint32_t, int32_t>(iter->pRule[1].uToken, iAct));
 				}
 				else {
@@ -135,20 +143,28 @@ bool RdaTable::generate_first_set(uint32_t uMaxTerminalID)
 		else {
 			if( bEps ) {
 				//two rules are the same.
-				if( iterF->second->iEpsilon < 0 )
-					return false;
-				if( !index_to_action(index, true, iterF->second->iEpsilon) )
-					return false;
+				if( iterF->second->iEpsilon < 0 ) {
+                    std::cout << "duplicate rules of empty rule at index: " << index << std::endl;
+                    return false;
+                }
+				if( !index_to_action(index, true, iterF->second->iEpsilon) ) {
+                    std::cout << "index overflow of rule at index: " << index << std::endl;
+                    return false;
+                }
 			}
 			else {
 				if( iter->pRule[1].uToken <= uMaxTerminalID ) {
 					auto iterP(iterF->second->mapTerminal.find(iter->pRule[1].uToken));
 					//two rules have the same terminal firstly.
-					if( iterP != iterF->second->mapTerminal.end() )
-						return false;
+					if( iterP != iterF->second->mapTerminal.end() ) {
+                        std::cout << "two rules have the same terminal firstly of rule at index: " << index << std::endl;
+                        return false;
+                    }
 					int32_t iAct;
-					if( !index_to_action(index, false, iAct) )
-						return false;
+					if( !index_to_action(index, false, iAct) ) {
+                        std::cout << "index overflow of rule at index: " << index << std::endl;
+                        return false;
+                    }
 					iterF->second->mapTerminal.insert(std::pair<uint32_t, int32_t>(iter->pRule[1].uToken, iAct));
 				}
 				else {
@@ -361,7 +377,7 @@ bool RdaTable::Generate(const RULEELEMENT* pRules, uint32_t uMaxTerminalID)
 	assert( pRules != NULL );
 	firstSet.clear();
 	m_rules.clear();
-
+    int index = 0;
 	//rules
 	const RULEELEMENT* p = pRules;
 	while( p->uToken != TK_NULL ) {
@@ -372,29 +388,42 @@ bool RdaTable::Generate(const RULEELEMENT* pRules, uint32_t uMaxTerminalID)
 			(item.uNum) ++;
 			p ++;
 		}
-		if( item.uNum == 1 )
-			return false;
+		if( item.uNum == 1 ) {
+            std::cout << "Not enough tokens of rule at index: " << index << std::endl;
+            return false;
+        }
 		//left part
-		if( item.pRule->uToken <= uMaxTerminalID )
-			return false;
+		if( item.pRule->uToken <= uMaxTerminalID ) {
+            std::cout << "Terminal as left part error of rule at index: " << index << std::endl;
+            return false;
+        }
 		//left recursion
-		if( item.pRule->uToken == item.pRule[1].uToken )
-			return false;
+		if( item.pRule->uToken == item.pRule[1].uToken ) {
+            std::cout << "Left recursion error of rule at index: " << index << std::endl;
+            return false;
+        }
 		//add
 		m_rules.push_back(item);
 		p ++;
+		index ++;
 	}
 
-	if( m_rules.empty() )
-		return false;
+	if( m_rules.empty() ) {
+        std::cout << "empty rules error" << std::endl;
+        return false;
+    }
 
 	m_uStartNT = m_rules[0].pRule[0].uToken;
 
 	//table
-	if( !generate_first_set(uMaxTerminalID) )
-		return false;
-	if( !add_follow_set(uMaxTerminalID) )
-		return false;
+	if( !generate_first_set(uMaxTerminalID) ) {
+	    std::cout << "generate first set failed" << std::endl;
+        return false;
+    }
+	if( !add_follow_set(uMaxTerminalID) ) {
+        std::cout << "generate follow set failed" << std::endl;
+        return false;
+    }
 
 	return true;
 }
@@ -542,7 +571,7 @@ int32_t RdParser::Parse(bool& bEmpty)
 
 		// terminal, pop and do the parser action
 		if( elem.uToken <= m_uMaxTerminalID ) {
-			if(elem.uToken != m_uCurrentTerminalToken ) {
+			if(elem.uToken != m_uCurrentTerminalToken ) { // next token doesn't match token in the stack
 				append_unexpected_error();
 				return -1;
 			}

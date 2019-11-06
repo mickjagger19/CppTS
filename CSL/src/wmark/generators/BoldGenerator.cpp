@@ -16,11 +16,11 @@ namespace CSL {
 
 // WmarkHtmlGeneratorHelper
 
-WmarkMetaDataTraversalAction WmarkHtmlGeneratorHelper::get_TextGenerator()
+WmarkMetaDataTraversalAction WmarkHtmlGeneratorHelper::get_BoldGenerator()
 {
 	return [](bool bOpen, RdMetaData& data, RdMetaDataPosition pos, std::ostream& stm)->bool
 			{
-				stm << (const char*)data.GetData(pos);
+				stm << (bOpen ? "\r\n" : "") << "<" << (bOpen ? "" : "/") << "strong" << ">" << (bOpen ? "" : "\r\n");
 				return true;
 			};
 }
