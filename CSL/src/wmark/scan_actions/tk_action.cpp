@@ -39,6 +39,12 @@ bool WmarkScannerTkAction::Scan(std::istream& stm, RdActionStack& stk, RdToken& 
 		return false;
 	token.strToken += ch;
 
+    if (codeType == CODE_OPEN) {
+        stk.push(WMARK_SCANNER_CODETEXT_ACTION);
+        codeType = CODE_CLOSE;
+        return true;
+    }
+
 	//return
 	if( ch == '\n' ) {
 		token.uID = WMARK_TK_RETURN;
@@ -69,6 +75,39 @@ bool WmarkScannerTkAction::Scan(std::istream& stm, RdActionStack& stk, RdToken& 
 	}
 
 	token.infoEnd.uCol ++;
+
+    //`
+    if (ch == '`') {
+        stm.get(ch);
+        if (stm.eof()) {
+            token.uID = WMARK_TK_CODEINLINE;
+            return true;
+        }
+        if (ch == '`') {
+            if (stm.eof()) {
+                stm.unget();
+                token.uID = WMARK_TK_CODEINLINE;
+                return true;
+            }
+            stm.get(ch);
+            if (ch == '`') {
+                token.uID = WMARK_TK_CODEINPARAGRAPH;
+                if (codeType == NON_CODE)
+                    codeType = CODE_OPEN;
+                else if (codeType == CODE_CLOSE)
+                    codeType = NON_CODE;
+                return true;
+            }
+            stm.unget();
+        }
+        if (codeType == NON_CODE)
+            codeType = CODE_OPEN;
+        else if (codeType == CODE_CLOSE)
+            codeType = NON_CODE;
+        stm.unget();
+        token.uID = WMARK_TK_CODEINLINE;
+        return true;
+    }
 
 	//indent
 	if( ch == '\t' ) {
@@ -103,6 +142,22 @@ bool WmarkScannerTkAction::Scan(std::istream& stm, RdActionStack& stk, RdToken& 
 		stk.push(WMARK_SCANNER_COMMENT_ACTION);
 		return true;
 	}
+
+    //`
+    if (ch == '`') {
+        stm.get(ch);
+        if ( ch == '`' ) {
+            stm.get(ch);
+            if ( ch == '`' ) {
+                token.uID = WMARK_TK_CODE;
+                return true;
+            }
+            stm.unget();
+        }
+        stm.unget();
+        token.uID = WMARK_TK_CODE;
+        return true;
+    }
 
     //*
     if ( ch == '*' ) {

@@ -3,25 +3,21 @@
 */
 
 ////////////////////////////////////////////////////////////////////////////////
-#ifndef __TK_ACTION_H__
-#define __TK_ACTION_H__
+#ifndef __CODETEXT_ACTION_H__
+#define __CODETEXT_ACTION_H__
 ////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace CSL {
 ////////////////////////////////////////////////////////////////////////////////
 
-// WmarkScannerTkAction
+// WmarkScannerCodeTextAction
 
-class WmarkScannerTkAction : public IRdScannerAction
+class WmarkScannerCodeTextAction : public IRdScannerAction
 {
 public:
-	WmarkScannerTkAction() throw();
-	~WmarkScannerTkAction() throw();
-
-private:
-    const int MAX_HEADING_LEVEL = 6;
-    int codeType = NON_CODE;
+	WmarkScannerCodeTextAction() throw();
+	~WmarkScannerCodeTextAction() throw();
 
 // IRdScannerAction
 	virtual bool Scan(std::istream& stm, RdActionStack& stk, RdToken& token);

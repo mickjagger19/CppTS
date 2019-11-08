@@ -32,7 +32,7 @@ private:
 	std::shared_ptr<IRdScannerAction>  m_spTkAction;
 	std::shared_ptr<IRdScannerAction>  m_spCommentAction;
 	std::shared_ptr<IRdScannerAction>  m_spTextAction;
-	std::shared_ptr<IRdScannerAction>  m_spHeadingAction;
+	std::shared_ptr<IRdScannerAction>  m_spCodeTextAction;
 
 	//table
 	std::shared_ptr<RdaTable>  m_spTable;

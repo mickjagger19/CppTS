@@ -586,6 +586,8 @@ int32_t RdParser::Parse(bool& bEmpty)
 
 		// nonterminal, use current token to match current terminal
 		int32_t iAct = m_spTable->Input(elem.uToken, m_uCurrentTerminalToken);
+		std::cout << elem.uToken << " " << m_uCurrentTerminalToken << std::endl;
+		std::cout << iAct - 1 << std::endl;
 		if( iAct == 0 ) {
 			append_unexpected_error();
 			return -1;

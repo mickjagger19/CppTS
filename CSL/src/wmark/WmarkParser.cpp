@@ -20,6 +20,7 @@
 #include "parser_actions/tk_bold_action.h"
 #include "parser_actions/tk_italic_action.h"
 #include "parser_actions/tk_heading_action.h"
+#include "parser_actions/tk_code_action.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -67,7 +68,7 @@ const RULEELEMENT g_Rules[] = {
 //line_element : text
 { WMARK_NT_line_element, LA_NULL }, { WMARK_NT_text, LA_NULL }, { WMARK_NT_text_tail, LA_NULL }, { TK_NULL, LA_NULL },
 //line_element : heading
-{ WMARK_NT_line_element, LA_NULL }, { WMARK_TK_HEADING, WMARK_PARSER_ACT_TK_HEADING }, { WMARK_NT_text, LA_NULL }, { WMARK_NT_headingtail, LA_NULL }, { TK_NULL, LA_NULL },
+{ WMARK_NT_line_element, LA_NULL }, { WMARK_TK_HEADING, WMARK_PARSER_ACT_TK_HEADING }, { WMARK_NT_text, LA_NULL }, { WMARK_NT_up, LA_NULL }, { TK_NULL, LA_NULL },
 //line_element : WMARK_TK_INDENT
 { WMARK_NT_line_element, LA_NULL }, { WMARK_TK_INDENT, WMARK_PARSER_ACT_TK_INDENT }, { TK_NULL, LA_NULL },
 //text : WMARK_TK_TEXT
@@ -76,16 +77,24 @@ const RULEELEMENT g_Rules[] = {
 { WMARK_NT_text, WMARK_PARSER_ACT_TK_ITALIC }, { WMARK_TK_ITALIC, LA_NULL }, { WMARK_NT_text, LA_NULL }, { WMARK_TK_ITALIC, WMARK_PARSER_ACT_UP }, { TK_NULL, LA_NULL },
 //text : WMARK_TK_BOLD text WMARK_TK_BOLD
 { WMARK_NT_text, WMARK_PARSER_ACT_TK_BOLD }, { WMARK_TK_BOLD, LA_NULL }, { WMARK_NT_text, LA_NULL }, { WMARK_TK_BOLD, WMARK_PARSER_ACT_UP }, { TK_NULL, LA_NULL },
+//text : WMARK_TK_CODEINLINE CODETEXT WMARK_TK_CODEINLINE
+{ WMARK_NT_text, WMARK_PARSER_ACT_TK_CODE }, { WMARK_TK_CODEINLINE, LA_NULL }, { WMARK_TK_CODETEXT, WMARK_PARSER_ACT_TK_TEXT }, { WMARK_TK_CODEINLINE, WMARK_PARSER_ACT_UP }, { TK_NULL, LA_NULL },
+//text : codeinparagraph
+{ WMARK_NT_text, WMARK_PARSER_ACT_block_element }, { WMARK_NT_codeinparagraph, LA_NULL }, { WMARK_NT_up, WMARK_PARSER_ACT_UP }, { TK_NULL, LA_NULL },
 //text: WMARK_TK_TEXT
 { WMARK_NT_text, WMARK_PARSER_ACT_TK_TEXT }, { WMARK_TK_TEXT, LA_NULL }, { TK_NULL, LA_NULL },
+//text : WMARK_TK_CODE text WMARK_TK_CODE
+{ WMARK_NT_text, WMARK_PARSER_ACT_TK_CODE }, { WMARK_TK_CODE, LA_NULL }, {WMARK_NT_text, LA_NULL}, { WMARK_TK_CODE, LA_NULL }, { TK_NULL, LA_NULL },
+//codeinparagraph : WMARK_TK_CODEINPARAGRAPH WMARK_TK_CODETEXT WMARK_TK_CODEINPARAGRAPH
+{ WMARK_NT_codeinparagraph, WMARK_PARSER_ACT_TK_CODE }, { WMARK_TK_CODEINPARAGRAPH, LA_NULL }, { WMARK_TK_CODETEXT, WMARK_PARSER_ACT_TK_TEXT }, { WMARK_TK_CODEINPARAGRAPH, LA_NULL }, { TK_NULL, LA_NULL },
 //bold_text : text
 { WMARK_NT_bold_text, LA_NULL }, { WMARK_TK_TEXT, LA_NULL }, { TK_NULL, LA_NULL },
 //italic_text : text
 { WMARK_NT_italic_text, LA_NULL }, { WMARK_TK_TEXT, LA_NULL }, { TK_NULL, LA_NULL },
 //headingtail : text
-{ WMARK_NT_headingtail, WMARK_PARSER_ACT_UP }, { TK_EPSILON, LA_NULL }, { TK_NULL, LA_NULL },
+{ WMARK_NT_up, WMARK_PARSER_ACT_UP }, { TK_EPSILON, LA_NULL }, { TK_NULL, LA_NULL },
 //headingtail : text
-{ WMARK_NT_headingtail, WMARK_PARSER_ACT_UP }, { WMARK_TK_HEADING, LA_NULL }, { TK_NULL, LA_NULL },
+{ WMARK_NT_up, WMARK_PARSER_ACT_UP }, { WMARK_TK_FOOBAR, LA_NULL }, { TK_NULL, LA_NULL },
 //text_tail : text
 { WMARK_NT_text_tail, LA_NULL }, { WMARK_NT_text, LA_NULL }, { WMARK_NT_text_tail, LA_NULL }, { TK_NULL, LA_NULL },
 //text_tail : TK_EPSILON
@@ -147,6 +156,11 @@ void WmarkParserHelper::InitActions(RdParser& parser, RdParserActionMetaData* pD
     spAction = std::static_pointer_cast<IRdParserAction, WmarkParserTkHeadingAction>(std::make_shared<WmarkParserTkHeadingAction>());
     spAction->SetParameter(std::make_any<RdParserActionMetaData *>(pData));
     parser.AddAction(WMARK_PARSER_ACT_TK_HEADING, spAction);
+	//TK_CODE
+	spAction = std::static_pointer_cast<IRdParserAction, WmarkParserTkCodeAction>(std::make_shared<WmarkParserTkCodeAction>());
+	spAction->SetParameter(std::make_any<RdParserActionMetaData*>(pData));
+	parser.AddAction(WMARK_PARSER_ACT_TK_CODE, spAction);
+
 }
 
 void WmarkParserHelper::Start(RdParser& parser)

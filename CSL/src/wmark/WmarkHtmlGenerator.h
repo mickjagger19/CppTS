@@ -26,6 +26,7 @@ private:
 	static WmarkMetaDataTraversalAction get_BoldGenerator();
 	static WmarkMetaDataTraversalAction get_ItalicGenerator();
 	static WmarkMetaDataTraversalAction get_HeadingGenerator();
+	static WmarkMetaDataTraversalAction get_CodeGenerator();
 };
 
 ////////////////////////////////////////////////////////////////////////////////

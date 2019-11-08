@@ -3,28 +3,28 @@
 */
 
 ////////////////////////////////////////////////////////////////////////////////
-#ifndef __TK_ACTION_H__
-#define __TK_ACTION_H__
+#ifndef __TK_CODE_ACTION_H__
+#define __TK_CODE_ACTION_H__
 ////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace CSL {
 ////////////////////////////////////////////////////////////////////////////////
 
-// WmarkScannerTkAction
+// WmarkParserTkCodeAction
 
-class WmarkScannerTkAction : public IRdScannerAction
+class WmarkParserTkCodeAction : public IRdParserAction
 {
 public:
-	WmarkScannerTkAction() throw();
-	~WmarkScannerTkAction() throw();
+	WmarkParserTkCodeAction() noexcept;
+	~WmarkParserTkCodeAction() noexcept;
+
+// IRdParserAction methods
+	virtual void SetParameter(const std::any& param);
+	virtual bool DoAction(const std::string& strToken, std::vector<std::string>& vecError);
 
 private:
-    const int MAX_HEADING_LEVEL = 6;
-    int codeType = NON_CODE;
-
-// IRdScannerAction
-	virtual bool Scan(std::istream& stm, RdActionStack& stk, RdToken& token);
+    RdParserActionMetaData *m_pData;
 };
 
 ////////////////////////////////////////////////////////////////////////////////

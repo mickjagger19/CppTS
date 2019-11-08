@@ -3,32 +3,28 @@
 */
 
 ////////////////////////////////////////////////////////////////////////////////
-#ifndef __TK_ACTION_H__
-#define __TK_ACTION_H__
+
+#include "precomp.h"
+
+#include "../WmarkHtmlGenerator.h"
+
 ////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace CSL {
 ////////////////////////////////////////////////////////////////////////////////
 
-// WmarkScannerTkAction
+// WmarkHtmlGeneratorHelper
 
-class WmarkScannerTkAction : public IRdScannerAction
+WmarkMetaDataTraversalAction WmarkHtmlGeneratorHelper::get_CodeGenerator()
 {
-public:
-	WmarkScannerTkAction() throw();
-	~WmarkScannerTkAction() throw();
-
-private:
-    const int MAX_HEADING_LEVEL = 6;
-    int codeType = NON_CODE;
-
-// IRdScannerAction
-	virtual bool Scan(std::istream& stm, RdActionStack& stk, RdToken& token);
-};
+	return [](bool bOpen, RdMetaData& data, RdMetaDataPosition pos, std::ostream& stm)->bool
+			{
+				stm << (bOpen ? "\r\n" : "") <<  "<" << (bOpen ? "" : "/") << "code>" << (bOpen ? "" : "\r\n");
+				return true;
+			};
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 }
-////////////////////////////////////////////////////////////////////////////////
-#endif
 ////////////////////////////////////////////////////////////////////////////////

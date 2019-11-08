@@ -13,6 +13,7 @@
 #include "scan_actions/tk_action.h"
 #include "scan_actions/comment_action.h"
 #include "scan_actions/text_action.h"
+#include "scan_actions/codetext_action.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -24,25 +25,27 @@ namespace CSL {
 
 void WmarkScannerHelper::CreateActions(std::shared_ptr<IRdScannerAction>& spTkAction,
 									std::shared_ptr<IRdScannerAction>& spCommentAction,
-									std::shared_ptr<IRdScannerAction>& spTextAction)
+									std::shared_ptr<IRdScannerAction>& spTextAction,
+									std::shared_ptr<IRdScannerAction>& spCodeTextAction)
 {
 	spTkAction = std::static_pointer_cast<IRdScannerAction, WmarkScannerTkAction>(std::make_shared<WmarkScannerTkAction>());
 	spCommentAction = std::static_pointer_cast<IRdScannerAction, WmarkScannerCommentAction>(std::make_shared<WmarkScannerCommentAction>());
 	spTextAction = std::static_pointer_cast<IRdScannerAction, WmarkScannerTextAction>(std::make_shared<WmarkScannerTextAction>());
-//	spHeadingAction = std::static_pointer_cast<IRdScannerAction, WmarkScannerHeadingAction>(std::make_shared<WmarkScannerHeadingAction>());
+	spCodeTextAction = std::static_pointer_cast<IRdScannerAction, WmarkScannerCodeTextAction>(std::make_shared<WmarkScannerCodeTextAction>());
 }
 
 void WmarkScannerHelper::SetActions(RdScanner& rds,
 									const std::shared_ptr<IRdScannerAction>& spTkAction,
 									const std::shared_ptr<IRdScannerAction>& spCommentAction,
-									const std::shared_ptr<IRdScannerAction>& spTextAction)
+									const std::shared_ptr<IRdScannerAction>& spTextAction,
+									const std::shared_ptr<IRdScannerAction>& spCodeTextAction)
 {
 	rds.ClearActions();
 	//add
 	rds.AddAction(WMARK_SCANNER_TK_ACTION, spTkAction);
 	rds.AddAction(WMARK_SCANNER_COMMENT_ACTION, spCommentAction);
 	rds.AddAction(WMARK_SCANNER_TEXT_ACTION, spTextAction);
-//	rds.AddAction(WMARK_SCANNER_HEADING_ACTION, spHeadingAction);
+	rds.AddAction(WMARK_SCANNER_CODETEXT_ACTION, spCodeTextAction);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
