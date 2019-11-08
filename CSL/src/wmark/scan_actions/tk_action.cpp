@@ -82,6 +82,12 @@ bool WmarkScannerTkAction::Scan(std::istream& stm, RdActionStack& stk, RdToken& 
 		return true;
 	}
 
+    //`
+    if (ch == '`') {
+        token.uID = WMARK_TK_CODE;
+        return true;
+    }
+
 	//others
 	stk.push(WMARK_SCANNER_TEXT_ACTION);
 

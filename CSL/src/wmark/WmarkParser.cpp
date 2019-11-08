@@ -14,9 +14,10 @@
 #include "parser_actions/program_action.h"
 #include "parser_actions/tk_comment_action.h"
 #include "parser_actions/block_element_action.h"
-#include "wmark/parser_actions/up_action.h"
+#include "parser_actions/up_action.h"
 #include "parser_actions/tk_text_action.h"
 #include "parser_actions/tk_indent_action.h"
+#include "parser_actions/tk_code_action.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -66,11 +67,13 @@ const RULEELEMENT g_Rules[] = {
 //line_element : WMARK_TK_INDENT
 { WMARK_NT_line_element, LA_NULL }, { WMARK_TK_INDENT, WMARK_PARSER_ACT_TK_INDENT }, { TK_NULL, LA_NULL },
 //WMARK_NT_text : WMARK_TK_TEXT
-{WMARK_NT_text, LA_NULL }, {WMARK_TK_TEXT, WMARK_PARSER_ACT_TK_TEXT }, { TK_NULL, LA_NULL },
+{ WMARK_NT_text, LA_NULL }, { WMARK_TK_TEXT, WMARK_PARSER_ACT_TK_TEXT }, { TK_NULL, LA_NULL },
+//text : WMARK_TK_CODE text WMARK_TK_CODE
+{ WMARK_NT_text, WMARK_PARSER_ACT_TK_CODE }, { WMARK_TK_CODE, LA_NULL }, {WMARK_NT_text, LA_NULL}, { WMARK_TK_CODE, LA_NULL }, { TK_NULL, LA_NULL },
 //text_tail : text
-{WMARK_NT_text_tail, WMARK_PARSER_ACT_UP }, {WMARK_NT_text, LA_NULL }, { TK_NULL, LA_NULL },
+{ WMARK_NT_text_tail, WMARK_PARSER_ACT_UP }, { WMARK_NT_text, LA_NULL }, { TK_NULL, LA_NULL },
 //text_tail : TK_EPSILON
-{WMARK_NT_text_tail, LA_NULL }, { TK_EPSILON, LA_NULL }, { TK_NULL, LA_NULL },
+{ WMARK_NT_text_tail, LA_NULL }, { TK_EPSILON, LA_NULL }, { TK_NULL, LA_NULL },
 //=============================================================================
 //end
 { TK_NULL, LA_NULL }
@@ -116,6 +119,11 @@ void WmarkParserHelper::InitActions(RdParser& parser, RdParserActionMetaData* pD
 	spAction = std::static_pointer_cast<IRdParserAction, WmarkParserTkIndentAction>(std::make_shared<WmarkParserTkIndentAction>());
 	spAction->SetParameter(std::make_any<RdParserActionMetaData*>(pData));
 	parser.AddAction(WMARK_PARSER_ACT_TK_INDENT, spAction);
+	//TK_CODE
+	spAction = std::static_pointer_cast<IRdParserAction, WmarkParserTkCodeAction>(std::make_shared<WmarkParserTkCodeAction>());
+	spAction->SetParameter(std::make_any<RdParserActionMetaData*>(pData));
+	parser.AddAction(WMARK_PARSER_ACT_TK_CODE, spAction);
+
 }
 
 void WmarkParserHelper::Start(RdParser& parser)

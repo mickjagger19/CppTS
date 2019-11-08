@@ -3,27 +3,28 @@
 */
 
 ////////////////////////////////////////////////////////////////////////////////
-#ifndef __WMARK_HTML_GENERATOR_H__
-#define __WMARK_HTML_GENERATOR_H__
+#ifndef __TK_CODE_ACTION_H__
+#define __TK_CODE_ACTION_H__
 ////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace CSL {
 ////////////////////////////////////////////////////////////////////////////////
 
-// WmarkHtmlGeneratorHelper
+// WmarkParserTkCodeAction
 
-class WmarkHtmlGeneratorHelper
+class WmarkParserTkCodeAction : public IRdParserAction
 {
 public:
-	static void InitActions(std::map<uint32_t, WmarkMetaDataTraversalAction>& map);
+	WmarkParserTkCodeAction() noexcept;
+	~WmarkParserTkCodeAction() noexcept;
+
+// IRdParserAction methods
+	virtual void SetParameter(const std::any& param);
+	virtual bool DoAction(const std::string& strToken, std::vector<std::string>& vecError);
 
 private:
-	static WmarkMetaDataTraversalAction get_CommentGenerator();
-	static WmarkMetaDataTraversalAction get_ParagraphGenerator();
-	static WmarkMetaDataTraversalAction get_TextGenerator();
-	static WmarkMetaDataTraversalAction get_IndentGenerator();
-	static WmarkMetaDataTraversalAction get_CodeGenerator();
+    RdParserActionMetaData *m_pData;
 };
 
 ////////////////////////////////////////////////////////////////////////////////
