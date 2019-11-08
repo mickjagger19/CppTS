@@ -96,6 +96,9 @@ bool WmarkScannerTkAction::Scan(std::istream& stm, RdActionStack& stk, RdToken& 
             stm.unget();
             token.uID = WMARK_TK_ITALIC;
             return true;
+        } else {
+            token.uID = WMARK_TK_BOLD;
+            return true;
         }
         stm.unget();
     }
