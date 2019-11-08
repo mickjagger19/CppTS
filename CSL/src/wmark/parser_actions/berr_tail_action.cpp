@@ -18,7 +18,7 @@ namespace CSL {
 
 // WmarkParserBerrTailAction
 
-WmarkParserBerrTailAction::WmarkParserBerrTailAction() noexcept : m_pData(nullptr)
+WmarkParserBerrTailAction::WmarkParserBerrTailAction() noexcept
 {
 }
 WmarkParserBerrTailAction::~WmarkParserBerrTailAction() noexcept
@@ -29,18 +29,14 @@ WmarkParserBerrTailAction::~WmarkParserBerrTailAction() noexcept
 
 void WmarkParserBerrTailAction::SetParameter(const std::any& param)
 {
-	m_pData = std::any_cast<RdParserActionMetaData*>(param);
+    m_pData = std::any_cast<RdParserActionMetaData *>(param);
 }
 
 bool WmarkParserBerrTailAction::DoAction(const std::string& strToken, std::vector<std::string>& vecError)
 {
 	//up
 	assert( m_pData->posParent.uAddress != 0 );
-	RdMetaAstNodeInfo info;
-	m_pData->spMeta->GetAstNodeInfo(m_pData->posParent, info);
-	// return from subtree
-	m_pData->posCurrent = m_pData->posParent;
-	m_pData->posParent = info.posParent;
+    up();
 	return true;
 }
 

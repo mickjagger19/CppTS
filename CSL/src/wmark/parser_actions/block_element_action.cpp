@@ -18,7 +18,7 @@ namespace CSL {
 
 // WmarkParserBlockElementAction
 
-WmarkParserBlockElementAction::WmarkParserBlockElementAction() noexcept : m_pData(nullptr)
+WmarkParserBlockElementAction::WmarkParserBlockElementAction() noexcept
 {
 }
 WmarkParserBlockElementAction::~WmarkParserBlockElementAction() noexcept
@@ -42,9 +42,7 @@ bool WmarkParserBlockElementAction::DoAction(const std::string& strToken, std::v
 		m_pData->spMeta->SetAstChild(m_pData->posParent, pos);
 	else // to link the children together
 		m_pData->spMeta->SetAstNext(m_pData->posCurrent, pos);
-	//sub tree
-	m_pData->posParent = pos;
-	m_pData->posCurrent.uAddress = 0;
+    down(pos);
 	return true;
 }
 

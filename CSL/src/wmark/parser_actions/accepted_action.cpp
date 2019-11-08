@@ -18,7 +18,7 @@ namespace CSL {
 
 // WmarkParserAcceptedAction
 
-WmarkParserAcceptedAction::WmarkParserAcceptedAction() noexcept : m_pData(nullptr)
+WmarkParserAcceptedAction::WmarkParserAcceptedAction() noexcept
 {
 }
 WmarkParserAcceptedAction::~WmarkParserAcceptedAction() noexcept

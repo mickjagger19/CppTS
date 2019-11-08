@@ -18,7 +18,7 @@ namespace CSL {
 
 // WmarkParserTkTextAction
 
-WmarkParserTkTextAction::WmarkParserTkTextAction() noexcept : m_pData(nullptr)
+WmarkParserTkTextAction::WmarkParserTkTextAction() noexcept
 {
 }
 WmarkParserTkTextAction::~WmarkParserTkTextAction() noexcept
@@ -51,11 +51,15 @@ bool WmarkParserTkTextAction::DoAction(const std::string& strToken, std::vector<
 	m_pData->spMeta->SetAstData(pos, posData);
 	//link
 	m_pData->spMeta->SetAstParent(pos, m_pData->posParent);
-	if( m_pData->posCurrent.uAddress == 0 ) // the first allocated node
-		m_pData->spMeta->SetAstChild(m_pData->posParent, pos);
-	else
-		m_pData->spMeta->SetAstNext(m_pData->posCurrent, pos);
-	m_pData->posCurrent = pos;
+	if( m_pData->posCurrent.uAddress == 0 ) { // the first allocated node
+        m_pData->spMeta->SetAstChild(m_pData->posParent, pos);
+        up();
+    }
+	else {
+        m_pData->spMeta->SetAstNext(m_pData->posCurrent, pos);
+        m_pData->posCurrent = pos;
+    }
+
 	return true;
 }
 

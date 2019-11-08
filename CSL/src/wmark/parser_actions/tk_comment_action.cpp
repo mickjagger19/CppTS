@@ -18,7 +18,7 @@ namespace CSL {
 
 // WmarkParserTkCommentAction
 
-WmarkParserTkCommentAction::WmarkParserTkCommentAction() noexcept : m_pData(nullptr)
+WmarkParserTkCommentAction::WmarkParserTkCommentAction() noexcept
 {
 }
 WmarkParserTkCommentAction::~WmarkParserTkCommentAction() noexcept

@@ -1034,6 +1034,19 @@ RdMetaDataPosition RdMetaData::GetAstRoot(RdMetaDataPosition posStart) const thr
 	return posRet;
 }
 
+void IRdParserAction::up() {
+    RdMetaAstNodeInfo info;
+    m_pData->spMeta->GetAstNodeInfo(m_pData->posParent, info);
+    // return from subtree
+    m_pData->posCurrent = m_pData->posParent;
+    m_pData->posParent = info.posParent;
+}
+
+void IRdParserAction::down(RdMetaDataPosition pos) {
+    m_pData->posParent = pos;
+    m_pData->posCurrent.uAddress = 0;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 }
 ////////////////////////////////////////////////////////////////////////////////
