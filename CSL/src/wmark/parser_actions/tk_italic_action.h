@@ -3,28 +3,32 @@
 */
 
 ////////////////////////////////////////////////////////////////////////////////
-
-#include "precomp.h"
-
-#include "../WmarkHtmlGenerator.h"
-
+#ifndef __TK_ITALIC_ACTION_H__
+#define __TK_ITALIC_ACTION_H__
 ////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace CSL {
 ////////////////////////////////////////////////////////////////////////////////
 
-// WmarkHtmlGeneratorHelper
+// WmarkParserTkItalicAction
 
-WmarkMetaDataTraversalAction WmarkHtmlGeneratorHelper::get_ParagraphGenerator()
+class WmarkParserTkItalicAction : public IRdParserAction
 {
-	return [](bool bOpen, RdMetaData& data, RdMetaDataPosition pos, std::ostream& stm)->bool
-			{
-				stm << (bOpen ? "<p>" : "</p>");
-				return true;
-			};
-}
+public:
+	WmarkParserTkItalicAction() noexcept;
+	~WmarkParserTkItalicAction() noexcept;
+
+// IRdParserAction methods
+	virtual void SetParameter(const std::any& param);
+	virtual bool DoAction(const std::string& strToken, std::vector<std::string>& vecError);
+
+private:
+	RdParserActionMetaData* m_pData;
+};
 
 ////////////////////////////////////////////////////////////////////////////////
 }
+////////////////////////////////////////////////////////////////////////////////
+#endif
 ////////////////////////////////////////////////////////////////////////////////

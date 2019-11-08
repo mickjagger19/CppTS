@@ -23,6 +23,7 @@ private:
 	static WmarkMetaDataTraversalAction get_ParagraphGenerator();
 	static WmarkMetaDataTraversalAction get_TextGenerator();
 	static WmarkMetaDataTraversalAction get_IndentGenerator();
+	static WmarkMetaDataTraversalAction get_ItalicGenerator();
 	static WmarkMetaDataTraversalAction get_BoldGenerator();
 };
 
