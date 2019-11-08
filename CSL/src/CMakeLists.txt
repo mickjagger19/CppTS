@@ -19,9 +19,11 @@ SET(SRC_LIST "cslbase.cpp" "cslsys.cpp" "cslrdp.cpp" "cslwmark.cpp"
 	"wmark/parser_actions/accepted_action.cpp" "wmark/parser_actions/program_action.cpp" "wmark/parser_actions/tk_comment_action.cpp"
 	"wmark/parser_actions/block_element_action.cpp" "wmark/parser_actions/up_action.cpp" "wmark/parser_actions/tk_text_action.cpp"
 	"wmark/parser_actions/tk_indent_action.cpp" "wmark/parser_actions/tk_italic_action.cpp" "wmark/parser_actions/tk_bold_action.cpp"
+        "wmark/parser_actions/tk_heading_action.cpp"
 	"wmark/generators/CommentGenerator.cpp" "wmark/generators/ParagraphGenerator.cpp" "wmark/generators/TextGenerator.cpp"
 	"wmark/generators/IndentGenerator.cpp" "wmark/generators/ItalicGenerator.cpp" "wmark/generators/BoldGenerator.cpp"
-	"wmark/WmarkScanner.cpp" "wmark/WmarkParser.cpp" "wmark/WmarkHtmlGenerator.cpp"
+        "wmark/generators/HeadingGenerator.cpp"
+        "wmark/WmarkScanner.cpp" "wmark/WmarkParser.cpp" "wmark/WmarkHtmlGenerator.cpp"
 	)
 ADD_LIBRARY(CSL-Utility STATIC ${SRC_PCH_LIST} ${SRC_LIST})
 SET_PCH(CSL-Utility "exe" "precomp.h" ${SRC_PCH_LIST} ${SRC_LIST})

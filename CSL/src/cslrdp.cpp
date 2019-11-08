@@ -388,33 +388,33 @@ bool RdaTable::Generate(const RULEELEMENT* pRules, uint32_t uMaxTerminalID)
 			(item.uNum) ++;
 			p ++;
 		}
+		if( item.uNum == 1 ) {
+            std::cout << "Not enough tokens of rule at index: " << index << std::endl;
+            return false;
+        }
 		if( item.uNum == 1 )
 		    return false;
 		//left part
 		if( item.pRule->uToken <= uMaxTerminalID )
 		    return false;
 		//left recursion
+		if( item.pRule->uToken == item.pRule[1].uToken )
+			return false;
 		//add
 		m_rules.push_back(item);
 		p ++;
 	}
 
-	if( m_rules.empty() ) {
-        std::cout << "empty rules error" << std::endl;
-        return false;
-    }
+	if( m_rules.empty() )
+		return false;
 
 	m_uStartNT = m_rules[0].pRule[0].uToken;
 
 	//table
-	if( !generate_first_set(uMaxTerminalID) ) {
-	    std::cout << "generate first set failed" << std::endl;
-        return false;
-    }
-	if( !add_follow_set(uMaxTerminalID) ) {
-        std::cout << "generate follow set failed" << std::endl;
-        return false;
-    }
+	if( !generate_first_set(uMaxTerminalID) )
+		return false;
+	if( !add_follow_set(uMaxTerminalID) )
+		return false;
 
 	return true;
 }
@@ -528,15 +528,13 @@ int32_t RdParser::Parse(bool& bEmpty)
 	//loop
 	while( true ) {
 		//input event
-		if(m_uCurrentTerminalToken == TK_NO_EVENT ) {
+		if( m_uCurrentTerminalToken == TK_NO_EVENT ) {
 			bool bRet = m_spScanner->GetToken(m_token);
 			if( !bRet ) {
-                std::cout << "bRet false" << std::endl;
-                append_unexpected_error();
+				append_unexpected_error();
 				return -2;
 			}
 			if( m_token.uID == TK_ERROR ) {
-                std::cout << "get TK_ERROR" << std::endl;
 				append_unexpected_error();
 				return -2;
 			}
@@ -564,8 +562,7 @@ int32_t RdParser::Parse(bool& bEmpty)
 
 		// terminal, pop and do the parser action
 		if( elem.uToken <= m_uMaxTerminalID ) {
-			if(elem.uToken != m_uCurrentTerminalToken ) {
-                std::cout << "NT doesn't match TK" << std::endl;
+			if( elem.uToken != m_uCurrentTerminalToken ) { // next token doesn't match token in the stack
 				append_unexpected_error();
 				return -1;
 			}
@@ -597,8 +594,7 @@ int32_t RdParser::Parse(bool& bEmpty)
 			for( uintptr_t i = item.uNum - 1; i > 0; i -- )
 				m_stack.push(item.pRule[i]);
 			//flag
-			if( m_bEmpty )
-				m_bEmpty = false;
+			m_bEmpty = false;
 		}
 		else { // empty rule
 			//action
