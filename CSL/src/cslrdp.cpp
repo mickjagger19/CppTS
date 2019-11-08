@@ -176,8 +176,10 @@ bool RdaTable::generate_first_set(uint32_t uMaxTerminalID)
 			uVecIdx ++;
 			if( uVecIdx == vecIndex.size() ) {
 				//dead loop
-				if( uLastSize == vecIndex.size() )
-					return false;
+				if( uLastSize == vecIndex.size() ) {
+                    std::cout << "Dead loop found of rule at index: " << index << std::endl;
+                    return false;
+                }
 				uLastSize = vecIndex.size();
 				uVecIdx = 0;
 			}
@@ -188,8 +190,10 @@ bool RdaTable::generate_first_set(uint32_t uMaxTerminalID)
 		if(iterF == firstSet.end() )
 			return false;
 		//the first nonterminal of right part cannot derive epsilon
-		if( iterF->second->iEpsilon < 0 )
-			return false;
+		if( iterF->second->iEpsilon < 0 ) {
+            std::cout << "The first nonterminal of right part derives epsilon of rule at index: " << index << std::endl;
+            return false;
+        }
 		auto iterP(firstSet.find(m_rules[index].pRule[0].uToken));
 		assert(iterP != firstSet.end() );
 		//propagation
@@ -198,8 +202,10 @@ bool RdaTable::generate_first_set(uint32_t uMaxTerminalID)
 			++ iterF2 ) {
 			//two rules have the same terminal firstly.
 			auto iterP2(iterP->second->mapTerminal.find(iterF2->first));
-			if( iterP2 != iterP->second->mapTerminal.end() )
-				return false;
+			if( iterP2 != iterP->second->mapTerminal.end() ) {
+                std::cout << "Two rules have the same terminal firstly of rule at index: " << index << std::endl;
+                return false;
+            }
 			int32_t iAct;
 			if( !index_to_action(index, false, iAct) )
 				return false;

@@ -3,43 +3,30 @@
 */
 
 ////////////////////////////////////////////////////////////////////////////////
-
-#include "precomp.h"
-
-#include "../base/WmarkDef.h"
-
-#include "berr_tail_action.h"
-
+#ifndef __UP_ACTION_H__
+#define __UP_ACTION_H__
 ////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace CSL {
 ////////////////////////////////////////////////////////////////////////////////
 
-// WmarkParserBerrTailAction
+// WmarkParserUPAction
 
-WmarkParserBerrTailAction::WmarkParserBerrTailAction() noexcept
+class WmarkParserUPAction : public IRdParserAction
 {
-}
-WmarkParserBerrTailAction::~WmarkParserBerrTailAction() noexcept
-{
-}
+public:
+	WmarkParserUPAction() noexcept;
+	~WmarkParserUPAction() noexcept;
 
 // IRdParserAction methods
+	virtual void SetParameter(const std::any& param);
+	virtual bool DoAction(const std::string& strToken, std::vector<std::string>& vecError);
 
-void WmarkParserBerrTailAction::SetParameter(const std::any& param)
-{
-    m_pData = std::any_cast<RdParserActionMetaData *>(param);
-}
-
-bool WmarkParserBerrTailAction::DoAction(const std::string& strToken, std::vector<std::string>& vecError)
-{
-	//up
-	assert( m_pData->posParent.uAddress != 0 );
-    up();
-	return true;
-}
+};
 
 ////////////////////////////////////////////////////////////////////////////////
 }
+////////////////////////////////////////////////////////////////////////////////
+#endif
 ////////////////////////////////////////////////////////////////////////////////
