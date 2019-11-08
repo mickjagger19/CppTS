@@ -77,9 +77,9 @@ const RULEELEMENT g_Rules[] = {
 //text : WMARK_TK_TEXT
 { WMARK_NT_text, LA_NULL }, { WMARK_TK_TEXT, WMARK_PARSER_ACT_TK_TEXT }, { TK_NULL, LA_NULL },
 //text_tail : text
-{ WMARK_NT_text_tail, WMARK_PARSER_ACT_UP }, { WMARK_NT_text, LA_NULL }, { TK_NULL, LA_NULL },
+{ WMARK_NT_text_tail, WMARK_PARSER_ACT_UP }, { WMARK_NT_text, LA_NULL }, { WMARK_NT_text_tail, LA_NULL }, { TK_NULL, LA_NULL },
 //text_tail : TK_EPSILON
-{ WMARK_NT_text_tail, LA_NULL }, { TK_EPSILON, LA_NULL }, { TK_NULL, LA_NULL },
+{ WMARK_NT_text_tail, WMARK_PARSER_ACT_UP }, { TK_EPSILON, LA_NULL }, { TK_NULL, LA_NULL },
 //=============================================================================
 //end
 { TK_NULL, LA_NULL }
@@ -130,13 +130,11 @@ void WmarkParserHelper::InitActions(RdParser& parser, RdParserActionMetaData* pD
 	spAction->SetParameter(std::make_any<RdParserActionMetaData*>(pData));
 	parser.AddAction(WMARK_PARSER_ACT_TK_ITALIC, spAction);
     //TK_Bold
-    spAction = std::static_pointer_cast<IRdParserAction, WmarkParserTkBoldAction>(
-    std::make_shared<WmarkParserTkBoldAction>());
+    spAction = std::static_pointer_cast<IRdParserAction, WmarkParserTkBoldAction>(std::make_shared<WmarkParserTkBoldAction>());
     spAction->SetParameter(std::make_any<RdParserActionMetaData *>(pData));
     parser.AddAction(WMARK_PARSER_ACT_TK_BOLD, spAction);
     //TK_HEADING
-    spAction = std::static_pointer_cast<IRdParserAction, WmarkParserTkHeadingAction>(
-    std::make_shared<WmarkParserTkHeadingAction>());
+    spAction = std::static_pointer_cast<IRdParserAction, WmarkParserTkHeadingAction>(std::make_shared<WmarkParserTkHeadingAction>());
     spAction->SetParameter(std::make_any<RdParserActionMetaData *>(pData));
     parser.AddAction(WMARK_PARSER_ACT_TK_HEADING, spAction);
 }

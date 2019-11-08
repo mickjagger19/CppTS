@@ -388,10 +388,6 @@ bool RdaTable::Generate(const RULEELEMENT* pRules, uint32_t uMaxTerminalID)
 			(item.uNum) ++;
 			p ++;
 		}
-		if( item.uNum == 1 ) {
-            std::cout << "Not enough tokens of rule at index: " << index << std::endl;
-            return false;
-        }
 		if( item.uNum == 1 )
 		    return false;
 		//left part
@@ -1060,6 +1056,7 @@ RdMetaDataPosition RdMetaData::GetAstRoot(RdMetaDataPosition posStart) const thr
 }
 
 void IRdParserAction::up() {
+    std::cout << "up" << std::endl;
     RdMetaAstNodeInfo info;
     m_pData->spMeta->GetAstNodeInfo(m_pData->posParent, info);
     // return from subtree
@@ -1068,6 +1065,7 @@ void IRdParserAction::up() {
 }
 
 void IRdParserAction::down(RdMetaDataPosition pos) {
+    std::cout << "down" << std::endl;
     m_pData->posParent = pos;
     m_pData->posCurrent.uAddress = 0;
 }

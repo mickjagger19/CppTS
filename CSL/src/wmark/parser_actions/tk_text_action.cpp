@@ -36,6 +36,7 @@ bool WmarkParserTkTextAction::DoAction(const std::string& strToken, std::vector<
 {
 	//text
 	assert( m_pData->posParent.uAddress != 0 );
+    std::cout << "text action" << std::endl;
 	//string
 	size_t uSize = strToken.length();
 	if( uSize >= (size_t)(std::numeric_limits<uint32_t>::max()) )

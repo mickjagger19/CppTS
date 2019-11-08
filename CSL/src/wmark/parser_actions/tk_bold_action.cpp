@@ -18,7 +18,7 @@ namespace CSL {
 
 // WmarkParserTkBoldAction
 
-WmarkParserTkBoldAction::WmarkParserTkBoldAction() noexcept : m_pData(nullptr)
+WmarkParserTkBoldAction::WmarkParserTkBoldAction() noexcept
 {
 }
 WmarkParserTkBoldAction::~WmarkParserTkBoldAction() noexcept
@@ -36,14 +36,14 @@ bool WmarkParserTkBoldAction::DoAction(const std::string& strToken, std::vector<
 {
 	//Bold
 	assert( m_pData->posParent.uAddress != 0 );
+    std::cout << "bold" << std::endl;
 	RdMetaDataPosition pos = m_pData->spMeta->AllocateAstNode(WMARK_NODETYPE_BOLD);
 	m_pData->spMeta->SetAstParent(pos, m_pData->posParent);
 	if( m_pData->posCurrent.uAddress == 0 )
 		m_pData->spMeta->SetAstChild(m_pData->posParent, pos);
 	else
 		m_pData->spMeta->SetAstNext(m_pData->posCurrent, pos);
-	m_pData->posParent = pos;
-	m_pData->posCurrent.uAddress = 0;
+    down(pos);
 	return true;
 }
 

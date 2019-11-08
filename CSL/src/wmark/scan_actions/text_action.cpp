@@ -52,6 +52,7 @@ bool WmarkScannerTextAction::Scan(std::istream& stm, RdActionStack& stk, RdToken
 		token.infoEnd.uCol ++;
 	} while( true );
 
+	std::cout << "getting text token: " << token.strToken << std::endl;
 	token.uID = WMARK_TK_TEXT;
 	return true;
 }

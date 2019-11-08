@@ -36,6 +36,7 @@ bool WmarkParserBlockElementAction::DoAction(const std::string& strToken, std::v
 {
 	//paragraph
 	assert( m_pData->posParent.uAddress != 0 );
+	std::cout << "block element" << std::endl;
 	RdMetaDataPosition pos = m_pData->spMeta->AllocateAstNode(WMARK_NODETYPE_PARAGRAPH);
 	m_pData->spMeta->SetAstParent(pos, m_pData->posParent);
 	if( m_pData->posCurrent.uAddress == 0 ) // to link the child with parent
