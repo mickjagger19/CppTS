@@ -44,7 +44,7 @@ const RULEELEMENT g_Rules[] = {
 { WMARK_NT_block_element, LA_NULL }, { WMARK_TK_COMMENT, WMARK_PARSER_ACT_TK_COMMENT }, { TK_NULL, LA_NULL },
 //block_element : line_element be_tail
 { WMARK_NT_block_element, WMARK_PARSER_ACT_block_element }, { WMARK_NT_line_element, LA_NULL }, { WMARK_NT_be_tail, LA_NULL }, { TK_NULL, LA_NULL },
-//be_tail : WMARK_TK_RETURN ber_tail
+//be_tail : WMARK_TK_RETURN ber_tail{
 { WMARK_NT_be_tail, LA_NULL }, { WMARK_TK_RETURN, LA_NULL }, { WMARK_NT_ber_tail, LA_NULL }, { TK_NULL, LA_NULL },
 //be_tail : TK_EPSILON
 { WMARK_NT_be_tail, LA_NULL }, { TK_EPSILON, LA_NULL }, { TK_NULL, LA_NULL },
@@ -67,19 +67,23 @@ const RULEELEMENT g_Rules[] = {
 //line_element : text
 { WMARK_NT_line_element, LA_NULL }, { WMARK_NT_text, LA_NULL }, { WMARK_NT_text_tail, LA_NULL }, { TK_NULL, LA_NULL },
 //line_element : heading
-{ WMARK_NT_line_element, LA_NULL }, {WMARK_TK_HEADING, LA_NULL }, { WMARK_NT_text, LA_NULL }, { TK_NULL, LA_NULL },
+{ WMARK_NT_line_element, LA_NULL }, { WMARK_TK_HEADING, WMARK_PARSER_ACT_TK_HEADING }, { WMARK_NT_text, LA_NULL }, { WMARK_NT_headingtail, LA_NULL }, { TK_NULL, LA_NULL },
 //line_element : WMARK_TK_INDENT
 { WMARK_NT_line_element, LA_NULL }, { WMARK_TK_INDENT, WMARK_PARSER_ACT_TK_INDENT }, { TK_NULL, LA_NULL },
 //text : WMARK_TK_ITALIC text WMARK_TK_ITALIC
 { WMARK_NT_text, WMARK_PARSER_ACT_TK_ITALIC }, { WMARK_TK_ITALIC, LA_NULL }, { WMARK_NT_text, LA_NULL }, { WMARK_TK_ITALIC, WMARK_PARSER_ACT_UP }, { TK_NULL, LA_NULL },
 //text : WMARK_TK_BOLD text WMARK_TK_BOLD
 { WMARK_NT_text, WMARK_PARSER_ACT_TK_BOLD }, { WMARK_TK_BOLD, LA_NULL }, { WMARK_NT_text, LA_NULL }, { WMARK_TK_BOLD, WMARK_PARSER_ACT_UP }, { TK_NULL, LA_NULL },
-//heading : WMARK_TK_HEADING text
+//text: WMARK_TK_TEXT
 { WMARK_NT_text, WMARK_PARSER_ACT_TK_TEXT }, { WMARK_TK_TEXT, LA_NULL }, { TK_NULL, LA_NULL },
 //bold_text : text
 { WMARK_NT_bold_text, LA_NULL }, { WMARK_TK_TEXT, LA_NULL }, { TK_NULL, LA_NULL },
 //italic_text : text
 { WMARK_NT_italic_text, LA_NULL }, { WMARK_TK_TEXT, LA_NULL }, { TK_NULL, LA_NULL },
+//headingtail : text
+{ WMARK_NT_headingtail, WMARK_PARSER_ACT_UP }, { TK_EPSILON, LA_NULL }, { TK_NULL, LA_NULL },
+//headingtail : text
+{ WMARK_NT_headingtail, WMARK_PARSER_ACT_UP }, { WMARK_TK_HEADING, LA_NULL }, { TK_NULL, LA_NULL },
 //text_tail : text
 { WMARK_NT_text_tail, LA_NULL }, { WMARK_NT_text, LA_NULL }, { WMARK_NT_text_tail, LA_NULL }, { TK_NULL, LA_NULL },
 //text_tail : TK_EPSILON

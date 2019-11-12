@@ -27,6 +27,7 @@ enum {
     WMARK_TK_HEADING,
 	WMARK_TK_BOLD,
 	WMARK_TK_ITALIC,
+	WMARK_TK_FOOBAR,
 	WMARK_TK_MAX
 };
 
@@ -42,7 +43,7 @@ enum {
 	WMARK_NT_berr_tail,
 	WMARK_NT_return_list_tail,
 	WMARK_NT_line_element,
-	WMARK_NT_heading,
+	WMARK_NT_headingtail,
 	WMARK_NT_text,
 	WMARK_NT_text_tail,
 	WMARK_NT_bold_text,
