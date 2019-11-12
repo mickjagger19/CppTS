@@ -8,7 +8,7 @@
 
 #include "../base/WmarkDef.h"
 
-#include "UP.h"
+#include "ol_action.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -16,27 +16,34 @@
 namespace CSL {
 ////////////////////////////////////////////////////////////////////////////////
 
-// WmarkParserOlAction
+// WmarkParserOLAction
 
-WmarkParserUPAction::WmarkParserUPAction() noexcept : m_pData(nullptr)
+WmarkParserOLAction::WmarkParserOLAction() noexcept
 {
 }
-WmarkParserUPAction::~WmarkParserUPAction() noexcept
+WmarkParserOLAction::~WmarkParserOLAction() noexcept
 {
 }
 
 // IRdParserAction methods
 
-void WmarkParserUPAction::SetParameter(const std::any& param)
+void WmarkParserOLAction::SetParameter(const std::any& param)
 {
 	m_pData = std::any_cast<RdParserActionMetaData*>(param);
 }
 
-bool WmarkParserUPAction::DoAction(const std::string& strToken, std::vector<std::string>& vecError)
+bool WmarkParserOLAction::DoAction(const std::string& strToken, std::vector<std::string>& vecError)
 {
-	//UP
+	//ordered list
 	assert( m_pData->posParent.uAddress != 0 );
-
+	RdMetaDataPosition pos = m_pData->spMeta->AllocateAstNode(WMARK_NODETYPE_OL);
+	m_pData->spMeta->SetAstParent(pos, m_pData->posParent);
+	if( m_pData->posCurrent.uAddress == 0 ) // to link the child with parent
+		m_pData->spMeta->SetAstChild(m_pData->posParent, pos);
+	else // to link the children together
+		m_pData->spMeta->SetAstNext(m_pData->posCurrent, pos);
+	//sub tree
+    down(pos);
 	return true;
 }
 

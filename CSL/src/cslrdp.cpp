@@ -569,6 +569,7 @@ int32_t RdParser::Parse(bool& bEmpty)
 		//top
 		RULEELEMENT elem = m_stack.top();
 
+        std::cout << elem.uToken << " " << m_uCurrentTerminalToken << std::endl;
 		// terminal, pop and do the parser action
 		if( elem.uToken <= m_uMaxTerminalID ) {
 			if( elem.uToken != m_uCurrentTerminalToken ) { // next token doesn't match token in the stack
@@ -586,7 +587,6 @@ int32_t RdParser::Parse(bool& bEmpty)
 
 		// nonterminal, use current token to match current terminal
 		int32_t iAct = m_spTable->Input(elem.uToken, m_uCurrentTerminalToken);
-		std::cout << elem.uToken << " " << m_uCurrentTerminalToken << std::endl;
 		std::cout << iAct - 1 << std::endl;
 		if( iAct == 0 ) {
 			append_unexpected_error();

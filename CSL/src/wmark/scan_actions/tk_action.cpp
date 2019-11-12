@@ -175,19 +175,29 @@ bool WmarkScannerTkAction::Scan(std::istream& stm, RdActionStack& stk, RdToken& 
         if (!stm.good()) {
             return false;
         }
-        if ( ch != '*' ){
-            stm.unget();
-            token.uID = WMARK_TK_ITALIC;
-            return true;
-        } else {
+        if ( ch == '*' ){
             token.uID = WMARK_TK_BOLD;
             return true;
         }
-        stm.unget();
+//        if ( ch == ' ' ){
+//            stk.push(WMARK_SCANNER_UL_ACTION);
+//            return true;
+//        }
+        else {
+            token.uID = WMARK_TK_ITALIC;
+            return true;
+        }
     }
 
 	if( ch == '!' ) {
         stk.push(WMARK_SCANNER_IMAGE_ACTION);
+        return true;
+	}
+
+	//number
+	if( ch >= '0' && ch <= '9' ){
+	    stm.unget();
+        stk.push(WMARK_SCANNER_OL_ACTION);
         return true;
 	}
 

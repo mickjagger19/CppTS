@@ -18,7 +18,7 @@ namespace CSL {
 
 // WmarkParserOLAction
 
-WmarkParserOLAction::WmarkParserOLAction() noexcept : m_pData(nullptr)
+WmarkParserOLAction::WmarkParserOLAction() noexcept
 {
 }
 WmarkParserOLAction::~WmarkParserOLAction() noexcept
@@ -36,7 +36,6 @@ bool WmarkParserOLAction::DoAction(const std::string& strToken, std::vector<std:
 {
 	//ordered list
 	assert( m_pData->posParent.uAddress != 0 );
-    std::cout << "parser act ol" << std::endl;
 	RdMetaDataPosition pos = m_pData->spMeta->AllocateAstNode(WMARK_NODETYPE_OL);
 	m_pData->spMeta->SetAstParent(pos, m_pData->posParent);
 	if( m_pData->posCurrent.uAddress == 0 ) // to link the child with parent
@@ -44,8 +43,7 @@ bool WmarkParserOLAction::DoAction(const std::string& strToken, std::vector<std:
 	else // to link the children together
 		m_pData->spMeta->SetAstNext(m_pData->posCurrent, pos);
 	//sub tree
-	m_pData->posParent = pos;
-	m_pData->posCurrent.uAddress = 0;
+    down(pos);
 	return true;
 }
 

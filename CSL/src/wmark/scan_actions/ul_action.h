@@ -3,28 +3,24 @@
 */
 
 ////////////////////////////////////////////////////////////////////////////////
-#ifndef __UP_ACTION_H__
-#define __UP_ACTION_H__
+#ifndef __UL_ACTION_H__
+#define __UL_ACTION_H__
 ////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace CSL {
 ////////////////////////////////////////////////////////////////////////////////
 
-// WmarkParserUPAction
+// WmarkScannerULAction
 
-class WmarkParserUPAction : public IRdParserAction
+class WmarkScannerULAction : public IRdScannerAction
 {
 public:
-	WmarkParserUPAction() noexcept;
-	~WmarkParserUPAction() noexcept;
+	WmarkScannerULAction() throw();
+	~WmarkScannerULAction() throw();
 
-// IRdParserAction methods
-	virtual void SetParameter(const std::any& param);
-	virtual bool DoAction(const std::string& strToken, std::vector<std::string>& vecError);
-
-private:
-	RdParserActionMetaData* m_pData;
+// IRdScannerAction
+	virtual bool Scan(std::istream& stm, RdActionStack& stk, RdToken& token);
 };
 
 ////////////////////////////////////////////////////////////////////////////////

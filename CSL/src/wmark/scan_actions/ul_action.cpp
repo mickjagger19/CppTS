@@ -8,7 +8,7 @@
 
 #include "../base/WmarkDef.h"
 
-#include "Ol_action.h"
+#include "ul_action.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -16,16 +16,16 @@
 namespace CSL {
 ////////////////////////////////////////////////////////////////////////////////
 
-// WmarkScannerOlAction
+// WmarkScannerULAction
 
-WmarkScannerOlAction::WmarkScannerOlAction() throw() {
+WmarkScannerULAction::WmarkScannerULAction() throw() {
 }
 
-WmarkScannerOlAction::~WmarkScannerOlAction() throw() {
+WmarkScannerULAction::~WmarkScannerULAction() throw() {
 }
 
 // IRdScannerAction
-bool WmarkScannerOlAction::Scan(std::istream &stm, RdActionStack &stk, RdToken &token) {
+bool WmarkScannerULAction::Scan(std::istream &stm, RdActionStack &stk, RdToken &token) {
 
     int iState = 1;
     int char_counter = 1;
@@ -48,11 +48,11 @@ bool WmarkScannerOlAction::Scan(std::istream &stm, RdActionStack &stk, RdToken &
             return false;
 
         token.strToken += ch;
-        token.infoEnd.uCol++;
+        token.infoEnd.uCol ++;
 
         switch (iState) {
             case 1: //numbers
-                if (ch == '.') iState = 2;
+                if (ch == ' ') iState = 2;
                 else if (ch < '0' || ch > '9') {
                     stk.push(WMARK_SCANNER_TEXT_ACTION);
                     return true;
