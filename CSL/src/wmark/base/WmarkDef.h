@@ -42,8 +42,11 @@ enum {
 	WMARK_NT_berr_tail,
 	WMARK_NT_return_list_tail,
 	WMARK_NT_line_element,
+	WMARK_NT_heading,
 	WMARK_NT_text,
 	WMARK_NT_text_tail,
+	WMARK_NT_bold_text,
+	WMARK_NT_italic_text,
 };
 
 //actions for parser
