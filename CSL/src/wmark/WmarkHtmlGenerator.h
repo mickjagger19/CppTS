@@ -23,12 +23,13 @@ private:
 	static WmarkMetaDataTraversalAction get_ParagraphGenerator();
 	static WmarkMetaDataTraversalAction get_TextGenerator();
 	static WmarkMetaDataTraversalAction get_IndentGenerator();
-	static WmarkMetaDataTraversalAction get_BoldGenerator();
 	static WmarkMetaDataTraversalAction get_ItalicGenerator();
+	static WmarkMetaDataTraversalAction get_BoldGenerator();
 	static WmarkMetaDataTraversalAction get_HeadingGenerator();
 	static WmarkMetaDataTraversalAction get_CodeGenerator();
 	static WmarkMetaDataTraversalAction get_ImageGenerator();
 	static WmarkMetaDataTraversalAction get_OLGenerator();
+	static WmarkMetaDataTraversalAction get_ULGenerator();
 	static WmarkMetaDataTraversalAction get_LIGenerator();
 };
 

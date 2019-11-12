@@ -3,21 +3,21 @@
 */
 
 ////////////////////////////////////////////////////////////////////////////////
-#ifndef __OL_ACTION_H__
-#define __OL_ACTION_H__
+#ifndef __UL_ACTION_H__
+#define __UL_ACTION_H__
 ////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace CSL {
 ////////////////////////////////////////////////////////////////////////////////
 
-// WmarkParserOLAction
+// WmarkParserULAction
 
-class WmarkParserOLAction : public IRdParserAction
+class WmarkParserULAction : public IRdParserAction
 {
 public:
-	WmarkParserOLAction() noexcept;
-	~WmarkParserOLAction() noexcept;
+	WmarkParserULAction() noexcept;
+	~WmarkParserULAction() noexcept;
 
 // IRdParserAction methods
 	virtual void SetParameter(const std::any& param);

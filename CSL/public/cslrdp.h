@@ -183,6 +183,7 @@ public:
 	virtual bool Scan(std::istream& stm, RdActionStack& stk, RdToken& token) = 0;
 };
 
+
 // RdScanner
 class RdScanner
 {

@@ -30,7 +30,7 @@ WmarkUtility::~WmarkUtility() throw()
 bool WmarkUtility::Initialize()
 {
 	//actions
-	WmarkScannerHelper::CreateActions(m_spTkAction, m_spCommentAction, m_spTextAction, m_spCodeTextAction, m_spImageAction, m_spOlAction);
+	WmarkScannerHelper::CreateActions(m_spTkAction, m_spCommentAction, m_spTextAction, m_spCodeTextAction, m_spImageAction,  m_spOlAction);
 	//table
 	return WmarkParserHelper::CreateTable(m_spTable);
 }

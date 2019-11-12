@@ -115,8 +115,8 @@ bool RdaTable::generate_first_set(uint32_t uMaxTerminalID)
             std::cout << "Too much tokens of empty rule at index: " << index << std::endl;
             return false;
         }
-		auto iterF(firstSet.find(iter->pRule[0].uToken));
-		if(iterF == firstSet.end() ) {
+		auto iterF(m_map.find(iter->pRule[0].uToken));
+		if(iterF == m_map.end() ) {
 			std::shared_ptr<_TableItem> spItem(std::make_shared<_TableItem>());
 			spItem->iEpsilon = 0;
 			if( bEps ) {
@@ -138,7 +138,7 @@ bool RdaTable::generate_first_set(uint32_t uMaxTerminalID)
 					vecIndex.push_back(index);
 				}
 			}
-			firstSet.insert(std::pair<uint32_t, std::shared_ptr<_TableItem>>(iter->pRule[0].uToken, spItem));
+			m_map.insert(std::pair<uint32_t, std::shared_ptr<_TableItem>>(iter->pRule[0].uToken, spItem));
 		}
 		else {
 			if( bEps ) {
@@ -201,17 +201,19 @@ bool RdaTable::generate_first_set(uint32_t uMaxTerminalID)
 			}
 			continue;
 		}
-		auto iterF(firstSet.find(uNT));
+		auto iterF(m_map.find(uNT));
 		//no rule
-		if(iterF == firstSet.end() )
-			return false;
+		if(iterF == m_map.end() ) {
+            std::cout << "No rule found at index: " << index << std::endl;
+            return false;
+        }
 		//the first nonterminal of right part cannot derive epsilon
 		if( iterF->second->iEpsilon < 0 ) {
             std::cout << "The first nonterminal of right part derives epsilon of rule at index: " << index << std::endl;
             return false;
         }
-		auto iterP(firstSet.find(m_rules[index].pRule[0].uToken));
-		assert(iterP != firstSet.end() );
+		auto iterP(m_map.find(m_rules[index].pRule[0].uToken));
+		assert(iterP != m_map.end() );
 		//propagation
 		for( auto iterF2 = iterF->second->mapTerminal.begin();
 			iterF2 != iterF->second->mapTerminal.end();
@@ -223,8 +225,10 @@ bool RdaTable::generate_first_set(uint32_t uMaxTerminalID)
                 return false;
             }
 			int32_t iAct;
-			if( !index_to_action(index, false, iAct) )
-				return false;
+			if( !index_to_action(index, false, iAct) ) {
+                std::cout << "index_to_action failed of rule at index: " << index << std::endl;
+                return false;
+            }
 			iterP->second->mapTerminal.insert(std::pair<uint32_t, int32_t>(iterF2->first, iAct));
 		}
 		//remove
@@ -236,9 +240,11 @@ bool RdaTable::generate_first_set(uint32_t uMaxTerminalID)
 	} //end while
 
 	//check null rules
-	for(auto iterF(firstSet.begin()); iterF != firstSet.end(); ++ iterF ) {
-		if( iterF->second->mapTerminal.size() == 0 )
-			return false;
+	for(auto iterF(m_map.begin()); iterF != m_map.end(); ++ iterF ) {
+		if( iterF->second->mapTerminal.size() == 0 ) {
+            std::cout << "Empty first set detected of token: " << iterF->first << std::endl;
+            return false;
+        }
 	}
 
 	return true;
@@ -252,7 +258,8 @@ bool RdaTable::add_follow_set(uint32_t uMaxTerminalID)
 {
 	//follow
 	auto iter(m_rules.begin());
-	for( ; iter != m_rules.end(); ++ iter ) {
+    auto index(0);
+	for( ; iter != m_rules.end(); ++ iter, ++ index) {
 		if( iter->uNum <= 2 )
 			continue;
 		for( uintptr_t i = 1; i < iter->uNum - 1; i ++ ) {
@@ -260,16 +267,20 @@ bool RdaTable::add_follow_set(uint32_t uMaxTerminalID)
 			if( uToken == TK_EPSILON || uToken <= uMaxTerminalID )
 				continue;
 			//nonterminal
-			auto iterF(firstSet.find(uToken));
+			auto iterF(m_map.find(uToken));
 			//no rule
-			if(iterF == firstSet.end() )
-				return false;
+			if(iterF == m_map.end() ) {
+                std::cout << "No rule found of token: " << uToken << " of rule at index: " << i << std::endl;
+                return false;
+            }
 			//next
 			uintptr_t uNext = i + 1;
 			while( uNext < iter->uNum ) {
 				uint32_t uF = iter->pRule[uNext].uToken;
-				if( uF == TK_EPSILON )
-					return false;
+				if( uF == TK_EPSILON ) {
+                    std::cout << "Epsilon found of rule at index: " << index << std::endl;
+                    return false;
+                }
 				if( uF <= uMaxTerminalID ) {
 					if( iterF->second->mapTerminal.find(uF) == iterF->second->mapTerminal.end() ) {
 						if( iterF->second->sFollow.find(uF) == iterF->second->sFollow.end() )
@@ -278,8 +289,8 @@ bool RdaTable::add_follow_set(uint32_t uMaxTerminalID)
 					break;
 				}
 				//NT
-				auto iterP(firstSet.find(uF));
-				if(iterP == firstSet.end() )
+				auto iterP(m_map.find(uF));
+				if(iterP == m_map.end() )
 					return false;
 				for( auto iterF2 = iterP->second->mapTerminal.begin();
 					iterF2 != iterP->second->mapTerminal.end();
@@ -297,8 +308,8 @@ bool RdaTable::add_follow_set(uint32_t uMaxTerminalID)
 	} //end for
 
 	//EOE
-	auto iterF(firstSet.find(m_uStartNT));
-	assert(iterF != firstSet.end() );
+	auto iterF(m_map.find(m_uStartNT));
+	assert(iterF != m_map.end() );
 	iterF->second->iEpsilon = -1;  //special
 	iterF->second->sFollow.insert(TK_END_OF_EVENT);
 
@@ -314,8 +325,8 @@ bool RdaTable::add_follow_set(uint32_t uMaxTerminalID)
 			uint32_t uToken = iter->pRule[i].uToken;
 			if( uToken == TK_EPSILON || uToken <= uMaxTerminalID )
 				break;
-			iterF = firstSet.find(uToken);
-			assert(iterF != firstSet.end() );
+			iterF = m_map.find(uToken);
+			assert(iterF != m_map.end() );
 			if( uToken != iter->pRule[0].uToken ) {
 				if( iterP == mapProp.end() ) {
 					auto ip = mapProp.insert(PropPair(iter->pRule[0].uToken, std::set<uint32_t>()));
@@ -336,14 +347,14 @@ bool RdaTable::add_follow_set(uint32_t uMaxTerminalID)
 		auto iterP(mapProp.find(uToken));
 		if( iterP == mapProp.end() )
 			continue;
-		iterF = firstSet.find(uToken);
-		assert(iterF != firstSet.end() );
+		iterF = m_map.find(uToken);
+		assert(iterF != m_map.end() );
 		for( auto iterP2 = iterP->second.begin();
 			iterP2 != iterP->second.end();
 			++ iterP2 ) {
 			uint32_t uNT = *iterP2;
-			auto iterF2(firstSet.find(uNT));
-			assert(iterF2 != firstSet.end() );
+			auto iterF2(m_map.find(uNT));
+			assert(iterF2 != m_map.end() );
 			bool bChanged = false;
 			for( auto iterF3 = iterF->second->sFollow.begin();
 				iterF3 != iterF->second->sFollow.end();
@@ -375,9 +386,9 @@ bool RdaTable::add_follow_set(uint32_t uMaxTerminalID)
 bool RdaTable::Generate(const RULEELEMENT* pRules, uint32_t uMaxTerminalID)
 {
 	assert( pRules != NULL );
-	firstSet.clear();
+	m_map.clear();
 	m_rules.clear();
-    int index = 0;
+
 	//rules
 	const RULEELEMENT* p = pRules;
 	while( p->uToken != TK_NULL ) {
@@ -388,43 +399,29 @@ bool RdaTable::Generate(const RULEELEMENT* pRules, uint32_t uMaxTerminalID)
 			(item.uNum) ++;
 			p ++;
 		}
-		if( item.uNum == 1 ) {
-            std::cout << "Not enough tokens of rule at index: " << index << std::endl;
-            return false;
-        }
+		if( item.uNum == 1 )
+		    return false;
 		//left part
-		if( item.pRule->uToken <= uMaxTerminalID ) {
-            std::cout << "Terminal as left part error of rule at index: " << index << std::endl;
-            return false;
-        }
+		if( item.pRule->uToken <= uMaxTerminalID )
+		    return false;
 		//left recursion
-		if( item.pRule->uToken == item.pRule[1].uToken ) {
-            std::cout << "Left recursion error of rule at index: " << index << std::endl;
-            return false;
-        }
+		if( item.pRule->uToken == item.pRule[1].uToken )
+			return false;
 		//add
 		m_rules.push_back(item);
 		p ++;
-		index ++;
 	}
 
-	if( m_rules.empty() ) {
-        std::cout << "empty rules error" << std::endl;
-        return false;
-    }
+	if( m_rules.empty() )
+		return false;
 
 	m_uStartNT = m_rules[0].pRule[0].uToken;
 
 	//table
-	if( !generate_first_set(uMaxTerminalID) ) {
-	    std::cout << "generate first set failed" << std::endl;
-        return false;
-    }
-	if( !add_follow_set(uMaxTerminalID) ) {
-        std::cout << "generate follow set failed" << std::endl;
-        return false;
-    }
-
+	if( !generate_first_set(uMaxTerminalID) )
+		return false;
+	if( !add_follow_set(uMaxTerminalID) )
+		return false;
 	return true;
 }
 
@@ -435,8 +432,8 @@ uint32_t RdaTable::GetStartNT() const throw()
 
 int32_t RdaTable::Input(uint32_t uNonterminal, uint32_t uTerminal) throw()
 {
-	auto iterN(firstSet.find(uNonterminal));
-	if(iterN == firstSet.end() )
+	auto iterN(m_map.find(uNonterminal));
+	if(iterN == m_map.end() )
 		return 0;
 	auto iterT(iterN->second->mapTerminal.find(uTerminal));
 	if( iterT != iterN->second->mapTerminal.end() ) // found the matched Terminal in first set, return id of the specific rule item

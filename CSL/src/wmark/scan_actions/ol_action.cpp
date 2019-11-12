@@ -36,7 +36,7 @@ bool WmarkScannerOlAction::Scan(std::istream &stm, RdActionStack &stk, RdToken &
         char_counter++;
         if (stm.eof()) {
             if (iState >= 3){
-                token.uID = WMARK_TK_LI;
+                token.uID = WMARK_TK_OLI;
             } else {
                 while (char_counter-- > 0)
                     stm.unget();
@@ -71,7 +71,7 @@ bool WmarkScannerOlAction::Scan(std::istream &stm, RdActionStack &stk, RdToken &
 
     } while (iState != 3);
 
-    token.uID = WMARK_TK_LI;
+    token.uID = WMARK_TK_OLI;
     return true;
 
 }

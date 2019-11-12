@@ -143,27 +143,20 @@ bool WmarkScannerTkAction::Scan(std::istream& stm, RdActionStack& stk, RdToken& 
 		return true;
 	}
 
-	//number
-	if( ch >= '0' && ch <= '9' ){
-        stk.push(WMARK_SCANNER_OL_ACTION);
+	if ( ch == '-' || ch == '+' ){
+	    if (stm.eof()){
+            token.uID = WMARK_TK_TEXT;
+            return true;
+	    }
+	    stm.get(ch);
+	    if ( ch == ' ' ){
+	        token.uID = WMARK_TK_ULI;
+	        return true;
+	    }
+	    stm.unget();
+        stk.push(WMARK_SCANNER_TEXT_ACTION);
         return true;
 	}
-
-    //`
-    if (ch == '`') {
-        stm.get(ch);
-        if ( ch == '`' ) {
-            stm.get(ch);
-            if ( ch == '`' ) {
-                token.uID = WMARK_TK_CODE;
-                return true;
-            }
-            stm.unget();
-        }
-        stm.unget();
-        token.uID = WMARK_TK_CODE;
-        return true;
-    }
 
     //*
     if ( ch == '*' ) {
@@ -179,17 +172,18 @@ bool WmarkScannerTkAction::Scan(std::istream& stm, RdActionStack& stk, RdToken& 
             token.uID = WMARK_TK_BOLD;
             return true;
         }
-//        if ( ch == ' ' ){
-//            stk.push(WMARK_SCANNER_UL_ACTION);
-//            return true;
-//        }
-        else {
+        else if ( ch == ' ' && !isItalic ){
+            token.uID = WMARK_TK_ULI;
+            return true;
+        } else {
+            stm.unget();
+            isItalic = !isItalic;
             token.uID = WMARK_TK_ITALIC;
             return true;
         }
     }
 
-	if( ch == '!' ) {
+    if( ch == '!' ) {
         stk.push(WMARK_SCANNER_IMAGE_ACTION);
         return true;
 	}

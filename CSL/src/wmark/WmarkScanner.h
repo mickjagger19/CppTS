@@ -21,7 +21,7 @@ public:
 							std::shared_ptr<IRdScannerAction>& spTextAction,
 							std::shared_ptr<IRdScannerAction>& spCodeTextAction,
 							std::shared_ptr<IRdScannerAction>& spImageAction,
-							std::shared_ptr<IRdScannerAction>& spOlAction);
+	                        std::shared_ptr<IRdScannerAction>& spOlAction);
 	static void SetActions(RdScanner& rds,
 						const std::shared_ptr<IRdScannerAction>& spTkAction,
 						const std::shared_ptr<IRdScannerAction>& spCommentAction,

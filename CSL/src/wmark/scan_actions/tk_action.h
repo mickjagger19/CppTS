@@ -22,6 +22,7 @@ public:
 private:
     const int MAX_HEADING_LEVEL = 6;
     int codeType = NON_CODE;
+    bool isItalic = false;
 
 // IRdScannerAction
 	virtual bool Scan(std::istream& stm, RdActionStack& stk, RdToken& token);
