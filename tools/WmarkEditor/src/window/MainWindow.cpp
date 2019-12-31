@@ -8,6 +8,7 @@
 
 #include "../view/TextEditor.h"
 #include "MainWindow.h"
+#include "ReplaceDialog.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace CSL {
@@ -17,10 +18,13 @@ namespace CSL {
 
 MainWindow::MainWindow(int w, int h, const char* t) : Fl_Double_Window(w, h, t), 
                                                       m_textEditor(std::make_shared<TextEditor>(50, 80, 400, 400)), 
-	                                                  m_menuBar(std::make_shared<Fl_Menu_Bar>(0, 0, 500, 40))
+	                                                  m_menuBar(std::make_shared<Fl_Menu_Bar>(0, 0, 500, 40)),
+													  m_replaceDlg(std::make_shared<ReplaceDialog>(300, 105, "Replace"))
 {
 	m_menuBar->add("Load...", 0, &load_cb, &m_cmdFunc_load);
 	m_menuBar->add("Save...", 0, &save_cb, &m_cmdFunc_save);
+	m_menuBar->add("Replace...", 0, &replace_cb, m_replaceDlg.get());
+	
 	this->resizable(*m_textEditor);
 }
 
@@ -72,6 +76,12 @@ void MainWindow::save_cb(Fl_Widget*, void* v)
 		}
 	}
 	return;
+}
+
+void MainWindow::replace_cb(Fl_Widget*, void* v)
+{
+	ReplaceDialog* dialog = (ReplaceDialog*)v;
+	dialog->show();
 }
 
 ////////////////////////////////////////////////////////////////////////////////

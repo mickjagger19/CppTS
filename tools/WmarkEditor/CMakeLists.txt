@@ -26,6 +26,7 @@ SET(SRC_LIST "src/main.cpp"
 	"src/view/TextEditor.cpp"
 	"src/window/notifications/MainWindowNotification.cpp"
 	"src/window/MainWindow.cpp"
+	"src/window/ReplaceDialog.cpp"
 	"src/app/TextApp.cpp"
 	)
 ADD_EXECUTABLE(WmarkEditor ${SRC_PCH_LIST} ${SRC_LIST})

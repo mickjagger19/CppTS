@@ -11,6 +11,7 @@
 namespace CSL {
 ////////////////////////////////////////////////////////////////////////////////
 
+class ReplaceDialog;
 // MainWindow
 
 class MainWindow : public Fl_Double_Window
@@ -35,15 +36,20 @@ private:
 //callbacks
 	static void load_cb(Fl_Widget*, void* v);
 	static void save_cb(Fl_Widget*, void* v);
+	static void replace_cb(Fl_Widget*, void* v);
+	
 
 private:
 //commands
 	CommandFunc m_cmdFunc_load;
 	CommandFunc m_cmdFunc_save;
+	CommandFunc m_cmdFunc_replace;
 
 //UI
 	std::shared_ptr<TextEditor> m_textEditor;
 	std::shared_ptr<Fl_Menu_Bar> m_menuBar;
+
+	std::shared_ptr<ReplaceDialog> m_replaceDlg;
 };
 
 ////////////////////////////////////////////////////////////////////////////////
