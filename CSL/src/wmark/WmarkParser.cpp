@@ -25,6 +25,19 @@
 #include "parser_actions/li_action.h"
 #include "parser_actions/ol_action.h"
 #include "parser_actions/ul_action.h"
+#include "parser_actions/tk_math_action.h"
+#include "parser_actions/nt_mi_action.h"
+#include "parser_actions/nt_mo_action.h"
+#include "wmark/parser_actions/tk_math_text_action.h"
+#include "parser_actions/tk_mrow_action.h"
+#include "parser_actions/tk_operator_caret_action.h"
+#include "parser_actions/tk_operator_tag_action.h"
+#include "parser_actions/tk_operator_root_action.h"
+#include "parser_actions/tk_operator_munderover_action.h"
+#include "parser_actions/tk_operator_verticalline_action.h"
+#include "parser_actions/tk_vec_action.h"
+#include "parser_actions/tk_bar_action.h"
+#include "parser_actions/double_struck_action.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -95,6 +108,55 @@ const RULEELEMENT g_Rules[] = {
 { WMARK_NT_line_element, LA_NULL }, { WMARK_TK_HEADING, WMARK_PARSER_ACT_TK_HEADING }, { WMARK_NT_text, LA_NULL }, { WMARK_NT_up, LA_NULL }, { TK_NULL, LA_NULL },
 //line_element : WMARK_TK_INDENT
 { WMARK_NT_line_element, LA_NULL }, { WMARK_TK_INDENT, WMARK_PARSER_ACT_TK_INDENT }, { TK_NULL, LA_NULL },
+//line_element : WMARK_TK_MATH expression WMARK_TK_MATH                30
+{ WMARK_NT_text, LA_NULL }, { WMARK_TK_MATH, WMARK_PARSER_ACT_TK_MATH }, { WMARK_NT_expression, LA_NULL }, { WMARK_TK_MATH, WMARK_PARSER_ACT_UP }, { TK_NULL, LA_NULL },
+//expression : term expression
+{ WMARK_NT_expression, LA_NULL }, { WMARK_NT_base, LA_NULL }, { WMARK_NT_expression, LA_NULL }, { TK_NULL, LA_NULL },
+//expression : EPSILON
+{ WMARK_NT_expression, LA_NULL }, { TK_EPSILON, LA_NULL }, { TK_NULL, LA_NULL },
+//expression : bb  "TEXT" expression
+{ WMARK_NT_expression, WMARK_PARSER_ACT_TK_BOLD }, { WMARK_TK_BB, LA_NULL }, { WMARK_TK_SPACE, LA_NULL }, { WMARK_TK_QUOTATION_MARK, LA_NULL }, { WMARK_TK_TEXT, WMARK_PARSER_ACT_TK_TEXT }, { WMARK_TK_QUOTATION_MARK, WMARK_PARSER_ACT_UP }, { WMARK_NT_expression, LA_NULL }, { TK_NULL, LA_NULL },
+//expression : bbb "TEXT" expression
+{ WMARK_NT_expression, WMARK_PARSER_ACT_DOUBLE_STRUCK }, { WMARK_TK_BBB, LA_NULL }, { WMARK_TK_SPACE, LA_NULL }, { WMARK_TK_QUOTATION_MARK, LA_NULL }, { WMARK_TK_TEXT, WMARK_PARSER_ACT_TK_TEXT }, { WMARK_TK_QUOTATION_MARK, WMARK_PARSER_ACT_UP }, { WMARK_NT_expression, LA_NULL }, { TK_NULL, LA_NULL },
+
+{ WMARK_NT_MO, WMARK_PARSER_ACT_NT_MO }, { TK_EPSILON, LA_NULL }, { TK_NULL, LA_NULL },
+{ WMARK_NT_MO, WMARK_PARSER_ACT_NT_MO }, { WMARK_TK_FOOBAR, LA_NULL}, { TK_NULL, LA_NULL },
+//term : sum_ ( expr )  ^ expr term
+{ WMARK_NT_base, WMARK_PARSER_ACT_TK_OPERATOR_MUNDEROVER }, { WMARK_TK_OPERATOR_SUM, WMARK_PARSER_ACT_TK_MATH_TEXT }, { WMARK_TK_OPERATOR_LEFT_PARENTHESES, WMARK_PARSER_ACT_MROW }, { WMARK_NT_expression, LA_NULL }, { WMARK_TK_OPERATOR_RIGHT_PARENTHESES, WMARK_PARSER_ACT_UP }, { WMARK_TK_OPERATOR_CARET, LA_NULL }, { WMARK_NT_base, LA_NULL }, { WMARK_TK_SPACE, WMARK_PARSER_ACT_UP }, { WMARK_NT_base, LA_NULL }, { TK_NULL, LA_NULL },
+//term : prod_ ( expr ) ^ expr term
+{ WMARK_NT_base, WMARK_PARSER_ACT_TK_OPERATOR_MUNDEROVER }, { WMARK_TK_OPERATOR_PROD, WMARK_PARSER_ACT_TK_MATH_TEXT }, { WMARK_TK_OPERATOR_LEFT_PARENTHESES, WMARK_PARSER_ACT_MROW }, { WMARK_NT_expression, LA_NULL }, { WMARK_TK_OPERATOR_RIGHT_PARENTHESES, WMARK_PARSER_ACT_UP }, { WMARK_TK_OPERATOR_CARET, LA_NULL }, { WMARK_NT_base, LA_NULL }, { WMARK_TK_SPACE, WMARK_PARSER_ACT_UP }, { WMARK_NT_base, LA_NULL }, { TK_NULL, LA_NULL },
+//term : int_ ( expr ) ^ expr term
+{ WMARK_NT_base, WMARK_PARSER_ACT_TK_OPERATOR_MUNDEROVER }, { WMARK_TK_OPERATOR_INT, WMARK_PARSER_ACT_TK_MATH_TEXT }, { WMARK_TK_OPERATOR_LEFT_PARENTHESES, WMARK_PARSER_ACT_MROW }, { WMARK_NT_expression, LA_NULL }, { WMARK_TK_OPERATOR_RIGHT_PARENTHESES, WMARK_PARSER_ACT_UP }, { WMARK_TK_OPERATOR_CARET, LA_NULL }, { WMARK_NT_base, LA_NULL }, { WMARK_TK_SPACE, WMARK_PARSER_ACT_UP }, { WMARK_NT_base, LA_NULL }, { TK_NULL, LA_NULL },
+//term : oint_ ( expr ) ^ expr term
+{ WMARK_NT_base, WMARK_PARSER_ACT_TK_OPERATOR_MUNDEROVER }, { WMARK_TK_OPERATOR_OINT, WMARK_PARSER_ACT_TK_MATH_TEXT }, { WMARK_TK_OPERATOR_LEFT_PARENTHESES, WMARK_PARSER_ACT_MROW }, { WMARK_NT_expression, LA_NULL }, { WMARK_TK_OPERATOR_RIGHT_PARENTHESES, WMARK_PARSER_ACT_UP }, { WMARK_TK_OPERATOR_CARET, LA_NULL }, { WMARK_NT_base, LA_NULL }, { WMARK_TK_SPACE, WMARK_PARSER_ACT_UP }, { WMARK_NT_base, LA_NULL }, { TK_NULL, LA_NULL },
+//base : ^ exponent
+{ WMARK_NT_base, WMARK_PARSER_ACT_TK_OPERATOR_MSUP }, { WMARK_TK_OPERATOR_CARET, LA_NULL }, { WMARK_NT_base, LA_NULL }, { WMARK_NT_up, LA_NULL}, { TK_NULL, LA_NULL },
+//base : operator
+{ WMARK_NT_base, WMARK_PARSER_ACT_NT_MO }, { WMARK_TK_OPERATOR, WMARK_PARSER_ACT_TK_MATH_TEXT }, { TK_NULL, LA_NULL },
+//base : ( expr )
+{ WMARK_NT_base, WMARK_PARSER_ACT_NT_MO }, { WMARK_TK_OPERATOR_LEFT_PARENTHESES, WMARK_PARSER_ACT_TK_MATH_TEXT }, { WMARK_NT_expression, LA_NULL}, { WMARK_NT_MO, LA_NULL }, { WMARK_TK_OPERATOR_RIGHT_PARENTHESES, WMARK_PARSER_ACT_TK_MATH_TEXT }, { TK_NULL, LA_NULL },
+//base : [ expr ]
+{ WMARK_NT_base, WMARK_PARSER_ACT_NT_MO }, { WMARK_TK_OPERATOR_LEFT_SQUARE_BRACKETS, WMARK_PARSER_ACT_TK_MATH_TEXT }, { WMARK_NT_expression, LA_NULL}, { WMARK_NT_MO, LA_NULL }, { WMARK_TK_OPERATOR_RIGHT_SQUARE_BRACKETS, WMARK_PARSER_ACT_TK_MATH_TEXT }, { TK_NULL, LA_NULL },
+//base : { expr }
+{ WMARK_NT_base, WMARK_PARSER_ACT_NT_MO }, { WMARK_TK_OPERATOR_LEFT_CURLY_BRACES, WMARK_PARSER_ACT_TK_MATH_TEXT }, { WMARK_NT_expression, LA_NULL}, { WMARK_NT_MO, LA_NULL }, { WMARK_TK_OPERATOR_RIGHT_CURLY_BRACES, WMARK_PARSER_ACT_TK_MATH_TEXT }, { TK_NULL, LA_NULL },
+//base : text
+{ WMARK_NT_base, WMARK_PARSER_ACT_NT_MI }, { WMARK_TK_TEXT, WMARK_PARSER_ACT_TK_MATH_TEXT }, { TK_NULL, LA_NULL },
+//base : FRAC ( base ) ( base )
+{ WMARK_NT_base, LA_NULL }, { WMARK_TK_OPERATOR_FRAC, WMARK_PARSER_ACT_TK_OPERATOR_TAG }, { WMARK_TK_OPERATOR_LEFT_PARENTHESES, WMARK_PARSER_ACT_MROW }, { WMARK_NT_expression, LA_NULL }, { WMARK_TK_OPERATOR_RIGHT_PARENTHESES, WMARK_PARSER_ACT_UP }, { WMARK_TK_OPERATOR_LEFT_PARENTHESES, WMARK_PARSER_ACT_MROW }, { WMARK_NT_expression, LA_NULL }, { WMARK_TK_OPERATOR_RIGHT_PARENTHESES, WMARK_PARSER_ACT_UP }, { WMARK_NT_up, LA_NULL }, { TK_NULL, LA_NULL },
+//base : sqrt ( base )
+{ WMARK_NT_base, LA_NULL }, { WMARK_TK_OPERATOR_SQRT, WMARK_PARSER_ACT_TK_OPERATOR_TAG }, { WMARK_TK_OPERATOR_LEFT_PARENTHESES, LA_NULL }, { WMARK_NT_expression, LA_NULL }, { WMARK_TK_OPERATOR_RIGHT_PARENTHESES, WMARK_PARSER_ACT_UP }, { TK_NULL, LA_NULL },
+//base : root ( base ) ( base )
+{ WMARK_NT_base, LA_NULL }, { WMARK_TK_OPERATOR_ROOT, WMARK_PARSER_ACT_TK_OPERATOR_TAG }, { WMARK_TK_OPERATOR_LEFT_PARENTHESES, LA_NULL }, { WMARK_NT_expression, LA_NULL }, { WMARK_TK_OPERATOR_RIGHT_PARENTHESES, LA_NULL }, { WMARK_TK_OPERATOR_LEFT_PARENTHESES, LA_NULL }, { WMARK_NT_base, LA_NULL }, { WMARK_TK_OPERATOR_RIGHT_PARENTHESES, WMARK_PARSER_ACT_TK_OPERATOR_ROOT }, { TK_NULL, LA_NULL },
+//base : ABS ( expr )
+{ WMARK_NT_base, LA_NULL }, { WMARK_TK_OPERATOR_ABS, LA_NULL }, { WMARK_TK_OPERATOR_LEFT_PARENTHESES, WMARK_PARSER_ACT_TK_OPERATOR_VERTICALLINE }, { WMARK_NT_expression, LA_NULL }, { WMARK_TK_OPERATOR_RIGHT_PARENTHESES, WMARK_PARSER_ACT_TK_OPERATOR_VERTICALLINE }, { TK_NULL, LA_NULL },
+//base : floor ( expr )
+{ WMARK_NT_base, LA_NULL }, { WMARK_TK_OPERATOR_FLOOR, LA_NULL }, { WMARK_TK_OPERATOR_LEFT_PARENTHESES, WMARK_PARSER_ACT_TK_OPERATOR_VERTICALLINE }, { WMARK_NT_expression, LA_NULL }, { WMARK_TK_OPERATOR_RIGHT_PARENTHESES, WMARK_PARSER_ACT_TK_OPERATOR_VERTICALLINE }, { TK_NULL, LA_NULL },
+//base : ceil ( expr )
+{ WMARK_NT_base, LA_NULL }, { WMARK_TK_OPERATOR_CEIL, LA_NULL }, { WMARK_TK_OPERATOR_LEFT_PARENTHESES, WMARK_PARSER_ACT_TK_OPERATOR_VERTICALLINE }, { WMARK_NT_expression, LA_NULL }, { WMARK_TK_OPERATOR_RIGHT_PARENTHESES, WMARK_PARSER_ACT_TK_OPERATOR_VERTICALLINE }, { TK_NULL, LA_NULL },
+//base : vec text
+{ WMARK_NT_base, WMARK_PARSER_ACT_TK_OPERATOR_TAG }, { WMARK_TK_VEC, WMARK_PARSER_ACT_NT_MI }, { WMARK_TK_TEXT, WMARK_PARSER_ACT_TK_VEC }, { TK_NULL, LA_NULL },
+//base : bar text
+{ WMARK_NT_base, WMARK_PARSER_ACT_TK_OPERATOR_TAG }, { WMARK_TK_BAR, WMARK_PARSER_ACT_NT_MI }, { WMARK_TK_TEXT, WMARK_PARSER_ACT_TK_BAR }, { TK_NULL, LA_NULL },
 //line_element : WMARK_TK_IMAGE
 { WMARK_NT_text, WMARK_PARSER_ACT_block_element }, { WMARK_TK_IMAGE, WMARK_PARSER_ACT_TK_IMAGE }, { WMARK_NT_up, LA_NULL }, { TK_NULL, LA_NULL },
 //text : WMARK_TK_ITALIC text WMARK_TK_ITALIC
@@ -196,9 +258,58 @@ void WmarkParserHelper::InitActions(RdParser& parser, RdParserActionMetaData* pD
 	spAction = std::static_pointer_cast<IRdParserAction, WmarkParserULAction>(std::make_shared<WmarkParserULAction>());
 	spAction->SetParameter(std::make_any<RdParserActionMetaData*>(pData));
 	parser.AddAction(WMARK_PARSER_ACT_NT_UL, spAction);
-
-
-
+	//TK_Math
+	spAction = std::static_pointer_cast<IRdParserAction, WmarkParserTkMathAction>(std::make_shared<WmarkParserTkMathAction>());
+	spAction->SetParameter(std::make_any<RdParserActionMetaData*>(pData));
+	parser.AddAction(WMARK_PARSER_ACT_TK_MATH, spAction);
+	//Nt_MI
+	spAction = std::static_pointer_cast<IRdParserAction, WmarkParserNtMIAction>(std::make_shared<WmarkParserNtMIAction>());
+	spAction->SetParameter(std::make_any<RdParserActionMetaData*>(pData));
+	parser.AddAction(WMARK_PARSER_ACT_NT_MI, spAction);
+	//Nt_MO
+	spAction = std::static_pointer_cast<IRdParserAction, WmarkParserNtMOAction>(std::make_shared<WmarkParserNtMOAction>());
+	spAction->SetParameter(std::make_any<RdParserActionMetaData*>(pData));
+	parser.AddAction(WMARK_PARSER_ACT_NT_MO, spAction);
+	//Tk_math_identifier
+	spAction = std::static_pointer_cast<IRdParserAction, WmarkParserMathTextAction>(std::make_shared<WmarkParserMathTextAction>());
+	spAction->SetParameter(std::make_any<RdParserActionMetaData*>(pData));
+	parser.AddAction(WMARK_PARSER_ACT_TK_MATH_TEXT, spAction);
+	//MROW
+	spAction = std::static_pointer_cast<IRdParserAction, WmarkParserTkMrowAction>(std::make_shared<WmarkParserTkMrowAction>());
+	spAction->SetParameter(std::make_any<RdParserActionMetaData*>(pData));
+	parser.AddAction(WMARK_PARSER_ACT_MROW, spAction);
+	//Operator_Caret
+	spAction = std::static_pointer_cast<IRdParserAction, WmarkParserTkOperatorCaretAction>(std::make_shared<WmarkParserTkOperatorCaretAction>());
+	spAction->SetParameter(std::make_any<RdParserActionMetaData*>(pData));
+	parser.AddAction(WMARK_PARSER_ACT_TK_OPERATOR_MSUP, spAction);
+	//Operator_Sqrt
+	spAction = std::static_pointer_cast<IRdParserAction, WmarkParserTkOperatorTagAction>(std::make_shared<WmarkParserTkOperatorTagAction>());
+	spAction->SetParameter(std::make_any<RdParserActionMetaData*>(pData));
+	parser.AddAction(WMARK_PARSER_ACT_TK_OPERATOR_TAG, spAction);
+	//Operator_Root
+	spAction = std::static_pointer_cast<IRdParserAction, WmarkParserTkOperatorRootAction>(std::make_shared<WmarkParserTkOperatorRootAction>());
+	spAction->SetParameter(std::make_any<RdParserActionMetaData*>(pData));
+	parser.AddAction(WMARK_PARSER_ACT_TK_OPERATOR_ROOT, spAction);
+	//Operator_Munderover
+	spAction = std::static_pointer_cast<IRdParserAction, WmarkParserTkOperatorMunderoverAction>(std::make_shared<WmarkParserTkOperatorMunderoverAction>());
+	spAction->SetParameter(std::make_any<RdParserActionMetaData*>(pData));
+	parser.AddAction(WMARK_PARSER_ACT_TK_OPERATOR_MUNDEROVER, spAction);
+	//Operator_Verticalline
+	spAction = std::static_pointer_cast<IRdParserAction, WmarkParserTkOperatorVerticallineAction>(std::make_shared<WmarkParserTkOperatorVerticallineAction>());
+	spAction->SetParameter(std::make_any<RdParserActionMetaData*>(pData));
+	parser.AddAction(WMARK_PARSER_ACT_TK_OPERATOR_VERTICALLINE, spAction);
+	//Operator_Vec
+	spAction = std::static_pointer_cast<IRdParserAction, WmarkParserVecAction>(std::make_shared<WmarkParserVecAction>());
+	spAction->SetParameter(std::make_any<RdParserActionMetaData*>(pData));
+	parser.AddAction(WMARK_PARSER_ACT_TK_VEC, spAction);
+	//Operator_Bars
+	spAction = std::static_pointer_cast<IRdParserAction, WmarkParserBarAction>(std::make_shared<WmarkParserBarAction>());
+	spAction->SetParameter(std::make_any<RdParserActionMetaData*>(pData));
+	parser.AddAction(WMARK_PARSER_ACT_TK_BAR, spAction);
+	//Double-Struck
+	spAction = std::static_pointer_cast<IRdParserAction, WmarkParserDoubleStruckAction>(std::make_shared<WmarkParserDoubleStruckAction>());
+	spAction->SetParameter(std::make_any<RdParserActionMetaData*>(pData));
+	parser.AddAction(WMARK_PARSER_ACT_DOUBLE_STRUCK, spAction);
 }
 
 void WmarkParserHelper::Start(RdParser& parser)

@@ -22,6 +22,7 @@ public:
 private:
     const int MAX_HEADING_LEVEL = 6;
     int codeType = NON_CODE;
+	bool isAsciiMath = false;
     bool isItalic = false;
 
 // IRdScannerAction

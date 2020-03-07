@@ -8,7 +8,7 @@
 
 #include "../base/WmarkDef.h"
 
-#include "tk_Heading_action.h"
+#include "tk_heading_action.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 

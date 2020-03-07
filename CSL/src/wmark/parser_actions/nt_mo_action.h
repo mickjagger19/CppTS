@@ -3,21 +3,21 @@
 */
 
 ////////////////////////////////////////////////////////////////////////////////
-#ifndef __TK_IMAGE_ACTION_H__
-#define __TK_IMAGE_ACTION_H__
+#ifndef __NT_MO_ACTION_H__
+#define __NT_MO_ACTION_H__
 ////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace CSL {
 ////////////////////////////////////////////////////////////////////////////////
 
-// WmarkParserTkIndentAction
+// WmarkParserNtMOAction
 
-class WmarkParserImageAction : public IRdParserAction
+class WmarkParserNtMOAction : public IRdParserAction
 {
 public:
-	WmarkParserImageAction() noexcept;
-	~WmarkParserImageAction() noexcept;
+	WmarkParserNtMOAction() noexcept;
+	~WmarkParserNtMOAction() noexcept;
 
 // IRdParserAction methods
 	virtual void SetParameter(const std::any& param);

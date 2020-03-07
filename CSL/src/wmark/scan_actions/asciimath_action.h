@@ -3,26 +3,31 @@
 */
 
 ////////////////////////////////////////////////////////////////////////////////
-#ifndef __TK_IMAGE_ACTION_H__
-#define __TK_IMAGE_ACTION_H__
+#ifndef __ASCIIMATH_ACTION_H__
+#define __ASCIIMATH_ACTION_H__
 ////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace CSL {
 ////////////////////////////////////////////////////////////////////////////////
 
-// WmarkParserTkIndentAction
+// WmarkScannerAsciiMathAction
 
-class WmarkParserImageAction : public IRdParserAction
+class WmarkScannerAsciiMathAction : public IRdScannerAction
 {
 public:
-	WmarkParserImageAction() noexcept;
-	~WmarkParserImageAction() noexcept;
+	WmarkScannerAsciiMathAction() throw();
+	~WmarkScannerAsciiMathAction() throw();
 
-// IRdParserAction methods
-	virtual void SetParameter(const std::any& param);
-	virtual bool DoAction(const std::string& strToken, std::vector<std::string>& vecError);
-	
+// IRdScannerAction
+	virtual bool Scan(std::istream& stm, RdActionStack& stk, RdToken& token);
+
+private:
+	bool neglectSpace = true;
+	int abs = 0;
+	int floor = 0;
+	int ceil = 0;
+	int text = 0;
 };
 
 ////////////////////////////////////////////////////////////////////////////////

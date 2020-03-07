@@ -22,9 +22,7 @@ public:
 // IRdParserAction methods
 	virtual void SetParameter(const std::any& param);
 	virtual bool DoAction(const std::string& strToken, std::vector<std::string>& vecError);
-
-private:
-    RdParserActionMetaData *m_pData;
+	
 };
 
 ////////////////////////////////////////////////////////////////////////////////

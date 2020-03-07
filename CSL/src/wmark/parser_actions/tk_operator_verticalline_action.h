@@ -3,26 +3,26 @@
 */
 
 ////////////////////////////////////////////////////////////////////////////////
-#ifndef __TK_IMAGE_ACTION_H__
-#define __TK_IMAGE_ACTION_H__
+#ifndef __TK_OPERATOR_VERTICALLINE_ACTION_H__
+#define __TK_OPERATOR_VERTICALLINE_ACTION_H__
 ////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace CSL {
 ////////////////////////////////////////////////////////////////////////////////
 
-// WmarkParserTkIndentAction
+// WmarkParserTkOperatorVerticallineAction
 
-class WmarkParserImageAction : public IRdParserAction
+class WmarkParserTkOperatorVerticallineAction : public IRdParserAction
 {
 public:
-	WmarkParserImageAction() noexcept;
-	~WmarkParserImageAction() noexcept;
+	WmarkParserTkOperatorVerticallineAction() noexcept;
+	~WmarkParserTkOperatorVerticallineAction() noexcept;
 
 // IRdParserAction methods
 	virtual void SetParameter(const std::any& param);
 	virtual bool DoAction(const std::string& strToken, std::vector<std::string>& vecError);
-	
+
 };
 
 ////////////////////////////////////////////////////////////////////////////////

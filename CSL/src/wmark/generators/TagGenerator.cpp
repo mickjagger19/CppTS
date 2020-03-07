@@ -3,30 +3,28 @@
 */
 
 ////////////////////////////////////////////////////////////////////////////////
-#ifndef __TK_IMAGE_ACTION_H__
-#define __TK_IMAGE_ACTION_H__
+
+#include "precomp.h"
+
+#include "../WmarkHtmlGenerator.h"
+
 ////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace CSL {
 ////////////////////////////////////////////////////////////////////////////////
 
-// WmarkParserTkIndentAction
+// WmarkHtmlGeneratorHelper
 
-class WmarkParserImageAction : public IRdParserAction
+WmarkMetaDataTraversalAction WmarkHtmlGeneratorHelper::get_TagGenerator()
 {
-public:
-	WmarkParserImageAction() noexcept;
-	~WmarkParserImageAction() noexcept;
-
-// IRdParserAction methods
-	virtual void SetParameter(const std::any& param);
-	virtual bool DoAction(const std::string& strToken, std::vector<std::string>& vecError);
-	
-};
+	return [](bool bOpen, RdMetaData& data, RdMetaDataPosition pos, std::ostream& stm)->bool
+			{
+				stm << (bOpen ? "\r\n" : "") <<  "<" << (bOpen ? "" : "/") << (const char*)data.GetData(pos) << ">";
+				return true;
+			};
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 }
-////////////////////////////////////////////////////////////////////////////////
-#endif
 ////////////////////////////////////////////////////////////////////////////////

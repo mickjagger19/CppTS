@@ -30,7 +30,7 @@ WmarkUtility::~WmarkUtility() throw()
 bool WmarkUtility::Initialize()
 {
 	//actions
-	WmarkScannerHelper::CreateActions(m_spTkAction, m_spCommentAction, m_spTextAction, m_spCodeTextAction, m_spImageAction,  m_spOlAction);
+	WmarkScannerHelper::CreateActions(m_spTkAction, m_spCommentAction, m_spTextAction, m_spCodeTextAction, m_spImageAction,  m_spOlAction, m_spAsciiMathAction);
 	//table
 	return WmarkParserHelper::CreateTable(m_spTable);
 }
@@ -49,7 +49,7 @@ void WmarkParser::Initialize(uint32_t uMaxErrorNumber, const std::shared_ptr<Wma
 {
 	//scanner
 	m_spScanner = std::make_shared<RdScanner>();
-	WmarkScannerHelper::SetActions(*m_spScanner, spU->m_spTkAction, spU->m_spCommentAction, spU->m_spTextAction, spU->m_spCodeTextAction, spU->m_spImageAction, spU->m_spOlAction);
+	WmarkScannerHelper::SetActions(*m_spScanner, spU->m_spTkAction, spU->m_spCommentAction, spU->m_spTextAction, spU->m_spCodeTextAction, spU->m_spImageAction, spU->m_spOlAction, spU->m_spAsciiMathAction);
 	//parser
 	m_parser.SetScanner(m_spScanner);
 	m_parser.SetTable(spU->m_spTable);

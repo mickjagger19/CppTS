@@ -35,6 +35,7 @@ private:
 	std::shared_ptr<IRdScannerAction>  m_spCodeTextAction;
 	std::shared_ptr<IRdScannerAction>  m_spImageAction;
 	std::shared_ptr<IRdScannerAction>  m_spOlAction;
+	std::shared_ptr<IRdScannerAction>  m_spAsciiMathAction;
 
 	//table
 	std::shared_ptr<RdaTable>  m_spTable;

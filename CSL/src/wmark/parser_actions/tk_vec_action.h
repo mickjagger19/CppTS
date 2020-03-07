@@ -3,26 +3,26 @@
 */
 
 ////////////////////////////////////////////////////////////////////////////////
-#ifndef __TK_IMAGE_ACTION_H__
-#define __TK_IMAGE_ACTION_H__
+#ifndef __TK_VEC_ACTION_H__
+#define __TK_VEC_ACTION_H__
 ////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace CSL {
 ////////////////////////////////////////////////////////////////////////////////
 
-// WmarkParserTkIndentAction
+// WmarkParserVecAction
 
-class WmarkParserImageAction : public IRdParserAction
+class WmarkParserVecAction : public IRdParserAction
 {
 public:
-	WmarkParserImageAction() noexcept;
-	~WmarkParserImageAction() noexcept;
+	WmarkParserVecAction() noexcept;
+	~WmarkParserVecAction() noexcept;
 
 // IRdParserAction methods
 	virtual void SetParameter(const std::any& param);
 	virtual bool DoAction(const std::string& strToken, std::vector<std::string>& vecError);
-	
+
 };
 
 ////////////////////////////////////////////////////////////////////////////////

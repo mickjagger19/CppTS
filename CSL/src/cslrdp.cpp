@@ -204,7 +204,7 @@ bool RdaTable::generate_first_set(uint32_t uMaxTerminalID)
 		auto iterF(m_map.find(uNT));
 		//no rule
 		if(iterF == m_map.end() ) {
-            std::cout << "No rule found at index: " << index << std::endl;
+            std::cout << "Nonterminal of number: " << uNT << " has empty first set" << std::endl;
             return false;
         }
 		//the first nonterminal of right part cannot derive epsilon
@@ -270,7 +270,7 @@ bool RdaTable::add_follow_set(uint32_t uMaxTerminalID)
 			auto iterF(m_map.find(uToken));
 			//no rule
 			if(iterF == m_map.end() ) {
-                std::cout << "No rule found of token: " << uToken << " of rule at index: " << i << std::endl;
+                std::cout << "No rule found for token: " << uToken << " of rule at index: " << index << std::endl;
                 return false;
             }
 			//next
@@ -295,7 +295,7 @@ bool RdaTable::add_follow_set(uint32_t uMaxTerminalID)
 				for( auto iterF2 = iterP->second->mapTerminal.begin();
 					iterF2 != iterP->second->mapTerminal.end();
 					++ iterF2 ) {
-					if( iterF->second->mapTerminal.find(iterF2->first) == iterF->second->mapTerminal.end() ) {
+					if( iterF->second->mapTerminal.find(iterF2->first) == iterF->second->mapTerminal.end() || iterF->second->iEpsilon >= 0 ) {
 						if( iterF->second->sFollow.find(iterF2->first) == iterF->second->sFollow.end() )
 							iterF->second->sFollow.insert(iterF2->first);
 					}
@@ -359,7 +359,7 @@ bool RdaTable::add_follow_set(uint32_t uMaxTerminalID)
 			for( auto iterF3 = iterF->second->sFollow.begin();
 				iterF3 != iterF->second->sFollow.end();
 				++ iterF3 ) {
-				if( iterF2->second->mapTerminal.find(*iterF3) == iterF2->second->mapTerminal.end() ) {
+				if( iterF2->second->mapTerminal.find(*iterF3) == iterF2->second->mapTerminal.end() || iterF2->second->iEpsilon >= 0 ) {
 					if( iterF2->second->sFollow.find(*iterF3) == iterF2->second->sFollow.end() ) {
 						iterF2->second->sFollow.insert(*iterF3);
 						bChanged = true;
@@ -524,6 +524,9 @@ bool RdParser::do_action(uint32_t uActionID)
 				if( !iterA->second->DoAction(m_token.strToken, m_vecError) )
 					return false;
 			}
+		} else{
+			std::cout << "parser action not found for id: " <<  uActionID << std::endl;
+			return false;
 		}
 	}
 	return true;
@@ -566,13 +569,16 @@ int32_t RdParser::Parse(bool& bEmpty)
 		//top
 		RULEELEMENT elem = m_stack.top();
 
-        std::cout << elem.uToken << " " << m_uCurrentTerminalToken << std::endl;
+		
+        std::cout << "\n" <<  elem.uToken << " " << m_uCurrentTerminalToken << std::endl;
 		// terminal, pop and do the parser action
 		if( elem.uToken <= m_uMaxTerminalID ) {
 			if( elem.uToken != m_uCurrentTerminalToken ) { // next token doesn't match token in the stack
 				append_unexpected_error();
+				std::cout << "error" << std::endl;
 				return -1;
 			}
+			std::cout << "terminal match" << std::endl;
 			m_stack.pop();
 			//action
 			if( !do_action(elem.uAction) )
@@ -584,9 +590,10 @@ int32_t RdParser::Parse(bool& bEmpty)
 
 		// nonterminal, use current token to match current terminal
 		int32_t iAct = m_spTable->Input(elem.uToken, m_uCurrentTerminalToken);
-		std::cout << iAct - 1 << std::endl;
+		std::cout << "nonterminal, expanding: " <<  iAct - 1 << std::endl;
 		if( iAct == 0 ) {
 			append_unexpected_error();
+			std::cout << "error" << std::endl;
 			return -1;
 		}
 		RULEITEM item;
@@ -986,11 +993,21 @@ RdMetaDataPosition RdMetaData::AllocateAstNode(uint32_t uType)
 	pNode->uChild  = 0;
 	pNode->uNext   = 0;
 	pNode->uData   = 0;
+	
+	//update the pStart[0] ( number of nodes in the tree )
 	pStart = (uint32_t*)m_raAst.ToPointer(m_uAstStart);
 	uint32_t uNewCount = SafeOperators::AddThrow<uint32_t>(pStart[0], 1);
 	pStart[0] = uNewCount;
 	return pos;
 }
+void RdMetaData::ChangeAstNodeType(uint32_t uAddress, uint32_t uType) {
+	_AstNode* pNode = (_AstNode*)m_raAst.ToPointer(uAddress);
+	pNode->uType = uType;
+}
+uint32_t RdMetaData::GetNodeType(uint32_t uAddress) {
+	return ((_AstNode*)m_raAst.ToPointer(uAddress))->uType;
+}
+
 void RdMetaData::SetAstParent(RdMetaDataPosition pos, RdMetaDataPosition posParent) throw()
 {
 	assert( pos.uAddress != 0 );
@@ -1008,6 +1025,12 @@ void RdMetaData::SetAstNext(RdMetaDataPosition pos, RdMetaDataPosition posNext) 
 	assert( pos.uAddress != 0 );
 	_AstNode* pNode = (_AstNode*)m_raAst.ToPointer(pos.uAddress);
 	pNode->uNext = posNext.uAddress;
+}
+void RdMetaData::SetAstType(RdMetaDataPosition pos, uint32_t type) throw()
+{
+	assert( pos.uAddress != 0 );
+	_AstNode* pNode = (_AstNode*)m_raAst.ToPointer(pos.uAddress);
+	pNode->uType = type;
 }
 void RdMetaData::SetAstData(RdMetaDataPosition pos, RdMetaDataPosition posData) throw()
 {
