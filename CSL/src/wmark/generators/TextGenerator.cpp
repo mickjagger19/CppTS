@@ -20,7 +20,7 @@ WmarkMetaDataTraversalAction WmarkHtmlGeneratorHelper::get_TextGenerator()
 {
 	return [](bool bOpen, RdMetaData& data, RdMetaDataPosition pos, std::ostream& stm)->bool
 			{
-				stm << (const char*)data.GetData(pos) << "\r\n";
+				stm << (const char*)data.GetData(pos);
 				return true;
 			};
 }

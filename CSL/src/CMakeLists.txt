@@ -16,11 +16,15 @@ SET(LIBRARY_OUTPUT_PATH "${PROJECT_BINARY_DIR}/bin")
 SET(SRC_PCH_LIST "precomp.cpp")
 SET(SRC_LIST "cslbase.cpp" "cslsys.cpp" "cslrdp.cpp" "cslwmark.cpp"
 	"wmark/scan_actions/tk_action.cpp" "wmark/scan_actions/comment_action.cpp" "wmark/scan_actions/text_action.cpp"
-	"wmark/parser_actions/accepted_action.cpp" "wmark/parser_actions/program_action.cpp" "wmark/parser_actions/tk_comment_action.cpp"
-	"wmark/parser_actions/block_element_action.cpp" "wmark/parser_actions/berr_tail_action.cpp" "wmark/parser_actions/tk_text_action.cpp"
-	"wmark/parser_actions/tk_indent_action.cpp"
-	"wmark/generators/CommentGenerator.cpp" "wmark/generators/ParagraphGenerator.cpp" "wmark/generators/TextGenerator.cpp"
-	"wmark/generators/IndentGenerator.cpp"
+	"wmark/scan_actions/codetext_action.cpp" "wmark/scan_actions/image_action.cpp" "wmark/scan_actions/ol_action.cpp"
+    "wmark/parser_actions/accepted_action.cpp" "wmark/parser_actions/block_element_action.cpp" "wmark/parser_actions/program_action.cpp"
+	"wmark/parser_actions/tk_bold_action.cpp" "wmark/parser_actions/tk_code_action.cpp" "wmark/parser_actions/image_action.cpp"
+	"wmark/parser_actions/tk_comment_action.cpp" "wmark/parser_actions/tk_heading_action.cpp"
+	"wmark/parser_actions/tk_indent_action.cpp" "wmark/parser_actions/tk_italic_action.cpp" "wmark/parser_actions/tk_text_action.cpp" "wmark/parser_actions/li_action.cpp" "wmark/parser_actions/ol_action.cpp"
+	"wmark/parser_actions/up_action.cpp" "wmark/parser_actions/ul_action.cpp"
+	"wmark/generators/BoldGenerator.cpp" "wmark/generators/CommentGenerator.cpp" "wmark/generators/ParagraphGenerator.cpp" "wmark/generators/TextGenerator.cpp"
+	"wmark/generators/IndentGenerator.cpp" "wmark/generators/ItalicGenerator.cpp" "wmark/generators/HeadingGenerator.cpp" "wmark/generators/CodeGenerator.cpp"
+    "wmark/generators/ImageGenerator.cpp" "wmark/generators/OLGenerator.cpp" "wmark/generators/LIGenerator.cpp" "wmark/generators/ULGenerator.cpp"
 	"wmark/WmarkScanner.cpp" "wmark/WmarkParser.cpp" "wmark/WmarkHtmlGenerator.cpp"
 	)
 ADD_LIBRARY(CSL-Utility STATIC ${SRC_PCH_LIST} ${SRC_LIST})

@@ -8,7 +8,7 @@
 
 #include "../base/WmarkDef.h"
 
-#include "berr_tail_action.h"
+#include "li_action.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -16,30 +16,35 @@
 namespace CSL {
 ////////////////////////////////////////////////////////////////////////////////
 
-// WmarkParserBerrTailAction
+// WmarkParserOlAction
 
-WmarkParserBerrTailAction::WmarkParserBerrTailAction() noexcept : m_pData(nullptr)
+WmarkParserLIAction::WmarkParserLIAction() noexcept
 {
 }
-WmarkParserBerrTailAction::~WmarkParserBerrTailAction() noexcept
+WmarkParserLIAction::~WmarkParserLIAction() noexcept
 {
 }
 
 // IRdParserAction methods
 
-void WmarkParserBerrTailAction::SetParameter(const std::any& param)
+void WmarkParserLIAction::SetParameter(const std::any& param)
 {
 	m_pData = std::any_cast<RdParserActionMetaData*>(param);
 }
 
-bool WmarkParserBerrTailAction::DoAction(const std::string& strToken, std::vector<std::string>& vecError)
+bool WmarkParserLIAction::DoAction(const std::string& strToken, std::vector<std::string>& vecError)
 {
-	//up
+	//li
 	assert( m_pData->posParent.uAddress != 0 );
-	RdMetaAstNodeInfo info;
-	m_pData->spMeta->GetAstNodeInfo(m_pData->posParent, info);
-	m_pData->posCurrent = m_pData->posParent;
-	m_pData->posParent = info.posParent;
+	RdMetaDataPosition pos = m_pData->spMeta->AllocateAstNode(WMARK_NODETYPE_LI);
+
+	m_pData->spMeta->SetAstParent(pos, m_pData->posParent);
+	if( m_pData->posCurrent.uAddress == 0 )
+        m_pData->spMeta->SetAstChild(m_pData->posParent, pos);
+	else
+        m_pData->spMeta->SetAstNext(m_pData->posCurrent, pos);
+    down(pos);
+
 	return true;
 }
 

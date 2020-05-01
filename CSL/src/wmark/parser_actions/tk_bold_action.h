@@ -3,21 +3,21 @@
 */
 
 ////////////////////////////////////////////////////////////////////////////////
-#ifndef __TK_INDENT_ACTION_H__
-#define __TK_INDENT_ACTION_H__
+#ifndef __TK_BOLD_ACTION_H__
+#define __TK_BOLD_ACTION_H__
 ////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace CSL {
 ////////////////////////////////////////////////////////////////////////////////
 
-// WmarkParserTkIndentAction
+// WmarkParserTkBoldAction
 
-class WmarkParserTkIndentAction : public IRdParserAction
+class WmarkParserTkBoldAction : public IRdParserAction
 {
 public:
-	WmarkParserTkIndentAction() noexcept;
-	~WmarkParserTkIndentAction() noexcept;
+	WmarkParserTkBoldAction() noexcept;
+	~WmarkParserTkBoldAction() noexcept;
 
 // IRdParserAction methods
 	virtual void SetParameter(const std::any& param);

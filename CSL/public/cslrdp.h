@@ -44,6 +44,135 @@ struct RdToken
 	RdCharInfo infoEnd;
 };
 
+// RdMetaDataPosition
+struct RdMetaDataPosition {
+    uint32_t uAddress;
+};
+// RdMetaDataInfo
+struct RdMetaDataInfo {
+    const char *szKey;
+    uint32_t uType;
+    uint32_t uLevel;
+    RdMetaDataPosition posData;
+};
+// RdMetaAstNodeInfo
+struct RdMetaAstNodeInfo {
+    uint32_t uType;
+    RdMetaDataPosition posParent;
+    RdMetaDataPosition posChild;
+    RdMetaDataPosition posNext;
+    RdMetaDataPosition posData;
+};
+
+// RdAllocator
+class RdAllocator {
+public:
+    RdAllocator() throw();
+    RdAllocator(const RdAllocator &) = delete;
+    RdAllocator &operator=(const RdAllocator &) = delete;
+    ~RdAllocator() throw();
+    uint32_t Allocate(uint32_t uBytes);
+    void *ToPointer(uint32_t uAddress) throw();
+    const void *ToPointer(uint32_t uAddress) const throw();
+
+private:
+    std::vector<uint8_t> m_vec;
+};
+
+// RdMetaData
+class RdMetaData {
+private:
+    struct _SymbolNode {
+        uint32_t uFlags;
+        uint32_t uLevel;
+        uint32_t uKey;
+        uint32_t uHashCode;
+        uint32_t uHashNext;
+        uint32_t uLevelNext;
+        uint32_t uData;
+    };
+
+    //constants
+    enum {
+        MAX_LEVEL = 0x7FFFFFFF, MASK_LEVEL = MAX_LEVEL, MASK_ANALYSIS = 0x80000000,
+        RSHIFT_BITS = 31
+    };
+
+    struct _AstNode {
+        uint32_t uType;
+        uint32_t uParent;
+        uint32_t uChild;
+        uint32_t uNext;
+        uint32_t uData;
+    };
+
+public:
+    RdMetaData() throw();
+    RdMetaData(const RdMetaData &) = delete;
+    RdMetaData &operator=(const RdMetaData &) = delete;
+    ~RdMetaData() throw();
+
+    uint32_t CalcHash(const char *szSymbol);
+
+    RdMetaDataPosition Find(const char *szSymbol, uint32_t uHashCode) const throw();
+    RdMetaDataPosition FindNext(RdMetaDataPosition pos) const throw();
+    RdMetaDataPosition GetZeroLevelHead() const throw();
+    RdMetaDataPosition GetLevelNext(RdMetaDataPosition pos) const throw();
+    void GetInfo(RdMetaDataPosition pos, RdMetaDataInfo &info, bool &bAnalysis) const throw();
+    void SetType(RdMetaDataPosition pos, uint32_t uType) throw();
+    void SetLevel(RdMetaDataPosition pos, uint32_t uLevel) throw();
+    void SetData(RdMetaDataPosition pos, RdMetaDataPosition posData) throw();
+    void ClearAnalysisFlag(RdMetaDataPosition pos) throw();
+    RdMetaDataPosition InsertSymbol(const char *szSymbol, uint32_t uType, bool bLevelLink);
+    void EnterLevel();
+    RdMetaDataPosition LeaveLevel(bool bReverseLevelLink) throw();
+    uint32_t GetCurrentLevel() const throw();
+    void FinishZeroLevel(bool bReverseLevelLink) throw();
+    RdMetaDataPosition ReverseLevelLink(RdMetaDataPosition pos) throw();
+    RdMetaDataPosition InsertData(uint32_t uSize);
+    void *GetData(RdMetaDataPosition pos) throw();
+    const void *GetData(RdMetaDataPosition posData) const throw();
+    RdMetaDataPosition AllocateAstNode(uint32_t uType);
+    void SetAstParent(RdMetaDataPosition pos, RdMetaDataPosition posParent) throw();
+    void SetAstChild(RdMetaDataPosition pos, RdMetaDataPosition posChild) throw();
+    void SetAstNext(RdMetaDataPosition pos, RdMetaDataPosition posNext) throw();
+    void SetAstData(RdMetaDataPosition pos, RdMetaDataPosition posData) throw();
+    void GetAstNodeInfo(RdMetaDataPosition pos, RdMetaAstNodeInfo &info) const throw();
+    void SetAstLinkParent(RdMetaDataPosition posHead, RdMetaDataPosition posParent) throw();
+    RdMetaDataPosition ReverseAstLink(RdMetaDataPosition posHead) throw();
+    RdMetaDataPosition GetAstStart() const throw();
+    void ResetAst() throw();
+    RdMetaDataPosition GetAstRoot(RdMetaDataPosition posStart) const throw();
+
+private:
+    RdMetaDataPosition find_next(const char *szSymbol, uint32_t uHashCode, RdMetaDataPosition pos) const throw();
+    uint32_t reverse_level_link(uint32_t uHead) throw();
+
+private:
+    RdAllocator m_raString;
+    RdAllocator m_raPool;
+    RdAllocator m_raData;
+    RdAllocator m_raAst;
+
+    //hash map
+    uint32_t m_uSymbolStart;
+    uint32_t m_uBins;
+    uint32_t m_uZeroLevelHead;
+    //ast
+    uint32_t m_uAstStart;
+
+    //stack
+    std::stack<uint32_t> m_stkLevel;
+};
+
+//Meta data for parser actions
+struct RdParserActionMetaData {
+    std::shared_ptr<RdMetaData> spMeta;
+    RdMetaDataPosition posParent;
+    // the position in the newly-created subtree
+    RdMetaDataPosition posCurrent;
+};
+
 // action stack
 typedef std::stack<uint32_t>  RdActionStack;
 
@@ -53,6 +182,7 @@ class IRdScannerAction
 public:
 	virtual bool Scan(std::istream& stm, RdActionStack& stk, RdToken& token) = 0;
 };
+
 
 // RdScanner
 class RdScanner
@@ -143,11 +273,17 @@ private:
 };
 
 // parser action
-class IRdParserAction
-{
+class IRdParserAction {
 public:
-	virtual void SetParameter(const std::any& param) = 0;
-	virtual bool DoAction(const std::string& strToken, std::vector<std::string>& vecError) = 0;
+    virtual void SetParameter(const std::any &param) = 0;
+
+    virtual bool DoAction(const std::string &strToken, std::vector<std::string> &vecError) = 0;
+
+    void up();
+    void down(RdMetaDataPosition pos);
+
+protected:
+    RdParserActionMetaData *m_pData;
 };
 
 // RdParser
@@ -188,148 +324,8 @@ private:
 	std::vector<std::string>  m_vecError;
 	RdPushDownStack  m_stack;
 	RdToken  m_token;
-	uint32_t  m_uCurrentEvent;
+	uint32_t  m_uCurrentTerminalToken;
 	bool  m_bEmpty;
-};
-
-// RdAllocator
-
-class RdAllocator
-{
-public:
-	RdAllocator() throw();
-	RdAllocator(const RdAllocator&) = delete;
-	RdAllocator& operator=(const RdAllocator&) = delete;
-	~RdAllocator() throw();
-
-	uint32_t Allocate(uint32_t uBytes);
-	void* ToPointer(uint32_t uAddress) throw();
-	const void* ToPointer(uint32_t uAddress) const throw();
-
-private:
-	std::vector<uint8_t>  m_vec;
-};
-
-// RdMetaDataPosition
-struct RdMetaDataPosition
-{
-	uint32_t  uAddress;
-};
-// RdMetaDataInfo
-struct RdMetaDataInfo
-{
-	const char*  szKey;
-	uint32_t  uType;
-	uint32_t  uLevel;
-	RdMetaDataPosition  posData;
-};
-// RdMetaAstNodeInfo
-struct RdMetaAstNodeInfo
-{
-	uint32_t uType;
-	RdMetaDataPosition posParent;
-	RdMetaDataPosition posChild;
-	RdMetaDataPosition posNext;
-	RdMetaDataPosition posData;
-};
-
-// RdMetaData
-
-class RdMetaData
-{
-private:
-	struct _SymbolNode
-	{
-		uint32_t uFlags;
-		uint32_t uLevel;
-		uint32_t uKey;
-		uint32_t uHashCode;
-		uint32_t uHashNext;
-		uint32_t uLevelNext;
-		uint32_t uData;
-	};
-
-	//constants
-	enum { MAX_LEVEL = 0x7FFFFFFF, MASK_LEVEL = MAX_LEVEL, MASK_ANALYSIS = 0x80000000,
-		RSHIFT_BITS = 31 };
-
-	struct _AstNode
-	{
-		uint32_t uType;
-		uint32_t uParent;
-		uint32_t uChild;
-		uint32_t uNext;
-		uint32_t uData;
-	};
-
-public:
-	RdMetaData() throw();
-	RdMetaData(const RdMetaData&) = delete;
-	RdMetaData& operator=(const RdMetaData&) = delete;
-	~RdMetaData() throw();
-
-	uint32_t CalcHash(const char* szSymbol);
-
-	RdMetaDataPosition Find(const char* szSymbol, uint32_t uHashCode) const throw();
-	RdMetaDataPosition FindNext(RdMetaDataPosition pos) const throw();
-	RdMetaDataPosition GetZeroLevelHead() const throw();
-	RdMetaDataPosition GetLevelNext(RdMetaDataPosition pos) const throw();
-	void GetInfo(RdMetaDataPosition pos, RdMetaDataInfo& info, bool& bAnalysis) const throw();
-	void SetType(RdMetaDataPosition pos, uint32_t uType) throw();
-	void SetLevel(RdMetaDataPosition pos, uint32_t uLevel) throw();
-	void SetData(RdMetaDataPosition pos, RdMetaDataPosition posData) throw();
-	void ClearAnalysisFlag(RdMetaDataPosition pos) throw();
-	RdMetaDataPosition InsertSymbol(const char* szSymbol, uint32_t uType, bool bLevelLink);
-
-	void EnterLevel();
-	RdMetaDataPosition LeaveLevel(bool bReverseLevelLink) throw();
-	uint32_t GetCurrentLevel() const throw();
-	void FinishZeroLevel(bool bReverseLevelLink) throw();
-	RdMetaDataPosition ReverseLevelLink(RdMetaDataPosition pos) throw();
-
-	RdMetaDataPosition InsertData(uint32_t uSize);
-	void* GetData(RdMetaDataPosition pos) throw();
-	const void* GetData(RdMetaDataPosition posData) const throw();
-
-	RdMetaDataPosition InsertAstNode(uint32_t uType);
-	void SetAstParent(RdMetaDataPosition pos, RdMetaDataPosition posParent) throw();
-	void SetAstChild(RdMetaDataPosition pos, RdMetaDataPosition posChild) throw();
-	void SetAstNext(RdMetaDataPosition pos, RdMetaDataPosition posNext) throw();
-	void SetAstData(RdMetaDataPosition pos, RdMetaDataPosition posData) throw();
-	void GetAstNodeInfo(RdMetaDataPosition pos, RdMetaAstNodeInfo& info) const throw();
-	void SetAstLinkParent(RdMetaDataPosition posHead, RdMetaDataPosition posParent) throw();
-	RdMetaDataPosition ReverseAstLink(RdMetaDataPosition posHead) throw();
-	RdMetaDataPosition GetAstStart() const throw();
-	void ResetAst() throw();
-	RdMetaDataPosition GetAstRoot(RdMetaDataPosition posStart) const throw();
-
-private:
-	RdMetaDataPosition find_next(const char* szSymbol, uint32_t uHashCode, RdMetaDataPosition pos) const throw();
-	uint32_t reverse_level_link(uint32_t uHead) throw();
-
-private:
-	RdAllocator m_raString;
-	RdAllocator m_raPool;
-	RdAllocator m_raData;
-	RdAllocator m_raAst;
-
-	//hash map
-	uint32_t m_uSymbolStart;
-	uint32_t m_uBins;
-	uint32_t m_uZeroLevelHead;
-	//ast
-	uint32_t m_uAstStart;
-
-	//stack
-	std::stack<uint32_t> m_stkLevel;
-};
-
-//Meta data for parser actions
-struct RdParserActionMetaData
-{
-	std::shared_ptr<RdMetaData> spMeta;
-	RdMetaDataPosition posParent;
-	RdMetaDataPosition posCurrent;
 };
 
 ////////////////////////////////////////////////////////////////////////////////

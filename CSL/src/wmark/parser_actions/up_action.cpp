@@ -3,30 +3,43 @@
 */
 
 ////////////////////////////////////////////////////////////////////////////////
-#ifndef __TK_INDENT_ACTION_H__
-#define __TK_INDENT_ACTION_H__
+
+#include "precomp.h"
+
+#include "../base/WmarkDef.h"
+
+#include "up_action.h"
+
 ////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace CSL {
 ////////////////////////////////////////////////////////////////////////////////
 
-// WmarkParserTkIndentAction
+// WmarkParserUPAction
 
-class WmarkParserTkIndentAction : public IRdParserAction
+WmarkParserUPAction::WmarkParserUPAction() noexcept
 {
-public:
-	WmarkParserTkIndentAction() noexcept;
-	~WmarkParserTkIndentAction() noexcept;
+}
+WmarkParserUPAction::~WmarkParserUPAction() noexcept
+{
+}
 
 // IRdParserAction methods
-	virtual void SetParameter(const std::any& param);
-	virtual bool DoAction(const std::string& strToken, std::vector<std::string>& vecError);
 
-};
+void WmarkParserUPAction::SetParameter(const std::any& param)
+{
+    m_pData = std::any_cast<RdParserActionMetaData *>(param);
+}
+
+bool WmarkParserUPAction::DoAction(const std::string& strToken, std::vector<std::string>& vecError)
+{
+	//up
+	assert( m_pData->posParent.uAddress != 0 );
+    up();
+	return true;
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 }
-////////////////////////////////////////////////////////////////////////////////
-#endif
 ////////////////////////////////////////////////////////////////////////////////

@@ -3,32 +3,28 @@
 */
 
 ////////////////////////////////////////////////////////////////////////////////
-#ifndef __BERR_TAIL_ACTION_H__
-#define __BERR_TAIL_ACTION_H__
+
+#include "precomp.h"
+
+#include "../WmarkHtmlGenerator.h"
+
 ////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace CSL {
 ////////////////////////////////////////////////////////////////////////////////
 
-// WmarkParserBerrTailAction
+// WmarkHtmlGeneratorHelper
 
-class WmarkParserBerrTailAction : public IRdParserAction
+WmarkMetaDataTraversalAction WmarkHtmlGeneratorHelper::get_LIGenerator()
 {
-public:
-	WmarkParserBerrTailAction() noexcept;
-	~WmarkParserBerrTailAction() noexcept;
-
-// IRdParserAction methods
-	virtual void SetParameter(const std::any& param);
-	virtual bool DoAction(const std::string& strToken, std::vector<std::string>& vecError);
-
-private:
-	RdParserActionMetaData* m_pData;
-};
+	return [](bool bOpen, RdMetaData& data, RdMetaDataPosition pos, std::ostream& stm)->bool
+			{
+	            stm << (bOpen ? "\r\n" : "") << "<" << (bOpen ? "" : "/") << "li" << ">" << (bOpen ? "" : "\r\n");
+				return true;
+			};
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 }
-////////////////////////////////////////////////////////////////////////////////
-#endif
 ////////////////////////////////////////////////////////////////////////////////

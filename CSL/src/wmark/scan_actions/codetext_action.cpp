@@ -8,7 +8,7 @@
 
 #include "../base/WmarkDef.h"
 
-#include "text_action.h"
+#include "codetext_action.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -16,41 +16,51 @@
 namespace CSL {
 ////////////////////////////////////////////////////////////////////////////////
 
-// WmarkScannerTextAction
+// WmarkScannerCodeTextAction
 
-WmarkScannerTextAction::WmarkScannerTextAction() throw()
+WmarkScannerCodeTextAction::WmarkScannerCodeTextAction() throw()
 {
 }
-WmarkScannerTextAction::~WmarkScannerTextAction() throw()
+WmarkScannerCodeTextAction::~WmarkScannerCodeTextAction() throw()
 {
 }
 
 // IRdScannerAction
-bool WmarkScannerTextAction::Scan(std::istream& stm, RdActionStack& stk, RdToken& token)
+bool WmarkScannerCodeTextAction::Scan(std::istream& stm, RdActionStack& stk, RdToken& token)
 {
+    bool first = true;
 	do {
 		//get a character
 		char ch;
 		stm.get(ch);
 		if( stm.eof() ) {
-			token.uID = WMARK_TK_TEXT;
+			token.uID = WMARK_TK_CODETEXT;
 			return true;
 		}
 		if( !stm.good() )
 			return false;
 
-		if( ch == '\r' || ch == '\n' || ch == '*' || ch == '`' || ch == '!' || ch == '+' || ch == '-' ) {
-			stm.unget();
-			break;
+		if (first && (ch == '\r' || ch == '\n')){
+            std::cout << ch << std::endl;
+            stm.get(ch);
+            if (ch == '\n') {
+                continue;
+            }
+            stm.unget();
+		    continue; // skip the first return
+		}
+        if (ch == '`') {
+            stm.unget();
+            token.uID = WMARK_TK_CODETEXT;
+            return true;
 		}
 
 
 		token.strToken += ch;
 		token.infoEnd.uCol ++;
+        first = false;
 	} while( true );
 
-	token.uID = WMARK_TK_TEXT;
-	return true;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

@@ -18,7 +18,7 @@ namespace CSL {
 
 // WmarkParserTkIndentAction
 
-WmarkParserTkIndentAction::WmarkParserTkIndentAction() noexcept : m_pData(nullptr)
+WmarkParserTkIndentAction::WmarkParserTkIndentAction() noexcept
 {
 }
 WmarkParserTkIndentAction::~WmarkParserTkIndentAction() noexcept
@@ -36,7 +36,7 @@ bool WmarkParserTkIndentAction::DoAction(const std::string& strToken, std::vecto
 {
 	//indent
 	assert( m_pData->posParent.uAddress != 0 );
-	RdMetaDataPosition pos = m_pData->spMeta->InsertAstNode(WMARK_NODETYPE_INDENT);
+	RdMetaDataPosition pos = m_pData->spMeta->AllocateAstNode(WMARK_NODETYPE_INDENT);
 	m_pData->spMeta->SetAstParent(pos, m_pData->posParent);
 	if( m_pData->posCurrent.uAddress == 0 )
 		m_pData->spMeta->SetAstChild(m_pData->posParent, pos);

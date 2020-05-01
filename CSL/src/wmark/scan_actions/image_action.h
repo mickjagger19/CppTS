@@ -3,26 +3,24 @@
 */
 
 ////////////////////////////////////////////////////////////////////////////////
-#ifndef __TK_INDENT_ACTION_H__
-#define __TK_INDENT_ACTION_H__
+#ifndef __IMAGE_ACTION_H__
+#define __IMAGE_ACTION_H__
 ////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace CSL {
 ////////////////////////////////////////////////////////////////////////////////
 
-// WmarkParserTkIndentAction
+// WmarkScannerImageAction
 
-class WmarkParserTkIndentAction : public IRdParserAction
+class WmarkScannerImageAction : public IRdScannerAction
 {
 public:
-	WmarkParserTkIndentAction() noexcept;
-	~WmarkParserTkIndentAction() noexcept;
+	WmarkScannerImageAction() throw();
+	~WmarkScannerImageAction() throw();
 
-// IRdParserAction methods
-	virtual void SetParameter(const std::any& param);
-	virtual bool DoAction(const std::string& strToken, std::vector<std::string>& vecError);
-
+// IRdScannerAction
+	virtual bool Scan(std::istream& stm, RdActionStack& stk, RdToken& token);
 };
 
 ////////////////////////////////////////////////////////////////////////////////

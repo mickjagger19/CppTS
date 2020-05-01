@@ -3,8 +3,8 @@
 */
 
 ////////////////////////////////////////////////////////////////////////////////
-#ifndef __TK_INDENT_ACTION_H__
-#define __TK_INDENT_ACTION_H__
+#ifndef __TK_IMAGE_ACTION_H__
+#define __TK_IMAGE_ACTION_H__
 ////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -13,16 +13,18 @@ namespace CSL {
 
 // WmarkParserTkIndentAction
 
-class WmarkParserTkIndentAction : public IRdParserAction
+class WmarkParserImageAction : public IRdParserAction
 {
 public:
-	WmarkParserTkIndentAction() noexcept;
-	~WmarkParserTkIndentAction() noexcept;
+	WmarkParserImageAction() noexcept;
+	~WmarkParserImageAction() noexcept;
 
 // IRdParserAction methods
 	virtual void SetParameter(const std::any& param);
 	virtual bool DoAction(const std::string& strToken, std::vector<std::string>& vecError);
 
+private:
+	RdParserActionMetaData* m_pData;
 };
 
 ////////////////////////////////////////////////////////////////////////////////
